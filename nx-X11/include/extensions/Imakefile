@@ -35,12 +35,6 @@ XVMCHEADERS = XvMC.h XvMClib.h XvMCproto.h vldXvMC.h
 #if BuildFontCache
 FONTCACHEHEADERS = fontcache.h fontcacheP.h fontcachstr.h
 #endif
-#if BuildXinerama || BuildXineramaLibrary
-XINERAMAHEADERS = Xinerama.h panoramiXext.h panoramiXproto.h
-#endif
-#if BuildRandR
-RANDRHEADERS = randr.h randrproto.h
-#endif
 #if BuildRender
 RENDERHEADERS = render.h renderproto.h
 #endif
