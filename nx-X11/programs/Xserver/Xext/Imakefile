@@ -56,7 +56,8 @@ SUBDIRS = extmod
 
 #if BuildXF86VidModeExt && \
     ((defined(XF86Server) && XF86Server) || \
-     (defined(XorgServer) && XorgServer))
+     (defined(XorgServer) && XorgServer) || \
+     (defined(NXAgentServer) && NXAgentServer))
  VIDMODESRCS = xf86vmode.c
  VIDMODEOBJS = xf86vmode.o
 #endif
