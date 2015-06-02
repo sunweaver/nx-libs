@@ -154,11 +154,14 @@ RRScanOldConfig (ScreenPtr pScreen, Rotation rotations)
     /* find size bounds */
     for (i = 0; i < output->numModes + output->numUserModes; i++) 
     {
-	mode = (i < output->numModes ? 
-			    output->modes[i] : 
-			    output->userModes[i-output->numModes]);
-        width = mode->mode.width;
-        height = mode->mode.height;
+      /* Backport: Clean up compiler warnings about unused and shadowing variables
+	 http://cgit.freedesktop.org/xorg/xserver/commit/randr/rrinfo.c?h=server-1.17-branch&id=4ba340cfaa8d430c808566495f8deda0ff1b4424
+      */
+	mode = (i < output->numModes ?
+		output->modes[i] :
+		output->userModes[i-output->numModes]);
+	width = mode->mode.width;
+	height = mode->mode.height;
 	
 	if (width < minWidth) minWidth = width;
 	if (width > maxWidth) maxWidth = width;
