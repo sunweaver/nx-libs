@@ -655,8 +655,6 @@ CreateGC(DrawablePtr pDrawable, BITS32 mask, XID *pval, int *pStatus)
     pGC->numInDashList = 2;
     pGC->dash = DefaultDash;
     pGC->dashOffset = 0;
-    pGC->lastWinOrg.x = 0;
-    pGC->lastWinOrg.y = 0;
 
     /* use the default font and stipple */
     pGC->font = defaultFont;
@@ -973,8 +971,6 @@ CreateScratchGC(ScreenPtr pScreen, unsigned depth)
     pGC->dashOffset = 0;
     pGC->numInDashList = 2;
     pGC->dash = DefaultDash;
-    pGC->lastWinOrg.x = 0;
-    pGC->lastWinOrg.y = 0;
 
     pGC->stateChanges = (1 << (GCLastBit+1)) - 1;
     if (!(*pScreen->CreateGC)(pGC))
