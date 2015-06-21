@@ -36,6 +36,7 @@ BuildRequires:  pkgconfig(xfont)
 BuildRequires:  pkgconfig(xdmcp)
 BuildRequires:  pkgconfig(xdamage)
 BuildRequires:  pkgconfig(xrandr)
+BuildRequires:  pkgconfig(xtst)
 %else
 BuildRequires:  libexpat-devel
 BuildRequires:  libpng-devel
@@ -47,6 +48,7 @@ BuildRequires:  xorg-x11-libXfont-devel
 BuildRequires:  xorg-x11-libXdmcp-devel
 BuildRequires:  xorg-x11-libXdamage-devel
 BuildRequires:  xorg-x11-libXrandr-devel
+BuildRequires:  xorg-x11-libXtst-devel
 %endif
 BuildRequires:  xorg-x11-util-devel
 %endif
@@ -59,6 +61,7 @@ BuildRequires:  libXfont-devel
 BuildRequires:  libXdmcp-devel
 BuildRequires:  libXdamage-devel
 BuildRequires:  libXrandr-devel
+BuildRequires:  libXtst-devel
 %endif
 
 # For imake
@@ -338,26 +341,6 @@ The Xrender library is designed as a lightweight library interface to
 the Render extension.
 
 
-%package -n libNX_Xtst6
-Group:          System Environment/Libraries
-Summary:        Xlib-based client API for the XTEST and RECORD extensions on NX
-Requires:       %{name}%{?_isa} >= 3.5.0.29
-Obsoletes:      libNX_Xtst
-
-%description -n libNX_Xtst6
-NX is a software suite which implements very efficient compression of
-the X11 protocol. This increases performance when using X
-applications over a network, especially a slow one.
-
-The XTEST extension is a minimal set of client and server extensions
-required to completely test the X11 server with no user intervention.
-This extension is not intended to support general journaling and
-playback of user actions.
-
-The RECORD extension supports the recording and reporting of all core
-X protocol and arbitrary X extension protocol.
-
-
 %package -n libXcomp-devel
 Group:          Development/Libraries
 Summary:        Development files for the NX differential compression library
@@ -635,7 +618,6 @@ ln -s -f ../../../../%{_lib}/libNX_Xinerama.so.1 %{buildroot}%{_libdir}/nx/X11/X
 %post -n libNX_Xfixes3 -p /sbin/ldconfig
 %post -n libNX_Xinerama1 -p /sbin/ldconfig
 %post -n libNX_Xrender1 -p /sbin/ldconfig
-%post -n libNX_Xtst6 -p /sbin/ldconfig
 %post -n libXcomp3 -p /sbin/ldconfig
 %post -n libXcompext3 -p /sbin/ldconfig
 %post -n libXcompshad3 -p /sbin/ldconfig
@@ -647,7 +629,6 @@ ln -s -f ../../../../%{_lib}/libNX_Xinerama.so.1 %{buildroot}%{_libdir}/nx/X11/X
 %postun -n libNX_Xfixes3 -p /sbin/ldconfig
 %postun -n libNX_Xinerama1 -p /sbin/ldconfig
 %postun -n libNX_Xrender1 -p /sbin/ldconfig
-%postun -n libNX_Xtst6 -p /sbin/ldconfig
 %postun -n libXcomp3 -p /sbin/ldconfig
 %postun -n libXcompext3 -p /sbin/ldconfig
 %postun -n libXcompshad3 -p /sbin/ldconfig
@@ -756,10 +737,6 @@ ln -s -f ../../../../%{_lib}/libNX_Xinerama.so.1 %{buildroot}%{_libdir}/nx/X11/X
 %defattr(-,root,root)
 %{_libdir}/libNX_Xrender.so.1*
 
-%files -n libNX_Xtst6
-%defattr(-,root,root)
-%{_libdir}/libNX_Xtst.so.6*
-
 %files -n libXcomp-devel
 %defattr(-,root,root)
 %_libdir/libXcomp.so
@@ -814,10 +791,8 @@ ln -s -f ../../../../%{_lib}/libNX_Xinerama.so.1 %{buildroot}%{_libdir}/nx/X11/X
 %defattr(-,root,root)
 %{_libdir}/libNX_Xcomposite.so
 %{_libdir}/libNX_Xinerama.so
-%{_libdir}/libNX_Xtst.so
 %{_includedir}/nx/X11/X10.h
 %dir %{_includedir}/nx/X11/extensions
-%{_includedir}/nx/X11/extensions/XTest.h
 %{_includedir}/nx/X11/extensions/Xcomposite.h
 %{_includedir}/nx/X11/extensions/Xevie.h
 %{_includedir}/nx/X11/extensions/Xinerama.h
