@@ -39,10 +39,6 @@ XAULIBDIR = Xau
 X11LIBDIR = X11
 #endif
 
-#if BuildXextLib
-XEXTLIBDIR = Xext
-#endif
-
 #if BuildLibraries
 OLDXLIBDIR = oldX
 #endif
@@ -52,7 +48,6 @@ LINTSUBDIRS = \
 	$(XAULIBDIR) \
 	$(X11LIBDIR) \
 	$(OLDXLIBDIR) \
-	$(XEXTLIBDIR) \
 	$(XKBLIBDIR) \
 	$(XINERAMADIR) \
 	$(RENDERLIBDIR) \
