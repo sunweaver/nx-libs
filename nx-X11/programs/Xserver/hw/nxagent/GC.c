@@ -216,9 +216,6 @@ void nxagentValidateGC(GCPtr pGC, unsigned long changes, DrawablePtr pDrawable)
               (void *) pGC, (void *) pDrawable, changes);
   #endif
 
-  pGC->lastWinOrg.x = pDrawable->x;
-  pGC->lastWinOrg.y = pDrawable->y;
-
   if (!pGC -> tileIsPixel && !nxagentPixmapIsVirtual(pGC -> tile.pixmap))
   {
     pGC -> tile.pixmap = nxagentVirtualPixmap(pGC -> tile.pixmap); 
