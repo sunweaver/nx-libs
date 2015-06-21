@@ -77,26 +77,25 @@ EXTRAHEADERS = \
 	$(XRESHEADERS) \
 	$(NULL)
 
-HEADERS = Xext.h \
+HEADERS = \
 	xcmiscstr.h \
-	MITMisc.h mitmiscstr.h \
+	mitmiscstr.h \
 	bigreqstr.h \
-	extutil.h \
 	XI.h XIproto.h \
-	xtestext1.h xteststr.h \
+	xteststr.h \
 	XKB.h XKBgeom.h XKBproto.h XKBstr.h XKBsrv.h \
-	Xdbe.h Xdbeproto.h \
-	Xag.h Xagstr.h Xagsrv.h \
-	XShm.h shmstr.h \
+	Xdbeproto.h \
+	Xagstr.h Xagsrv.h \
+	shmstr.h \
 	$(EXTRAHEADERS) \
-	multibuf.h multibufst.h \
+	multibufst.h \
 	record.h recordstr.h \
-	security.h securstr.h \
-	shape.h shapestr.h \
-	sync.h syncstr.h \
-	Xcup.h Xcupstr.h \
-	dpms.h dpmsstr.h \
-	XEVI.h XEVIstr.h \
+	securstr.h \
+	shapestr.h \
+	syncstr.h \
+	Xcupstr.h \
+	dpmsstr.h \
+	XEVIstr.h \
 	$(NULL)
 
 all::
