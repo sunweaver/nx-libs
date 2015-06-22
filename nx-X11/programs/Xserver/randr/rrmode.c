@@ -98,7 +98,7 @@ RRModeCreate (xRRModeInfo   *modeInfo,
     }
 
     mode->mode.id = FakeClientID(0);
-    if (!AddResource (mode->mode.id, RRModeType, (pointer) mode))
+    if (!AddResource (mode->mode.id, RRModeType, (void *) mode))
 	return NULL;
     modes = newModes;
     modes[num_modes++] = mode;
@@ -272,7 +272,7 @@ RRModeDestroy (RRModePtr mode)
 }
 
 static int
-RRModeDestroyResource (pointer value, XID pid)
+RRModeDestroyResource (void * value, XID pid)
 {
     RRModeDestroy ((RRModePtr) value);
     return 1;

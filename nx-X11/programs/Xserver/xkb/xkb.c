@@ -368,7 +368,7 @@ ProcXkbBell(ClientPtr client)
     WindowPtr	 pWin;
     int base;
     int newPercent,oldPitch,oldDuration;
-    pointer ctrl;
+    void * ctrl;
 
     REQUEST_SIZE_MATCH(xkbBellReq);
 
@@ -415,7 +415,7 @@ ProcXkbBell(ClientPtr client)
 	    return BadValue;
 	}
 	base = k->ctrl.bell;
-	ctrl = (pointer) &(k->ctrl);
+	ctrl = (void *) &(k->ctrl);
 	oldPitch= k->ctrl.bell_pitch;
 	oldDuration= k->ctrl.bell_duration;
 	if (stuff->pitch!=0) {
@@ -444,7 +444,7 @@ ProcXkbBell(ClientPtr client)
 	    return BadValue;
 	}
 	base = b->ctrl.percent;
-	ctrl = (pointer) &(b->ctrl);
+	ctrl = (void *) &(b->ctrl);
 	oldPitch= b->ctrl.pitch;
 	oldDuration= b->ctrl.duration;
 	if (stuff->pitch!=0) {
@@ -6232,7 +6232,7 @@ ProcXkbDispatch (ClientPtr client)
 }
 
 static int
-XkbClientGone(pointer data,XID id)
+XkbClientGone(void * data,XID id)
 {
     DevicePtr	pXDev = (DevicePtr)data;
 
