@@ -155,7 +155,7 @@ XORGRELSTRING = XorgManVersionString
 #endif
 #define UseInstalledXauLib	(defined(UseInstalled) || !BuildXauLib)
 #ifndef BuildMITMiscExt
-#define BuildMITMiscExt		YES
+#define BuildMITMiscExt		NO
 #endif
 #ifndef BuildTestExt
 #define BuildTestExt		YES
@@ -227,10 +227,10 @@ XORGRELSTRING = XorgManVersionString
 #define BuildXineramaLibrary	(BuildXinerama)
 #endif
 #ifndef BuildXCSecurity
-#define BuildXCSecurity		YES
+#define BuildXCSecurity		NO
 #endif
 #ifndef BuildAppgroup
-#define BuildAppgroup		YES
+#define BuildAppgroup		NO
 #endif
 #if BuildAppgroup && !BuildXCSecurity
 #define BuildXCSecurity         YES

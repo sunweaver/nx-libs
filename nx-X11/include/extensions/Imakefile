@@ -91,8 +91,8 @@ HEADERS = \
 	multibufst.h \
 	record.h recordstr.h \
 	securstr.h \
-	shapestr.h \
-	syncstr.h \
+	shapestr.h shapeproto.h shapeconst.h \
+	syncstr.h syncproto.h syncconst.h \
 	Xcupstr.h \
 	dpmsstr.h \
 	XEVIstr.h \

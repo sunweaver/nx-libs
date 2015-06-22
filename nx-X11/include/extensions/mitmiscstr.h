@@ -32,7 +32,7 @@ in this Software without prior written authorization from The Open Group.
 #ifndef _MITMISCSTR_H_
 #define _MITMISCSTR_H_
 
-#include "MITMisc.h"
+#include <X11/extensions/MITMisc.h>
 
 #define MITMISCNAME "MIT-SUNDRY-NONSTANDARD"
 

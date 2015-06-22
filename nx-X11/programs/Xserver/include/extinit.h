@@ -32,6 +32,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #define EXTINIT_H
 
 #include "extnsionst.h"
+#include "XIproto.h"
 
 void
 XInputExtensionInit(
