@@ -230,8 +230,8 @@ typedef struct _RenderClient {
 
 static void
 RenderClientCallback (CallbackListPtr	*list,
-		      pointer		closure,
-		      pointer		data)
+		      void *		closure,
+		      void *		data)
 {
     NewClientInfoRec	*clientinfo = (NewClientInfoRec *) data;
     ClientPtr		pClient = clientinfo->client;
@@ -657,7 +657,7 @@ ProcRenderCreatePicture (ClientPtr client)
 			      &error);
     if (!pPicture)
 	return error;
-    if (!AddResource (stuff->pid, PictureType, (pointer)pPicture))
+    if (!AddResource (stuff->pid, PictureType, (void *)pPicture))
 	return BadAlloc;
     return Success;
 }
@@ -1028,7 +1028,7 @@ ProcRenderCreateGlyphSet (ClientPtr client)
     glyphSet = AllocateGlyphSet (f, format);
     if (!glyphSet)
 	return BadAlloc;
-    if (!AddResource (stuff->gsid, GlyphSetType, (pointer)glyphSet))
+    if (!AddResource (stuff->gsid, GlyphSetType, (void *)glyphSet))
 	return BadAlloc;
     return Success;
 }
@@ -1053,7 +1053,7 @@ ProcRenderReferenceGlyphSet (ClientPtr client)
 	return RenderErrBase + BadGlyphSet;
     }
     glyphSet->refcnt++;
-    if (!AddResource (stuff->gsid, GlyphSetType, (pointer)glyphSet))
+    if (!AddResource (stuff->gsid, GlyphSetType, (void *)glyphSet))
 	return BadAlloc;
     return client->noClientException;
 }
@@ -1537,7 +1537,7 @@ ProcRenderCreateCursor (ClientPtr client)
     {
 	(*pScreen->GetImage) (pSrc->pDrawable,
 			      0, 0, width, height, ZPixmap,
-			      0xffffffff, (pointer) argbbits);
+			      0xffffffff, (void *) argbbits);
     }
     else
     {
@@ -1577,7 +1577,7 @@ ProcRenderCreateCursor (ClientPtr client)
 			  0, 0, 0, 0, 0, 0, width, height);
 	(*pScreen->GetImage) (pPicture->pDrawable,
 			      0, 0, width, height, ZPixmap,
-			      0xffffffff, (pointer) argbbits);
+			      0xffffffff, (void *) argbbits);
 	FreePicture (pPicture, 0);
     }
     /*
@@ -1670,7 +1670,7 @@ ProcRenderCreateCursor (ClientPtr client)
 			       GetColor(twocolor[1], 16),
 			       GetColor(twocolor[1], 8),
 			       GetColor(twocolor[1], 0));
-    if (pCursor && AddResource(stuff->cid, RT_CURSOR, (pointer)pCursor))
+    if (pCursor && AddResource(stuff->cid, RT_CURSOR, (void *)pCursor))
 	return (client->noClientException);
     return BadAlloc;
 }
@@ -1861,7 +1861,7 @@ ProcRenderCreateAnimCursor (ClientPtr client)
     if (ret != Success)
 	return ret;
     
-    if (AddResource (stuff->cid, RT_CURSOR, (pointer)pCursor))
+    if (AddResource (stuff->cid, RT_CURSOR, (void *)pCursor))
 	return client->noClientException;
     return BadAlloc;
 }
@@ -1902,7 +1902,7 @@ static int ProcRenderCreateSolidFill(ClientPtr client)
     pPicture = CreateSolidPicture(stuff->pid, &stuff->color, &error);
     if (!pPicture)
 	return error;
-    if (!AddResource (stuff->pid, PictureType, (pointer)pPicture))
+    if (!AddResource (stuff->pid, PictureType, (void *)pPicture))
 	return BadAlloc;
     return Success;
 }
@@ -1933,7 +1933,7 @@ static int ProcRenderCreateLinearGradient (ClientPtr client)
                                             stuff->nStops, stops, colors, &error);
     if (!pPicture)
 	return error;
-    if (!AddResource (stuff->pid, PictureType, (pointer)pPicture))
+    if (!AddResource (stuff->pid, PictureType, (void *)pPicture))
 	return BadAlloc;
     return Success;
 }
@@ -1963,7 +1963,7 @@ static int ProcRenderCreateRadialGradient (ClientPtr client)
                                             stuff->nStops, stops, colors, &error);
     if (!pPicture)
 	return error;
-    if (!AddResource (stuff->pid, PictureType, (pointer)pPicture))
+    if (!AddResource (stuff->pid, PictureType, (void *)pPicture))
 	return BadAlloc;
     return Success;
 }
@@ -1992,7 +1992,7 @@ static int ProcRenderCreateConicalGradient (ClientPtr client)
                                              stuff->nStops, stops, colors, &error);
     if (!pPicture)
 	return error;
-    if (!AddResource (stuff->pid, PictureType, (pointer)pPicture))
+    if (!AddResource (stuff->pid, PictureType, (void *)pPicture))
 	return BadAlloc;
     return Success;
 }
