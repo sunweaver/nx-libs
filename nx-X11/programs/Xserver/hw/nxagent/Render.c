@@ -1435,17 +1435,17 @@ void nxagentGlyphs(CARD8 op, PicturePtr pSrc, PicturePtr pDst,
     {
       for (j = 0; j < nlists; j++)
       {
-        XRenderCompositeText8(nxagentDisplay,
-                              op,
-                              nxagentPicturePriv(pSrc)->picture,
-                              nxagentPicturePriv(pDst)->picture,
-                              pForm,
-                              xSrc,
-                              ySrc,
-                              elements -> xOff,
-                              elements -> yOff,
-                              (XGlyphElt8*) elements,
-                              1);
+        NXRenderCompositeText8(nxagentDisplay,
+                               op,
+                               nxagentPicturePriv(pSrc)->picture,
+                               nxagentPicturePriv(pDst)->picture,
+                               pForm,
+                               xSrc,
+                               ySrc,
+                               elements -> xOff,
+                               elements -> yOff,
+                               (XGlyphElt8*) elements,
+                               1);
 
         elements++;
       }
@@ -1456,17 +1456,17 @@ void nxagentGlyphs(CARD8 op, PicturePtr pSrc, PicturePtr pDst,
     {
       for (j = 0; j < nlists; j++)
       {
-        XRenderCompositeText16(nxagentDisplay,
-                               op,
-                               nxagentPicturePriv(pSrc) -> picture,
-                               nxagentPicturePriv(pDst) -> picture,
-                               pForm,
-                               xSrc,
-                               ySrc,
-                               elements -> xOff,
-                               elements -> yOff,
-                               (XGlyphElt16*) elements,
-                               1);
+        NXRenderCompositeText16(nxagentDisplay,
+                                op,
+                                nxagentPicturePriv(pSrc) -> picture,
+                                nxagentPicturePriv(pDst) -> picture,
+                                pForm,
+                                xSrc,
+                                ySrc,
+                                elements -> xOff,
+                                elements -> yOff,
+                                (XGlyphElt16*) elements,
+                                1);
 
         elements++;
       }
@@ -1477,17 +1477,17 @@ void nxagentGlyphs(CARD8 op, PicturePtr pSrc, PicturePtr pDst,
     {
       for (j = 0; j < nlists; j++)
       {
-        XRenderCompositeText32(nxagentDisplay,
-                               op,
-                               nxagentPicturePriv(pSrc) -> picture,
-                               nxagentPicturePriv(pDst) -> picture,
-                               pForm,
-                               xSrc,
-                               ySrc,
-                               elements -> xOff,
-                               elements -> yOff,
-                               (XGlyphElt32*) elements,
-                               1);
+        NXRenderCompositeText32(nxagentDisplay,
+                                op,
+                                nxagentPicturePriv(pSrc) -> picture,
+                                nxagentPicturePriv(pDst) -> picture,
+                                pForm,
+                                xSrc,
+                                ySrc,
+                                elements -> xOff,
+                                elements -> yOff,
+                                (XGlyphElt32*) elements,
+                                1);
 
         elements++;
       }
@@ -1513,49 +1513,49 @@ void nxagentGlyphs(CARD8 op, PicturePtr pSrc, PicturePtr pDst,
   {
     case 1:
     {
-      XRenderCompositeText8(nxagentDisplay,
-                            op,
-                            nxagentPicturePriv(pSrc)->picture,
-                            nxagentPicturePriv(pDst)->picture,
-                            pForm,
-                            xSrc,
-                            ySrc,
-                            elements -> xOff,
-                            elements -> yOff,
-                            (XGlyphElt8*) elements,
-                            nlists);
+      NXRenderCompositeText8(nxagentDisplay,
+                             op,
+                             nxagentPicturePriv(pSrc)->picture,
+                             nxagentPicturePriv(pDst)->picture,
+                             pForm,
+                             xSrc,
+                             ySrc,
+                             elements -> xOff,
+                             elements -> yOff,
+                             (XGlyphElt8*) elements,
+                             nlists);
 
       break;
     }
     case 2:
     {
-      XRenderCompositeText16(nxagentDisplay,
-                             op,
-                             nxagentPicturePriv(pSrc) -> picture,
-                             nxagentPicturePriv(pDst) -> picture,
-                             pForm,
-                             xSrc,
-                             ySrc,
-                             elements -> xOff,
-                             elements -> yOff,
-                             (XGlyphElt16*) elements,
-                             nlists);
+      NXRenderCompositeText16(nxagentDisplay,
+                              op,
+                              nxagentPicturePriv(pSrc) -> picture,
+                              nxagentPicturePriv(pDst) -> picture,
+                              pForm,
+                              xSrc,
+                              ySrc,
+                              elements -> xOff,
+                              elements -> yOff,
+                              (XGlyphElt16*) elements,
+                              nlists);
 
       break;
     }
     case 4:
     {
-      XRenderCompositeText32(nxagentDisplay,
-                             op,
-                             nxagentPicturePriv(pSrc) -> picture,
-                             nxagentPicturePriv(pDst) -> picture,
-                             pForm,
-                             xSrc,
-                             ySrc,
-                             elements -> xOff,
-                             elements -> yOff,
-                             (XGlyphElt32*) elements,
-                             nlists);
+      NXRenderCompositeText32(nxagentDisplay,
+                              op,
+                              nxagentPicturePriv(pSrc) -> picture,
+                              nxagentPicturePriv(pDst) -> picture,
+                              pForm,
+                              xSrc,
+                              ySrc,
+                              elements -> xOff,
+                              elements -> yOff,
+                              (XGlyphElt32*) elements,
+                              nlists);
 
       break;
     }
@@ -2273,7 +2273,7 @@ void nxagentAddGlyphs(GlyphSetPtr glyphSet, Glyph *gids, xGlyphInfo *gi,
     normalizedImages = images;
   }
 
-  XRenderCleanGlyphs(gi, nglyphs, normalizedImages, glyphDepths[glyphSet -> fdepth], nxagentDisplay);
+  NXRenderCleanGlyphs(gi, nglyphs, normalizedImages, glyphDepths[glyphSet -> fdepth], nxagentDisplay);
 
   XRenderAddGlyphs(nxagentDisplay,
                    glyphSet -> remoteID,
