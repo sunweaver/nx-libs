@@ -111,6 +111,7 @@ char nxagentDialogName[256];
 char nxagentSessionId[256] = {0};
 char *nxagentOptionFile;
 
+Bool nxagentSynchronize = False;
 Bool nxagentFullGeneration = False;
 int nxagentDefaultClass = TrueColor;
 Bool nxagentUserDefaultClass = False;
@@ -372,6 +373,11 @@ int ddxProcessArgument(int argc, char *argv[], int i)
     }
 
     return 0;
+  }
+
+  if (!strcmp(argv[i], "-sync")) {
+    nxagentSynchronize = True;
+    return 1;
   }
 
   if (!strcmp(argv[i], "-full")) {

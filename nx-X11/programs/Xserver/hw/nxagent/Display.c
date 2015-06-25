@@ -631,6 +631,10 @@ FIXME: Should print a warning if the user tries to let
 
   newDisplay = XOpenDisplay(display);
 
+  /* enable -sync option on this display */
+  if (nxagentSynchronize)
+    XSynchronize(newDisplay, True);
+
   alarm(0);
 
   while (((result = sigaction(SIGALRM, &oldAction,
