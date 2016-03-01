@@ -174,9 +174,6 @@ XORGRELSTRING = XorgManVersionString
 #ifndef BuildXInputExt
 #define BuildXInputExt		NO
 #endif
-#ifndef BuildEVI
-#define BuildEVI		YES
-#endif
 #ifndef BuildDBE
 #define BuildDBE		YES
 #endif
@@ -230,9 +227,6 @@ XORGRELSTRING = XorgManVersionString
 #endif
 #if BuildAppgroup && !BuildXCSecurity
 #define BuildXCSecurity         YES
-#endif
-#ifndef BuildCup
-#define BuildCup		YES
 #endif
 #ifndef HasPlugin
 /* Browser plugins are shared libraries - only build them if the OS
@@ -295,10 +289,6 @@ XORGRELSTRING = XorgManVersionString
 #endif
 #ifndef BuildCompositeLibrary
 #define BuildCompositeLibrary	!BuildServersOnly && BuildXfixesLibrary
-#endif
-
-#ifndef BuildXevie
-#define BuildXevie		YES
 #endif
 
 #ifndef BuildRootless
@@ -569,14 +559,6 @@ FCHOWN_DEFINES = -DHAS_FCHOWN
 #endif
 #endif
 
-#ifndef EVIDefines
-#if BuildEVI
-#define EVIDefines -DEVI
-#else
-#define EVIDefines /**/
-#endif
-#endif
-
 #ifndef DBEDefines
 #if BuildDBE
 #define DBEDefines -DDBE
@@ -675,14 +657,6 @@ FCHOWN_DEFINES = -DHAS_FCHOWN
 #endif
 #endif
 
-#ifndef CupDefines
-#if BuildCup
-#define CupDefines -DTOGCUP
-#else
-#define CupDefines /**/
-#endif
-#endif
-
 #ifndef DPMSDefines
 #if BuildDPMS
 #define DPMSDefines -DDPMSExtension
@@ -739,14 +713,6 @@ FCHOWN_DEFINES = -DHAS_FCHOWN
 #endif
 #endif
 
-#ifndef XevieDefines
-#if BuildXevie
-#define XevieDefines -DXEVIE
-#else
-#define XevieDefines /**/
-#endif
-#endif
-
 #ifndef RootlessDefines
 #if BuildRootless
 #define RootlessDefines -DROOTLESS
@@ -761,11 +727,11 @@ FCHOWN_DEFINES = -DHAS_FCHOWN
 #ifndef PervasiveExtensionDefines
 #define PervasiveExtensionDefines \
 	ShapeDefines XInputDefines XkbDefines AppgroupDefines \
-	XCSecurityDefines CupDefines PervasiveDBEDefines \
+	XCSecurityDefines PervasiveDBEDefines \
 	XF86BigfontExtensionDefines DPMSDefines \
 	XineramaDefines \
 	SitePervasiveExtensionDefines RenderDefines RandRDefines \
-	XfixesDefines XDamageDefines CompositeDefines XevieDefines \
+	XfixesDefines XDamageDefines CompositeDefines \
 	RootlessDefines
 #endif
 #ifndef SiteExtensionDefines
@@ -776,7 +742,7 @@ FCHOWN_DEFINES = -DHAS_FCHOWN
 	MultibufferDefines MITMiscDefines XTestDefines XTrapDefines \
 	XSyncDefines XCMiscDefines RECORDDefines \
 	ShmDefines BigReqDefines VidModeExtensionDefines \
-	XF86MiscExtensionDefines DBEDefines DPMSDefines EVIDefines \
+	XF86MiscExtensionDefines DBEDefines DPMSDefines \
 	ScreenSaverExtensionDefines XvExtensionDefines XvMCExtensionDefines \
 	GlxDefines FontCacheExtensionDefines SiteExtensionDefines \
         XResExtensionDefines

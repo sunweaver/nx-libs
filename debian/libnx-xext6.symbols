@@ -93,9 +93,9 @@ libNX_Xext.so.6 libnx-xext6 #MINVER#
  XagGetApplicationGroupAttributes@Base 3.5.0.29
  XagQueryApplicationGroup@Base 3.5.0.29
  XagQueryVersion@Base 3.5.0.29
- XcupGetReservedColormapEntries@Base 3.5.0.29
- XcupQueryVersion@Base 3.5.0.29
- XcupStoreColors@Base 3.5.0.29
+#MISSING: 2:3.5.99.0-0# XcupGetReservedColormapEntries@Base 3.5.0.29
+#MISSING: 2:3.5.99.0-0# XcupQueryVersion@Base 3.5.0.29
+#MISSING: 2:3.5.99.0-0# XcupStoreColors@Base 3.5.0.29
  XdbeAllocateBackBufferName@Base 3.5.0.29
  XdbeBeginIdiom@Base 3.5.0.29
  XdbeDeallocateBackBufferName@Base 3.5.0.29
@@ -105,9 +105,9 @@ libNX_Xext.so.6 libnx-xext6 #MINVER#
  XdbeGetVisualInfo@Base 3.5.0.29
  XdbeQueryExtension@Base 3.5.0.29
  XdbeSwapBuffers@Base 3.5.0.29
- XeviGetVisualInfo@Base 3.5.0.29
- XeviQueryExtension@Base 3.5.0.29
- XeviQueryVersion@Base 3.5.0.29
+#MISSING: 2:3.5.99.0-0# XeviGetVisualInfo@Base 3.5.0.29
+#MISSING: 2:3.5.99.0-0# XeviQueryExtension@Base 3.5.0.29
+#MISSING: 2:3.5.99.0-0# XeviQueryVersion@Base 3.5.0.29
  XextAddDisplay@Base 3.5.0.29
  XextCreateExtension@Base 3.5.0.29
  XextDestroyExtension@Base 3.5.0.29

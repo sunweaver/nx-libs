@@ -60,9 +60,6 @@ XTRAPHEADERS = xtrapbits.h xtrapddmi.h xtrapdi.h xtrapemacros.h xtraplib.h \
 #if BuildXResExt
 XRESHEADERS = XResproto.h
 #endif
-#if BuildXevie
-XEVIEHEADERS = Xevie.h Xeviestr.h
-#endif
 
 EXTRAHEADERS = \
 	$(SCREENSAVERHEADERS) \
@@ -80,7 +77,6 @@ EXTRAHEADERS = \
 	$(XFIXESHEADERS) \
 	$(COMPOSITEHEADERS) \
 	$(DAMAGEHEADERS) \
-	$(XEVIEHEADERS) \
 	$(XTRAPHEADERS) \
 	$(XRESHEADERS) \
 	$(NULL)
@@ -102,9 +98,7 @@ HEADERS = Xext.h \
 	security.h securstr.h \
 	shape.h shapestr.h \
 	sync.h syncstr.h \
-	Xcup.h Xcupstr.h \
 	dpms.h dpmsstr.h \
-	XEVI.h XEVIstr.h \
 	$(NULL)
 
 all::

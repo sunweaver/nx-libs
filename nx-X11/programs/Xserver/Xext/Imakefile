@@ -30,15 +30,6 @@ XCOMM $XFree86: xc/programs/Xserver/Xext/Imakefile,v 3.43 2003/04/21 18:56:48 sv
 SUBDIRS = extmod
 #endif
 
-#if BuildEVI
-#ifdef SGIArchitectureNotTog
-  EVISRCS = EVI.c sgiEVI.c
-  EVIOBJS = EVI.o sgiEVI.o
-#else
-  EVISRCS = EVI.c sampleEVI.c
-  EVIOBJS = EVI.o sampleEVI.o
-#endif
-#endif
 #if HasShm
   SHMSRCS = shm.c
   SHMOBJS = shm.o
@@ -102,10 +93,6 @@ XF86BIGFOBJS = xf86bigfont.o
  SERVERCONFIGDIR = ServerConfigDir
    POLICYFILEDEF = -DDEFAULTPOLICYFILE=\"$(SERVERCONFIGDIR)/SecurityPolicy\"
 #endif
-#if BuildCup
-         CUPSRCS = cup.c
-         CUPOBJS = cup.o
-#endif
 #if BuildXinerama
         PNRXSRCS = panoramiX.c panoramiXSwap.c panoramiXprocs.c
         PNRXOBJS = panoramiX.o panoramiXSwap.o panoramiXprocs.o
@@ -124,30 +111,22 @@ XF86BIGFOBJS = xf86bigfont.o
 #endif
 #endif
 
-#if BuildXevie
-       XEVIESRCS = xevie.c
-       XEVIEOBJS = xevie.o
-#endif
-
        SRCS = shape.c $(SHMSRCS) $(MULTIBUFSRC) \
               mitmisc.c xtest.c xtest1di.c xtest1dd.c sleepuntil.c \
 	      bigreq.c sync.c $(SCRNSAVSRC) xcmisc.c $(VIDMODESRCS) \
 	      $(XF86MISCSRCS) $(XF86BIGFSRCS) $(XF86DGASRCS) $(SECURITYSRCS) \
-	      $(APPGROUPSRCS) $(CUPSRCS) $(PNRXSRCS) $(DPMSSRCS) \
-	      $(XEVIESRCS) \
-	      $(EVISRCS) $(XVSRCS) $(FONTCACHESRCS) $(XRESSRCS) $(DMXSRCS)
+	      $(APPGROUPSRCS) $(PNRXSRCS) $(DPMSSRCS) \
+	      $(XVSRCS) $(FONTCACHESRCS) $(XRESSRCS) $(DMXSRCS)
 
        OBJS = shape.o $(SHMOBJS) $(MULTIBUFOBJ) \
               mitmisc.o xtest.o xtest1di.o xtest1dd.o sleepuntil.o \
               bigreq.o sync.o $(SCRNSAVOBJ) xcmisc.o $(VIDMODEOBJS) \
 	      $(XF86MISCOBJS) $(XF86BIGFOBJS) $(XF86DGAOBJS) $(SECURITYOBJS) \
-	      $(APPGROUPOBJS) $(CUPOBJS) $(PNRXOBJS) $(DPMSOBJS) \
-	      $(XEVIEOBJS) \
-	      $(EVIOBJS) $(XVOBJS) $(FONTCACHEOBJS) $(XRESOBJS) $(DMXOBJS)
+	      $(APPGROUPOBJS) $(PNRXOBJS) $(DPMSOBJS) \
+	      $(XVOBJS) $(FONTCACHEOBJS) $(XRESOBJS) $(DMXOBJS)
 
       SOBJS = $(SHMOBJS) $(APPGROUPOBJS) $(SECURITYOBJS) \
 	      shape.o xtest.o xtest1di.o xtest1dd.o sleepuntil.o $(PNRXOBJS) \
-	      $(XEVIEOBJS) \
 	      $(XF86BIGFOBJS)
 
 #if defined(NXAgentServer) && NXAgentServer
