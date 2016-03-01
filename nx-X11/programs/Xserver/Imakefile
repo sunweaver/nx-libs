@@ -93,12 +93,6 @@ INSTPGMFLAGS =
     XF86XKBOBJS = xkb/xf86KillSrv.o xkb/xf86VT.o xkb/xf86Private.o
 #endif
 #endif
-#if BuildDBE
-         DBEEXT = dbe/LibraryTargetName(dbe)
-#endif
-#if BuildDBE
-         DBEDIR = dbe
-#endif
 #if BuildRECORD
       RECORDEXT = record/LibraryTargetName(record)
 #endif
