@@ -33,10 +33,10 @@ Equipment Corporation.
 #endif
 
 #include <stdio.h>
-#include <nx-X11/X.h>
+#include <X11/X.h>
 #define NEED_REPLIES
 #define NEED_EVENTS
-#include <nx-X11/Xproto.h>
+#include <X11/Xproto.h>
 #include "windowstr.h"
 #include "dixfontstr.h"
 #include "gcstruct.h"
@@ -621,7 +621,7 @@ int PanoramiXTranslateCoords(ClientPtr client)
 		 * borderSize
 		 */
 		&& (!wBoundingShape(pWin) ||
-		    RegionContainsPoint(
+		    POINT_IN_REGION(pWin->drawable.pScreen, 
 					wBoundingShape(pWin), 
 					x - pWin->drawable.x, 
 					y - pWin->drawable.y, &box))
@@ -1109,21 +1109,21 @@ int PanoramiXCopyArea(ClientPtr client)
 	    RegionRec totalReg;
 	    Bool overlap;
 
-	    RegionNull(&totalReg);
+	    REGION_NULL(pScreen, &totalReg);
 	    FOR_NSCREENS_BACKWARD(j) {
 		if(pRgn[j]) {
 		   if(srcIsRoot) {
-		       RegionTranslate(pRgn[j],
+		       REGION_TRANSLATE(pScreen, pRgn[j], 
 				panoramiXdataPtr[j].x, panoramiXdataPtr[j].y);
 		   }
-		   RegionAppend(&totalReg, pRgn[j]);
-		   RegionDestroy(pRgn[j]);
+		   REGION_APPEND(pScreen, &totalReg, pRgn[j]);
+		   REGION_DESTROY(pScreen, pRgn[j]);
 		}
 	    }
-	    RegionValidate(&totalReg, &overlap);
+	    REGION_VALIDATE(pScreen, &totalReg, &overlap);
 	    (*pScreen->SendGraphicsExpose)(
 		client, &totalReg, stuff->dstDrawable, X_CopyArea, 0);
-	    RegionUninit(&totalReg);
+	    REGION_UNINIT(pScreen, &totalReg);
 	}
 	
 	result = client->noClientException;
@@ -1220,17 +1220,17 @@ int PanoramiXCopyPlane(ClientPtr client)
 	RegionRec totalReg;
 	Bool overlap;
 
-	RegionNull(&totalReg);
+	REGION_NULL(pScreen, &totalReg);
 	FOR_NSCREENS_BACKWARD(j) {
 	    if(pRgn[j]) {
-		RegionAppend(&totalReg, pRgn[j]);
-		RegionDestroy(pRgn[j]);
+		REGION_APPEND(pScreen, &totalReg, pRgn[j]);
+		REGION_DESTROY(pScreen, pRgn[j]);
 	    }
 	}
-	RegionValidate(&totalReg, &overlap);
+	REGION_VALIDATE(pScreen, &totalReg, &overlap);
 	(*pScreen->SendGraphicsExpose)(
 		client, &totalReg, stuff->dstDrawable, X_CopyPlane, 0);
-	RegionUninit(&totalReg);
+	REGION_UNINIT(pScreen, &totalReg);
     }
 
     return (client->noClientException);

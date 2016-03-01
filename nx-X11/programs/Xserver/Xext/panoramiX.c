@@ -1201,7 +1201,7 @@ XineramaGetImageData(
 	} else if (inOut == rgnOUT)
 	    continue;
 
-	RegionIntersect(&GrabRegion, &SrcRegion,
+	RegionIntersect(&GrabRegion, &SrcRegion, 
 					&XineramaScreenRegions[i]);
 
 	nbox = RegionNumRects(&GrabRegion);
