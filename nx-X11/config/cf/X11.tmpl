@@ -178,20 +178,11 @@ XORGRELSTRING = XorgManVersionString
 #ifndef BuildXInputExt
 #define BuildXInputExt		NO
 #endif
-#ifndef BuildEVI
-#define BuildEVI		YES
-#endif
 #ifndef BuildDBE
 #define BuildDBE		YES
 #endif
-#ifndef BuildDIS
-#define BuildDIS		NO
-#endif
 #ifndef BuildDPMS
 #define BuildDPMS		YES
-#endif
-#ifndef BuildFontCache
-#define BuildFontCache		NO
 #endif
 #ifndef BuildXKB
 #define BuildXKB		YES
@@ -214,9 +205,6 @@ XORGRELSTRING = XorgManVersionString
 #ifndef UseXKBInClients
 #define	UseXKBInClients		NO	/* use XKB in "normal" clients? */
 #endif
-#ifndef BuildMultibuffer
-#define BuildMultibuffer	NO
-#endif
 #ifndef BuildRECORD
 #define BuildRECORD		YES
 #endif
@@ -228,15 +216,6 @@ XORGRELSTRING = XorgManVersionString
 #endif
 #ifndef BuildXCSecurity
 #define BuildXCSecurity		YES
-#endif
-#ifndef BuildAppgroup
-#define BuildAppgroup		YES
-#endif
-#if BuildAppgroup && !BuildXCSecurity
-#define BuildXCSecurity         YES
-#endif
-#ifndef BuildCup
-#define BuildCup		YES
 #endif
 #ifndef HasPlugin
 /* Browser plugins are shared libraries - only build them if the OS
@@ -251,17 +230,8 @@ XORGRELSTRING = XorgManVersionString
 #ifndef BuildScreenSaverExt
 #define BuildScreenSaverExt	NO
 #endif
-#ifndef BuildXF86VidModeExt
-#define BuildXF86VidModeExt	NO
-#endif
-#ifndef BuildXF86MiscExt
-#define BuildXF86MiscExt	NO
-#endif
 #ifndef BuildXF86BigfontExt
 #define BuildXF86BigfontExt	NO
-#endif
-#ifndef BuildXF86DGA
-#define BuildXF86DGA		NO
 #endif
 #ifndef BuildXResExt
 #define BuildXResExt            NO
@@ -299,10 +269,6 @@ XORGRELSTRING = XorgManVersionString
 #endif
 #ifndef BuildCompositeLibrary
 #define BuildCompositeLibrary	!BuildServersOnly && BuildXfixesLibrary
-#endif
-
-#ifndef BuildXevie
-#define BuildXevie		YES
 #endif
 
 #ifndef BuildRootless
@@ -573,14 +539,6 @@ FCHOWN_DEFINES = -DHAS_FCHOWN
 #endif
 #endif
 
-#ifndef EVIDefines
-#if BuildEVI
-#define EVIDefines -DEVI
-#else
-#define EVIDefines /**/
-#endif
-#endif
-
 #ifndef DBEDefines
 #if BuildDBE
 #define DBEDefines -DDBE
@@ -593,33 +551,11 @@ FCHOWN_DEFINES = -DHAS_FCHOWN
 #define PervasiveDBEDefines /* -DNEED_DBE_BUF_BITS -DNEED_DBE_BUF_VALIDATE */
 #endif
 
-#ifndef MultibufferDefines
-#if BuildMultibuffer
-#define MultibufferDefines -DMULTIBUFFER
-#else
-#define MultibufferDefines /**/
-#endif
-#endif
-
 #ifndef ScreenSaverExtensionDefines
 #if BuildScreenSaverExt
 #define ScreenSaverExtensionDefines -DSCREENSAVER
 #else
 #define ScreenSaverExtensionDefines /**/
-#endif
-#endif
-#ifndef VidModeExtensionDefines
-#if BuildXF86VidModeExt
-#define VidModeExtensionDefines -DXF86VIDMODE
-#else
-#define VidModeExtensionDefines /**/
-#endif
-#endif
-#ifndef XF86MiscExtensionDefines
-#if BuildXF86MiscExt
-#define XF86MiscExtensionDefines -DXF86MISC
-#else
-#define XF86MiscExtensionDefines /**/
 #endif
 #endif
 
@@ -663,27 +599,11 @@ FCHOWN_DEFINES = -DHAS_FCHOWN
 #endif
 #endif
 
-#ifndef AppgroupDefines
-#if BuildAppgroup
-#define AppgroupDefines -DXAPPGROUP
-#else
-#define AppgroupDefines /**/
-#endif
-#endif
-
 #ifndef XCSecurityDefines
 #if BuildXCSecurity
 #define XCSecurityDefines -DXCSECURITY
 #else
 #define XCSecurityDefines /**/
-#endif
-#endif
-
-#ifndef CupDefines
-#if BuildCup
-#define CupDefines -DTOGCUP
-#else
-#define CupDefines /**/
 #endif
 #endif
 
@@ -711,14 +631,6 @@ FCHOWN_DEFINES = -DHAS_FCHOWN
 #endif
 #endif
 
-#ifndef FontCacheExtentionDefines
-#if BuildFontCache
-#define FontCacheExtensionDefines	-DFONTCACHE
-#else
-#define FontCacheExtensionDefines	/**/
-#endif
-#endif
-
 #ifndef XfixesDefines
 #if BuildXfixes
 #define XfixesDefines -DXFIXES
@@ -743,14 +655,6 @@ FCHOWN_DEFINES = -DHAS_FCHOWN
 #endif
 #endif
 
-#ifndef XevieDefines
-#if BuildXevie
-#define XevieDefines -DXEVIE
-#else
-#define XevieDefines /**/
-#endif
-#endif
-
 #ifndef RootlessDefines
 #if BuildRootless
 #define RootlessDefines -DROOTLESS
@@ -764,12 +668,12 @@ FCHOWN_DEFINES = -DHAS_FCHOWN
 #endif
 #ifndef PervasiveExtensionDefines
 #define PervasiveExtensionDefines \
-	ShapeDefines XInputDefines XkbDefines AppgroupDefines \
-	XCSecurityDefines CupDefines PervasiveDBEDefines \
+	PervasiveDBEDefines \
+	ShapeDefines XInputDefines XkbDefines \
+	XCSecurityDefines \
 	XF86BigfontExtensionDefines DPMSDefines \
-	XineramaDefines \
-	SitePervasiveExtensionDefines RenderDefines RandRDefines \
-	XfixesDefines XDamageDefines CompositeDefines XevieDefines \
+	SitePervasiveExtensionDefines RenderDefines RandRDefines XineramaDefines \
+	XfixesDefines XDamageDefines CompositeDefines \
 	RootlessDefines
 #endif
 #ifndef SiteExtensionDefines
@@ -777,12 +681,13 @@ FCHOWN_DEFINES = -DHAS_FCHOWN
 #endif
 #ifndef BaseExtensionDefines
 #define BaseExtensionDefines \
-	MultibufferDefines MITMiscDefines XTestDefines XTrapDefines \
-	XSyncDefines XCMiscDefines RECORDDefines \
-	ShmDefines BigReqDefines VidModeExtensionDefines \
-	XF86MiscExtensionDefines DBEDefines DPMSDefines EVIDefines \
+	DBEDefines \
+	XTestDefines XTrapDefines \
+	XSyncDefines RECORDDefines \
+	ShmDefines BigReqDefines \
+	DPMSDefines \
 	ScreenSaverExtensionDefines XvExtensionDefines XvMCExtensionDefines \
-	GlxDefines FontCacheExtensionDefines SiteExtensionDefines \
+	GlxDefines SiteExtensionDefines \
         XResExtensionDefines
 #endif
 #define ExtensionDefines BaseExtensionDefines ExtensionOSDefines
