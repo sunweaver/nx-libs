@@ -49,7 +49,7 @@ from The Open Group.
 #include <X11/Xfuncproto.h>
 
 #define XSERV_t
-#include <nx-X11/Xtrans/Xtrans.h>
+#include <X11/Xtrans/Xtrans.h>
 #include "../os/osdep.h"
 
 #include <stdio.h>

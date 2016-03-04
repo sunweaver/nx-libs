@@ -9,11 +9,6 @@ DEFINES = $(FAILDEFINES)
 # Since xtrans source is #include'd into software that uses it, we install
 # the .c files as if they were headers.
 HEADERS = \
-	Xtrans.h \
-	Xtrans.c \
-	Xtransint.h \
-	Xtranssock.c \
-	Xtransutil.c \
 	transport.c
 
 DependTarget()

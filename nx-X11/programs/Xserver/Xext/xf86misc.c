@@ -29,7 +29,7 @@
 #include "xf86miscproc.h"
 
 #if 0
-#include <nx-X11/Xtrans/Xtrans.h>
+#include <X11/Xtrans/Xtrans.h>
 #include "../os/osdep.h"
 #include <nx-X11/Xauth.h>
 #ifndef USL

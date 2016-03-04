@@ -41,7 +41,7 @@ from The Open Group.
 
 #include <stdio.h>
 #include <X11/X.h>
-#include <nx-X11/Xtrans/Xtrans.h>
+#include <X11/Xtrans/Xtrans.h>
 #include "os.h"
 #include "osdep.h"
 #include "dixstruct.h"

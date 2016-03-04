@@ -65,22 +65,15 @@ from The Open Group.
 #define xfree(_ptr)		free(_ptr)
 #endif
 
-#include "Xtransint.h"
+#define XTRANS_TRANSPORT_C
 
-#ifdef DNETCONN
-#include "Xtransdnet.c"
-#endif
+#include <X11/Xtrans/Xtransint.h>
+#include <X11/Xtrans/Xtransutil.c>
+
 #ifdef LOCALCONN
-#include "Xtranslcl.c"
-#endif
-#ifdef OS2PIPECONN
-#include "Xtransos2.c"
+#include <X11/Xtrans/Xtranslcl.c>
 #endif
 #if defined(TCPCONN) || defined(UNIXCONN)
-#include "Xtranssock.c"
+#include <X11/Xtrans/Xtranssock.c>
 #endif
-#ifdef STREAMSCONN
-#include "Xtranstli.c"
-#endif
-#include "Xtrans.c"
-#include "Xtransutil.c"
+#include <X11/Xtrans/Xtrans.c>

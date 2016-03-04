@@ -66,7 +66,7 @@ SOFTWARE.
 #include <nx-X11/Xwinsock.h>
 #endif
 #include <stdio.h>
-#include <nx-X11/Xtrans/Xtrans.h>
+#include <X11/Xtrans/Xtrans.h>
 #include <X11/Xmd.h>
 #include <errno.h>
 #if !defined(__UNIXOS2__) && !defined(WIN32)
