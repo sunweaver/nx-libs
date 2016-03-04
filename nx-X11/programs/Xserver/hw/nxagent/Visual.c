@@ -47,6 +47,8 @@ is" without express or implied warranty.
 #undef  TEST
 #undef  DEBUG
 
+#include <X11/Xlib.h>
+
 /*
  * Predefined visual used for drawables
  * having a 32 bits depth.
@@ -139,6 +141,8 @@ Visual *nxagentVisualFromDepth(ScreenPtr pScreen, int depth)
 
 void nxagentInitAlphaVisual()
 {
+  XLockDisplay(nxagentDisplay);
+
   nxagentAlphaVisual.visualid = XAllocID(nxagentDisplay);
 
   /*
@@ -156,4 +160,6 @@ void nxagentInitAlphaVisual()
               nxagentAlphaVisual.visualid, nxagentAlphaVisual.red_mask,
                   nxagentAlphaVisual.green_mask, nxagentAlphaVisual.blue_mask);
   #endif
+
+  XUnlockDisplay(nxagentDisplay);
 }
