@@ -32,8 +32,8 @@
 #ifndef _RANDRSTR_H_
 #define _RANDRSTR_H_
 
-#include <nx-X11/X.h>
-#include <nx-X11/Xproto.h>
+#include <X11/X.h>
+#include <X11/Xproto.h>
 #include "misc.h"
 #include "os.h"
 #include "dixstruct.h"
@@ -54,7 +54,7 @@
 #include <nx-X11/extensions/render.h> 	/* we share subpixel order information */
 #include "picturestr.h"
 #endif
-#include <nx-X11/Xfuncproto.h>
+#include <X11/Xfuncproto.h>
 
 /* required for ABI compatibility for now */
 #define RANDR_10_INTERFACE 1

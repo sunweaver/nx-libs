@@ -31,8 +31,8 @@ in this Software without prior written authorization from the X Consortium.
 #ifndef _SCRNSAVER_H_
 #define _SCRNSAVER_H_
 
-#include <nx-X11/Xfuncproto.h>
-#include <nx-X11/Xlib.h>
+#include <X11/Xfuncproto.h>
+#include <X11/Xlib.h>
 #include <nx-X11/extensions/saver.h>
 
 typedef struct {

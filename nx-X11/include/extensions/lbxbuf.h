@@ -38,7 +38,7 @@
 
 typedef struct _zlibbuffer  *ZlibBufferPtr;
 
-#include <nx-X11/Xfuncproto.h>
+#include <X11/Xfuncproto.h>
 
 _XFUNCPROTOBEGIN
 

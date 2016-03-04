@@ -35,11 +35,12 @@
 
 #define NX_TRANS_SOCKET
 
-#include "Xlib.h"
-#include "Xutil.h"
-#include "Xlibint.h"
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
+#include <X11/Xlibint.h>
 
 #include "NXlib.h"
+#include "NXlibint.h"
 #include "NXproto.h"
 #include "NXpack.h"
 

@@ -53,9 +53,9 @@ SOFTWARE.
 #include <dix-config.h>
 #endif
 
-#include <nx-X11/X.h>
+#include <X11/X.h>
 #define NEED_EVENTS
-#include <nx-X11/Xproto.h>
+#include <X11/Xproto.h>
 #include "misc.h"
 #include "dix.h"
 #include "colormapst.h"

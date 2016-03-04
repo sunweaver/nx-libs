@@ -208,8 +208,6 @@ The NX_Xext library contains a handful of X11 extensions:
 - Display Power Management Signaling (DPMS) extension
 - X11 Nonrectangular Window Shape extension (Xshape)
 - The MIT Shared Memory extension (MIT-SHM/Xshm)
-- TOG-CUP (colormap) protocol extension (Xcup)
-- X Extended Visual Information extension (XEvi)
 - X11 Double-Buffering, Multi-Buffering, and Stereo extension (Xmbuf)
 
 This package contains all necessary include files and libraries
@@ -232,8 +230,6 @@ The NX_Xext library contains a handful of X11 extensions:
 - Display Power Management Signaling (DPMS) extension
 - X11 Nonrectangular Window Shape extension (Xshape)
 - The MIT Shared Memory extension (MIT-SHM/Xshm)
-- TOG-CUP (colormap) protocol extension (Xcup)
-- X Extended Visual Information extension (XEvi)
 - X11 Double-Buffering, Multi-Buffering, and Stereo extension (Xmbuf)
 
 NX is a software suite which implements very efficient compression of
@@ -561,15 +557,11 @@ rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 %{_libdir}/libNX_Xext.so
 %dir %{_includedir}/nx-X11/extensions
 %{_includedir}/nx-X11/extensions/MITMisc.h
-%{_includedir}/nx-X11/extensions/XEVI.h
-%{_includedir}/nx-X11/extensions/XEVIstr.h
 %{_includedir}/nx-X11/extensions/XLbx.h
 %{_includedir}/nx-X11/extensions/XShm.h
 %{_includedir}/nx-X11/extensions/Xag.h
 %{_includedir}/nx-X11/extensions/Xagsrv.h
 %{_includedir}/nx-X11/extensions/Xagstr.h
-%{_includedir}/nx-X11/extensions/Xcup.h
-%{_includedir}/nx-X11/extensions/Xcupstr.h
 %{_includedir}/nx-X11/extensions/Xdbe.h
 %{_includedir}/nx-X11/extensions/Xdbeproto.h
 %{_includedir}/nx-X11/extensions/Xext.h
@@ -647,7 +639,6 @@ rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 %defattr(-,root,root)
 %{_includedir}/nx-X11/X10.h
 %dir %{_includedir}/nx-X11/extensions
-%{_includedir}/nx-X11/extensions/Xevie.h
 %{_includedir}/nx-X11/extensions/lbxbuf.h
 %{_includedir}/nx-X11/extensions/lbxbufstr.h
 %{_includedir}/nx-X11/extensions/lbxdeltastr.h
@@ -664,33 +655,9 @@ rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 %files -n nx-proto-devel
 %defattr(-,root,root)
 %dir %{_includedir}/nx-X11
-%{_includedir}/nx-X11/DECkeysym.h
-%{_includedir}/nx-X11/HPkeysym.h
-%{_includedir}/nx-X11/Sunkeysym.h
-%{_includedir}/nx-X11/X.h
-%{_includedir}/nx-X11/XF86keysym.h
-%{_includedir}/nx-X11/XWDFile.h
-%{_includedir}/nx-X11/Xalloca.h
-%{_includedir}/nx-X11/Xarch.h
-%{_includedir}/nx-X11/Xatom.h
-%{_includedir}/nx-X11/Xdefs.h
-%{_includedir}/nx-X11/Xfuncproto.h
-%{_includedir}/nx-X11/Xfuncs.h
-%{_includedir}/nx-X11/Xmd.h
-%{_includedir}/nx-X11/Xos.h
-%{_includedir}/nx-X11/Xos_r.h
-%{_includedir}/nx-X11/Xosdefs.h
-%{_includedir}/nx-X11/Xpoll.h
-%{_includedir}/nx-X11/Xproto.h
-%{_includedir}/nx-X11/Xprotostr.h
-%{_includedir}/nx-X11/Xthreads.h
-%{_includedir}/nx-X11/ap_keysym.h
-%{_includedir}/nx-X11/keysym.h
-%{_includedir}/nx-X11/keysymdef.h
 %{_includedir}/nx-X11/extensions/XI.h
 %{_includedir}/nx-X11/extensions/XIproto.h
 %{_includedir}/nx-X11/extensions/XResproto.h
-%{_includedir}/nx-X11/extensions/Xeviestr.h
 %{_includedir}/nx-X11/extensions/bigreqstr.h
 %{_includedir}/nx-X11/extensions/composite.h
 %{_includedir}/nx-X11/extensions/compositeproto.h

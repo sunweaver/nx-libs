@@ -18,7 +18,7 @@
 #ifndef __Dialog_H__
 #define __Dialog_H__
 
-#include "X11/X.h"
+#include <X11/X.h>
 
 typedef enum
 {

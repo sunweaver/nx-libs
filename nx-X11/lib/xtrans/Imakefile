@@ -11,12 +11,8 @@ DEFINES = $(FAILDEFINES)
 HEADERS = \
 	Xtrans.h \
 	Xtrans.c \
-	Xtransdnet.c \
 	Xtransint.h \
-	Xtranslcl.c \
-	Xtransos2.c \
 	Xtranssock.c \
-	Xtranstli.c \
 	Xtransutil.c \
 	transport.c
 

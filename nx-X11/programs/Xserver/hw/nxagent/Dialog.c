@@ -25,7 +25,7 @@
 #include "scrnintstr.h"
 #include "Agent.h"
 
-#include <nx-X11/Xlib.h>
+#include <X11/Xlib.h>
 
 #include "opaque.h"
 
@@ -36,6 +36,7 @@
 #include "NX.h"
 #include "NXlib.h"
 #include "NXalert.h"
+
 
 /*
  * Set here the required log level.

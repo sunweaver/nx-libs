@@ -44,7 +44,7 @@ SOFTWARE.
 
 #ifndef EXTMODULE
 #include <errno.h>
-#include <nx-X11/Xos.h>
+#include <X11/Xos.h>
 #ifdef PC
 # include "fcntl.h"
 # include "io.h"
@@ -56,7 +56,7 @@ SOFTWARE.
 
 #define NEED_REPLIES
 #define NEED_EVENTS
-#include <nx-X11/X.h>        /* From library include environment */
+#include <X11/X.h>        /* From library include environment */
 #include "input.h"    /* From server include env. (must be before Xlib.h!) */
 #ifdef PC
 # include "scrintst.h"          /* Screen struct */

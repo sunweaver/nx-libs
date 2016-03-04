@@ -27,7 +27,7 @@
 #ifndef _FB_H_
 #define _FB_H_
 
-#include <nx-X11/X.h>
+#include <X11/X.h>
 #include "scrnintstr.h"
 #include "pixmap.h"
 #include "pixmapstr.h"

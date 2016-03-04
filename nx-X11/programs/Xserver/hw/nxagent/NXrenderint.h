@@ -25,8 +25,8 @@
 #ifndef _XRENDERINT_H_
 #define _XRENDERINT_H_
 
-#include <nx-X11/Xlibint.h>
-#include <nx-X11/Xutil.h>
+#include <X11/Xlibint.h>
+#include <X11/Xutil.h>
 #include <nx-X11/extensions/renderproto.h>
 #include "X11/include/Xrender_nxagent.h"
 

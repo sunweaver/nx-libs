@@ -39,8 +39,8 @@ from Kaleb S. KEITHLEY
 
 #define NEED_REPLIES
 #define NEED_EVENTS
-#include <nx-X11/X.h>
-#include <nx-X11/Xproto.h>
+#include <X11/X.h>
+#include <X11/Xproto.h>
 #include "misc.h"
 #include "dixstruct.h"
 #include "extnsionst.h"

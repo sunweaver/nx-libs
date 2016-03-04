@@ -55,7 +55,7 @@ from The Open Group.
 #include <sys/stat.h>
 
 #include <signal.h>
-/*#include <nx-X11/X.h>*/			/* for Family constants */
+/*#include <X11/X.h>*/			/* for Family constants */
 /*
 #include <nx-X11/Xlib.h>
 #include <nx-X11/extensions/security.h>

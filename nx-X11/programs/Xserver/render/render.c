@@ -30,8 +30,8 @@
 #include <dix-config.h>
 #endif
 
-#include <nx-X11/X.h>
-#include <nx-X11/Xproto.h>
+#include <X11/X.h>
+#include <X11/Xproto.h>
 #include "misc.h"
 #include "os.h"
 #include "dixstruct.h"
@@ -46,7 +46,7 @@
 #include <nx-X11/extensions/renderproto.h>
 #include "picturestr.h"
 #include "glyphstr.h"
-#include <nx-X11/Xfuncproto.h>
+#include <X11/Xfuncproto.h>
 #include "cursorstr.h"
 #ifdef EXTMODULE
 #include "xf86_ansic.h"

@@ -24,6 +24,9 @@ extern "C" {
 
 #include "NXvars.h"
 
+#define _XGetIOError(dpy) \
+    (dpy -> flags & XlibDisplayIOError)
+
 #ifdef __cplusplus
 }
 #endif

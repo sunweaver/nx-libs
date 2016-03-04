@@ -22,7 +22,7 @@
 extern "C" {
 #endif
 
-#include "Xlib.h"
+#include <X11/Xlib.h>
 
 int CleanXYImage(XImage *image);
 int CleanZImage(XImage *image);

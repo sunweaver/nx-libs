@@ -18,8 +18,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "Xmd.h"
-#include "Xlib.h"
+#include <X11/Xmd.h>
+#include <X11/Xlib.h>
 
 #define PANIC
 #define WARNING

@@ -51,7 +51,7 @@ in this Software without prior written authorization from The Open Group.
 #include <config.h>
 #endif
 #include <stdio.h>
-#include <nx-X11/Xlibint.h>
+#include <X11/Xlibint.h>
 #include <nx-X11/extensions/Xext.h>
 #include <nx-X11/extensions/extutil.h>
 

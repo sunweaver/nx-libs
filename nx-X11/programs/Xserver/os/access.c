@@ -68,9 +68,9 @@ SOFTWARE.
 #include <stdio.h>
 #include <stdlib.h>
 #include <nx-X11/Xtrans/Xtrans.h>
-#include <nx-X11/Xauth.h>
-#include <nx-X11/X.h>
-#include <nx-X11/Xproto.h>
+#include <X11/Xauth.h>
+#include <X11/X.h>
+#include <X11/Xproto.h>
 #include "misc.h"
 #include "site.h"
 #include <errno.h>
@@ -197,7 +197,7 @@ SOFTWARE.
 #endif
 
 #define X_INCLUDE_NETDB_H
-#include <nx-X11/Xos_r.h>
+#include <X11/Xos_r.h>
 
 #include "dixstruct.h"
 #include "osdep.h"

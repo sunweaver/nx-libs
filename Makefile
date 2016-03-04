@@ -52,9 +52,9 @@ build-lite:
 
 build-full:
 # in the full case, we rely on "magic" in the nx-X11 imake-based makefiles...
-	cd nxcomp && autoconf
-	cd nxcompext && autoconf
-	cd nxcompshad && autoconf
+	cd nxcomp && autoconf && (${CONFIGURE}) && ${MAKE}
+	cd nxcompext && autoconf && (${CONFIGURE}) && ${MAKE}
+	cd nxcompshad && autoconf && (${CONFIGURE}) && ${MAKE}
 
 	# prepare nx-X11/config/cf/nxversion.def
 	sed \

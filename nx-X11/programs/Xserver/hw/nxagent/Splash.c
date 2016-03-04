@@ -26,8 +26,8 @@
 
 #endif /* _XSERVER64 */
 
-#include "Xlib.h"
-#include "Xutil.h"
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
 
 #include "Display.h"
 #include "Splash.h"

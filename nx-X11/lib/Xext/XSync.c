@@ -58,7 +58,7 @@ PERFORMANCE OF THIS SOFTWARE.
 #include <stdio.h>
 #define NEED_EVENTS
 #define NEED_REPLIES
-#include <nx-X11/Xlibint.h>
+#include <X11/Xlibint.h>
 #include <nx-X11/extensions/Xext.h>
 #include <nx-X11/extensions/extutil.h>
 #include <nx-X11/extensions/syncstr.h>

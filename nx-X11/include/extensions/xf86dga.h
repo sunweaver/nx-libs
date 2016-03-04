@@ -6,7 +6,7 @@
 #ifndef _XF86DGA_H_
 #define _XF86DGA_H_
 
-#include <nx-X11/Xfuncproto.h>
+#include <X11/Xfuncproto.h>
 #include <nx-X11/extensions/xf86dga1.h>
 
 #define X_XDGAQueryVersion		0

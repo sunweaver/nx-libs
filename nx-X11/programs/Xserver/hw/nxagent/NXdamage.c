@@ -43,7 +43,7 @@
 #include <dix-config.h>
 #endif
 
-#include    <nx-X11/X.h>
+#include    <X11/X.h>
 #include    "scrnintstr.h"
 #include    "windowstr.h"
 #include    <X11/fonts/font.h>

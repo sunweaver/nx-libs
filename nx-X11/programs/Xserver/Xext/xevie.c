@@ -38,8 +38,8 @@ of the copyright holder.
 #include <dix-config.h>
 #endif
 
-#include <nx-X11/X.h>
-#include <nx-X11/Xproto.h>
+#include <X11/X.h>
+#include <X11/Xproto.h>
 #include "misc.h"
 #include "dixstruct.h"
 #include "extnsionst.h"
@@ -48,7 +48,7 @@ of the copyright holder.
 #include "servermd.h"
 #define  _XEVIE_SERVER_
 #include <nx-X11/extensions/Xeviestr.h>
-#include <nx-X11/Xfuncproto.h>
+#include <X11/Xfuncproto.h>
 #include "input.h"
 #include "inputstr.h"
 #include "windowstr.h"

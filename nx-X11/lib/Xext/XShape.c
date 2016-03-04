@@ -31,9 +31,9 @@ in this Software without prior written authorization from The Open Group.
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
-#include <nx-X11/Xlibint.h>
-#include <nx-X11/Xutil.h>
-#include <nx-X11/Xregion.h>
+#include <X11/Xlibint.h>
+#include <X11/Xutil.h>
+#include <X11/Xregion.h>
 #include <nx-X11/extensions/Xext.h>
 #include <nx-X11/extensions/extutil.h>
 #include <nx-X11/extensions/shapestr.h>

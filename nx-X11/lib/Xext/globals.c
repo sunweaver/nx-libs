@@ -34,7 +34,7 @@ from The Open Group.
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
-#include <nx-X11/Xlib.h>
+#include <X11/Xlib.h>
 #include <nx-X11/extensions/Xext.h>
 #include <stddef.h>			/* for definition of NULL */
 

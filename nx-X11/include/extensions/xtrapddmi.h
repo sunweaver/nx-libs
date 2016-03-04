@@ -42,7 +42,7 @@ SOFTWARE.
  *      contained herein should *not* be visible to clients (xtrapdi.h
  *      is used for this).  The name is historical.
  */
-#include <nx-X11/X.h>
+#include <X11/X.h>
 #include <nx-X11/extensions/xtrapbits.h>
 #include "dix.h"
 

@@ -103,7 +103,7 @@ typedef XID KeySym64;
 
 #define NX_TRANS_SOCKET
 #define GC XlibGC
-#include <nx-X11/Xlib.h>
+#include <X11/Xlib.h>
 #include <nx-X11/extensions/shape.h>
 #undef GC
 

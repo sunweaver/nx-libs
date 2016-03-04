@@ -40,7 +40,7 @@ from The Open Group.
 #endif
 
 #include <stdio.h>
-#include <nx-X11/X.h>
+#include <X11/X.h>
 #include <nx-X11/Xtrans/Xtrans.h>
 #include "os.h"
 #include "osdep.h"
@@ -51,7 +51,7 @@ from The Open Group.
 static Bool authFromXDMCP;
 
 #ifdef XDMCP
-#include <nx-X11/Xmd.h>
+#include <X11/Xmd.h>
 #undef REQUEST
 #include <X11/Xdmcp.h>
 

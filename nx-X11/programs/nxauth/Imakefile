@@ -21,12 +21,11 @@ XCOMM $XFree86: xc/programs/xauth/Imakefile,v 3.5 2001/03/30 02:15:23 keithp Exp
 /* All rights reserved.                                                   */
 /*                                                                        */
 /**************************************************************************/
-/* LOCAL_LIBRARIES = $(DESTDIR)$(SHLIBDIR)/libXau.a */
 
 
   INCLUDES=-I../../lib
-  DEPLIBS = $(DEPXAUTHLIB)
-  LOCAL_LIBRARIES = $(XAUTHLIB)
+  DEPLIBS =
+  INSTALLED_LIBS = -lXau
            SRCS = xauth.c gethost.c process.c parsedpy.c
            OBJS = xauth.o gethost.o process.o parsedpy.o
    CONN_DEFINES = $(CONNECTION_FLAGS)

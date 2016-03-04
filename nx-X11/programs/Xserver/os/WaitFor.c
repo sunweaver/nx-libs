@@ -80,17 +80,17 @@ SOFTWARE.
 #ifdef WIN32
 #include <nx-X11/Xwinsock.h>
 #endif
-#include <nx-X11/Xos.h>			/* for strings, fcntl, time */
+#include <X11/Xos.h>			/* for strings, fcntl, time */
 #include <errno.h>
 #include <stdio.h>
-#include <nx-X11/X.h>
+#include <X11/X.h>
 #include "misc.h"
 
 #ifdef __UNIXOS2__
 #define select(n,r,w,x,t) os2PseudoSelect(n,r,w,x,t)
 #endif
 #include "osdep.h"
-#include <nx-X11/Xpoll.h>
+#include <X11/Xpoll.h>
 #include "dixstruct.h"
 #include "opaque.h"
 #ifdef DPMSExtension

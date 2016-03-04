@@ -112,7 +112,7 @@ int ProcInitialConnection();
 #include <X11/fonts/fontstruct.h>
 
 #define GC XlibGC
-#include <nx-X11/Xlib.h>
+#include <X11/Xlib.h>
 #undef GC
 
 #include "windowstr.h"
@@ -186,7 +186,7 @@ int nxagentAutoDisconnectTimeout = 0;
 #include "../../lbx/lbxserve.h"
 #endif
 
-#include "Xatom.h"
+#include <X11/Xatom.h>
 
 /*
  * Set here the required log level.

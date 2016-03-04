@@ -30,7 +30,7 @@ in this Software without prior written authorization from The Open Group.
 #ifndef _LBX_IMAGE_H_
 #define _LBX_IMAGE_H_
 
-#include <nx-X11/Xfuncproto.h>
+#include <X11/Xfuncproto.h>
 
 _XFUNCPROTOBEGIN
 

@@ -32,7 +32,7 @@ in this Software without prior written authorization from The Open Group.
 
 /* $Xorg: shmstr.h,v 1.4 2001/02/09 02:03:24 xorgcvs Exp $ */
 
-#include "XShm.h"
+#include <nx-X11/extensions/XShm.h>
 
 #define ShmSeg CARD32
 #define Drawable CARD32

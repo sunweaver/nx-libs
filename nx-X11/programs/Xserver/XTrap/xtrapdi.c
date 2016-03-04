@@ -58,12 +58,12 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #ifndef EXTMODULE
 #include <stdio.h>
 #include <errno.h>
-#include <nx-X11/Xos.h>
+#include <X11/Xos.h>
 #else
 #include "xf86_ansic.h"
 #endif
-#include <nx-X11/X.h>
-#include <nx-X11/Xproto.h>
+#include <X11/X.h>
+#include <X11/Xproto.h>
 #include "input.h"              /* Server DevicePtr definitions */
 #include "misc.h"               /* Server swapping macros */
 #include "dixstruct.h"          /* Server ClientRec definitions */

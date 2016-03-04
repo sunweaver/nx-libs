@@ -153,10 +153,6 @@ XORGRELSTRING = XorgManVersionString
 #ifndef BuildXextLib
 #define BuildXextLib		BuildLibraries
 #endif
-#ifndef BuildXauLib
-#define BuildXauLib		(BuildLibraries || BuildLibrariesForXServers)
-#endif
-#define UseInstalledXauLib	(defined(UseInstalled) || !BuildXauLib)
 #ifndef BuildMITMiscExt
 #define BuildMITMiscExt		YES
 #endif
@@ -1306,7 +1302,7 @@ VENDORSUPPORTDEFS = VendorSupportDefines
 #ifndef SharedX11Rev
 #define SharedX11Rev 6.2
 #endif
-SharedLibReferences(XONLY,NX_X11,$(XLIBSRC),SOXLIBREV,SharedX11Rev)
+SharedLibReferences(XONLY,X11,$(XLIBSRC),SOXLIBREV,SharedX11Rev)
 #else
 ProjectUnsharedLibReferences(XONLY,NX_X11,$(XLIBSRC),XBuildLibDir)
 #endif
@@ -1339,53 +1335,6 @@ LINTEXTENSIONLIB = $(LINTEXTENSION)
           DEPXLIB = $(DEPEXTENSIONLIB) $(DEPXONLYLIB)
              XLIB = $(EXTENSIONLIB) $(XONLYLIB)
          LINTXLIB = $(LINTXONLYLIB)
-#ifndef SharedLibXau
-#define SharedLibXau		YES
-#endif
-#ifndef NormalLibXau
-#define NormalLibXau (!SharedLibXau | ForceNormalLib)
-#endif
-#ifndef DebugLibXau
-#define DebugLibXau		NO	/* debugged auth library */
-#endif
-#ifndef ProfileLibXau
-#define ProfileLibXau		NO	/* profiled auth library */
-#endif
-         XAUTHSRC = $(LIBSRC)/Xau
-#if SharedLibXau
-#ifndef SharedXauRev
-#define SharedXauRev 6.0
-#endif
-SharedLibReferences(XAUTH,NX_Xau,$(XAUTHSRC),SOXAUTHREV,SharedXauRev)
-#else
-#if !UseInstalledXauLib
-ProjectUnsharedLibReferences(XAUTH,NX_Xau,$(XAUTHSRC),XBuildLibDir)
-#else
-ProjectUnsharedLibReferences(XAUTH,NX_Xau,$(XAUTHSRC),$(USRLIBDIR))
-#endif
-#endif
-
-#ifndef SharedOldX
-#define SharedOldX HasSharedLibraries
-#endif
-#ifndef NormalOldX
-#define NormalOldX (!SharedOldX | ForceNormalLib)
-#endif
-#ifndef DebugOldX
-#define DebugOldX		NO	/* debugged old X library */
-#endif
-#ifndef ProfileOldX
-#define ProfileOldX		NO	/* profiled old X library */
-#endif
-       OLDXLIBSRC = $(LIBSRC)/oldX
-#if SharedOldX
-#ifndef SharedOldXRev
-#define SharedOldXRev 6.0
-#endif
-SharedLibReferences(OLDX,NX_oldX,$(OLDXLIBSRC),SOOLDXREV,SharedOldXRev)
-#else
-ProjectUnsharedLibReferences(OLDX,NX_oldX,$(OLDXLIBSRC),XBuildLibDir)
-#endif
 
 #if HasMotif
 

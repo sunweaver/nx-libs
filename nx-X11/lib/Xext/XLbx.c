@@ -30,7 +30,7 @@
 #include <config.h>
 #endif
 #include <stdio.h>
-#include <nx-X11/Xlibint.h>
+#include <X11/Xlibint.h>
 #include <nx-X11/extensions/XLbx.h>
 #include <nx-X11/extensions/lbxstr.h>
 #include <nx-X11/extensions/Xext.h>

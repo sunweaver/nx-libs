@@ -34,8 +34,8 @@ in this Software without prior written authorization from The Open Group.
 #endif
 
 #include <stdio.h>
-#include <nx-X11/X.h>
-#include <nx-X11/Xproto.h>
+#include <X11/X.h>
+#include <X11/Xproto.h>
 #include "misc.h"
 #include "os.h"
 #include "windowstr.h"

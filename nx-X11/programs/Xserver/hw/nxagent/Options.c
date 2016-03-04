@@ -18,7 +18,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "X.h"
+#include <X11/X.h>
 
 #include "Agent.h"
 #include "Args.h"

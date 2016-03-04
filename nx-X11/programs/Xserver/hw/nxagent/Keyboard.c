@@ -35,9 +35,9 @@ is" without express or implied warranty.
 #include <stdlib.h>
 
 #define NEED_EVENTS
-#include "X.h"
-#include "Xproto.h"
-#include "keysym.h"
+#include <X11/X.h>
+#include <X11/Xproto.h>
+#include <X11/keysym.h>
 #include "screenint.h"
 #include "inputstr.h"
 #include "misc.h"
@@ -47,7 +47,6 @@ is" without express or implied warranty.
 #include "extnsionst.h"
 
 #include "Agent.h"
-#include "Display.h"
 #include "Screen.h"
 #include "Keyboard.h"
 #include "Events.h"
@@ -56,6 +55,7 @@ is" without express or implied warranty.
 
 #include "NXlib.h"
 
+#include "Display.h"
 #include "Shadow.h"
 
 #ifdef XKB
@@ -68,11 +68,11 @@ is" without express or implied warranty.
 
 #define XKBSRV_NEED_FILE_FUNCS
 #include <nx-X11/extensions/XKBsrv.h>
-#include <nx-X11/extensions/XKBconfig.h>
+#include <X11/extensions/XKBconfig.h>
 
-#include <nx-X11/extensions/XKBrules.h>
+#include <X11/extensions/XKBrules.h>
 
-#include "Xatom.h"
+#include <X11/Xatom.h>
 
 #include <errno.h>
 

@@ -38,7 +38,7 @@
 #include <config.h>
 #endif
 #include <stdio.h>
-#include <nx-X11/Xlibint.h>
+#include <X11/Xlibint.h>
 #include <nx-X11/extensions/Xext.h>
 #include <nx-X11/extensions/extutil.h>
 #define NEED_DBE_PROTOCOL

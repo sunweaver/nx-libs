@@ -18,7 +18,7 @@
 #ifndef __Events_H__
 #define __Events_H__
 
-#include <nx-X11/Xmd.h>
+#include <X11/Xmd.h>
 
 #define ProcessedExpose (LASTEvent + 1)
 #define ProcessedNotify (LASTEvent + 2)
@@ -223,7 +223,7 @@ Bool nxagentPendingEvents(Display *dpy);
     XEventsQueued((display), QueuedAfterReading)
 
 #define nxagentCheckEvents(display, event, predicate, argument) \
-    XCheckIfEventNoFlush((display), (event), (predicate), (argument)) 
+    nxagentCheckIfEventNoFlush((display), (event), (predicate), (argument)) 
 
 int nxagentWaitEvents(Display *, struct timeval *);
 

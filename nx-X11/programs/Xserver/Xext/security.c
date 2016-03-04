@@ -69,7 +69,7 @@ extern unsigned char LbxReqCode;
 #include <nx-X11/extensions/Xagsrv.h>
 #endif
 #include <stdio.h>  /* for file reading operations */
-#include <nx-X11/Xatom.h>  /* for XA_STRING */
+#include <X11/Xatom.h>  /* for XA_STRING */
 
 #ifdef NXAGENT_SERVER
 

@@ -24,7 +24,7 @@
 #include <nx-X11/Xwinsock.h>
 #endif
 
-#include <nx-X11/Xos.h>
+#include <X11/Xos.h>
 
 #if !defined(WIN32)
 #ifndef Lynx
@@ -39,10 +39,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <nx-X11/X.h>
-#include <nx-X11/Xmd.h>
+#include <X11/X.h>
+#include <X11/Xmd.h>
 #include "misc.h"
-#include <nx-X11/Xpoll.h>
+#include <X11/Xpoll.h>
 #include "osdep.h"
 #include "input.h"
 #include "dixstruct.h"
@@ -76,7 +76,7 @@
 #include <X11/Xdmcp.h>
 
 #define X_INCLUDE_NETDB_H
-#include <nx-X11/Xos_r.h>
+#include <X11/Xos_r.h>
 
 #ifdef NX_TRANS_SOCKET
 

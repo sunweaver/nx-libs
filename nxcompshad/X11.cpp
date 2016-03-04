@@ -22,10 +22,10 @@
 #undef  TEST
 #undef  DEBUG
 
-#include <nx-X11/Xlibint.h>
-#include <nx-X11/Xproto.h>
-#include <nx-X11/keysym.h>
-#include "X11/include/XTest_nxcompshad.h"
+#include <X11/Xlibint.h>
+#include <X11/Xproto.h>
+#include <X11/keysym.h>
+#include <X11/extensions/XTest.h>
 #include <string.h>
 #include <sys/ipc.h>
 #include <sys/shm.h>

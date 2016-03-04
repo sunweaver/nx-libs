@@ -63,6 +63,8 @@ override_dh_install:
 	rm -R debian/tmp/usr/include/$(DEB_BUILD_MULTIARCH)/nx-X11/extensions/xf86bigfont.h
 	rm -R debian/tmp/usr/include/$(DEB_BUILD_MULTIARCH)/nx-X11/extensions/XI.h
 	rm -R debian/tmp/usr/include/$(DEB_BUILD_MULTIARCH)/nx-X11/Xtrans/
+	rm -R debian/tmp/usr/include/$(DEB_BUILD_MULTIARCH)/nx-X11/misc.h
+	rm -R debian/tmp/usr/include/$(DEB_BUILD_MULTIARCH)/nx-X11/os.h
 
 	dh_install --fail-missing
 
@@ -74,8 +76,6 @@ override_dh_auto_build:
 	LOCAL_LDFLAGS="$(LDFLAGS)" SHLIBGLOBALSFLAGS="$(LDFLAGS)" SHLIBDIR="$(LIBDIR)" PREFIX=/usr dh_auto_build --parallel
 
 override_dh_strip:
-	dh_strip -plibnx-x11-6 --dbg-package=libnx-x11-6-dbg
-	dh_strip -plibnx-xau6 --dbg-package=libnx-xau6-dbg
 	dh_strip -plibnx-xext6 --dbg-package=libnx-xext6-dbg
 	dh_strip -plibxcomp3 --dbg-package=libxcomp3-dbg
 	dh_strip -plibxcompshad3 --dbg-package=libxcompshad3-dbg

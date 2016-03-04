@@ -19,7 +19,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "Xutil.h"
+#include <X11/Xutil.h>
 
 #include "NXlib.h"
 

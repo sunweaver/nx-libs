@@ -41,6 +41,4 @@ ALLOC_DEFINES = Malloc0ReturnsNullDefines
 
 #include <Library.tmpl>
 
-LinkFile(ImUtil.h,$(XLIBSRC)/ImUtil.h)
-
 DependTarget()

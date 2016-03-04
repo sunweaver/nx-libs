@@ -20,8 +20,8 @@
 
 #include "Render.h"
 
-#include "X.h"
-#include "Xproto.h"
+#include <X11/X.h>
+#include <X11/Xproto.h>
 
 #include "render.h"
 #include "renderproto.h"

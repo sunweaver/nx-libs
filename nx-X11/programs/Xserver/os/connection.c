@@ -70,8 +70,8 @@ SOFTWARE.
 #ifdef WIN32
 #include <nx-X11/Xwinsock.h>
 #endif
-#include <nx-X11/X.h>
-#include <nx-X11/Xproto.h>
+#include <X11/X.h>
+#include <X11/Xproto.h>
 #define XSERV_t
 #define TRANS_SERVER
 #define TRANS_REOPEN
@@ -144,7 +144,7 @@ extern __const__ int _nfiles;
 #endif /* WIN32 */
 #include "misc.h"
 #include "osdep.h"
-#include <nx-X11/Xpoll.h>
+#include <X11/Xpoll.h>
 #include "opaque.h"
 #include "dixstruct.h"
 #ifdef XAPPGROUP

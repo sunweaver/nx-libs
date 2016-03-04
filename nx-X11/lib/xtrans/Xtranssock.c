@@ -98,7 +98,7 @@ from the copyright holders.
 #if defined(TCPCONN) || defined(UNIXCONN)
 #define X_INCLUDE_NETDB_H
 #define XOS_USE_NO_LOCKING
-#include <nx-X11/Xos_r.h>
+#include <X11/Xos_r.h>
 #endif
 
 #ifdef UNIXCONN
@@ -157,7 +157,7 @@ from the copyright holders.
 #define EINTR WSAEINTR
 #define X_INCLUDE_NETDB_H
 #define XOS_USE_MTSAFE_NETDBAPI
-#include <nx-X11/Xos_r.h>
+#include <X11/Xos_r.h>
 #endif /* WIN32 */
 
 #if defined(SO_DONTLINGER) && defined(SO_LINGER)

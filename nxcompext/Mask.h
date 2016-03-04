@@ -22,7 +22,7 @@
 extern "C" {
 #endif
 
-#include "Xlib.h"
+#include <X11/Xlib.h>
 
 extern int MaskImage(const ColorMask *mask, XImage *src_image, XImage *dst_image);
 

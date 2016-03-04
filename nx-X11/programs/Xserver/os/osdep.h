@@ -103,7 +103,7 @@ SOFTWARE.
 #endif
 #endif
 
-#include <nx-X11/Xpoll.h>
+#include <X11/Xpoll.h>
 
 /*
  * MAXSOCKS is used only for initialising MaxClients when no other method

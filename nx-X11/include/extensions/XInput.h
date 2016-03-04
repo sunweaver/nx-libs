@@ -52,7 +52,7 @@ SOFTWARE.
 #ifndef _XINPUT_H_
 #define _XINPUT_H_
 
-#include <nx-X11/Xlib.h>
+#include <X11/Xlib.h>
 #include <nx-X11/extensions/XI.h>
 
 #define _deviceKeyPress		0

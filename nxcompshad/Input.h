@@ -18,7 +18,7 @@
 #ifndef Input_H
 #define Input_H
 
-#include <nx-X11/Xlib.h>
+#include <X11/Xlib.h>
 
 typedef struct Event
 {

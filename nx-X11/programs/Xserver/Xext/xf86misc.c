@@ -12,8 +12,8 @@
 
 #define NEED_REPLIES
 #define NEED_EVENTS
-#include <nx-X11/X.h>
-#include <nx-X11/Xproto.h>
+#include <X11/X.h>
+#include <X11/Xproto.h>
 #include "misc.h"
 #include "dixstruct.h"
 #include "extnsionst.h"
@@ -25,7 +25,7 @@
 #include <nx-X11/extensions/xf86mscstr.h>
 #include "swaprep.h"
 #include "xf86.h"
-#include <nx-X11/Xfuncproto.h>
+#include <X11/Xfuncproto.h>
 #include "xf86miscproc.h"
 
 #if 0

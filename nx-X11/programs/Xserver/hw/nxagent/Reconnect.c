@@ -17,9 +17,9 @@
 
 #include <signal.h>
 
-#include "X.h"
-#include "Xproto.h"
-#include "Xpoll.h"
+#include <X11/X.h>
+#include <X11/Xproto.h>
+#include <X11/Xpoll.h>
 #include "mi.h"
 #include "fb.h"
 #include "inputstr.h"

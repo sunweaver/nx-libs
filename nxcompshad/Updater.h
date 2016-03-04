@@ -18,7 +18,7 @@
 #ifndef Updater_H
 #define Updater_H
 
-#include <nx-X11/Xlib.h>
+#include <X11/Xlib.h>
 
 #include "Regions.h"
 #include "Input.h"

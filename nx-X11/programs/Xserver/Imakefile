@@ -167,7 +167,7 @@ INSTPGMFLAGS =
                   $(DBEDIR) $(RECORDDIR) $(SITEEXTDIRS) \
                   $(RANDRDIR) $(RENDERDIR) $(XTRAPDIR) $(XPCONFIGDIR) \
 		  $(FIXESDIR) $(DAMAGEDIR) $(CWDIR) $(COMPOSITEDIR)
-             OS = os/LibraryTargetName(os) $(DEPXAUTHLIB)
+             OS = os/LibraryTargetName(os) -lXau
         BSDEMUL = $(DEPXBSDLIB)
 #if DoLoadableServer
             MFB = mfb/ModuleLibraryTargetName(mfb)
@@ -412,7 +412,7 @@ NXAGENTNXLIBS = -L ../../../nxcomp -L ../../../nxcompext \
 `pkg-config --libs libxml-2.0`
 #else
 NXAGENTNXLIBS = -L ../../../nxcomp -L ../../../nxcompext -L ../../../nxcompshad \
-                -lXcomp -lXcompext -lXcompshad -lXrender -lNX_X11 -lNX_Xext -lXfixes -lXfont \
+                -lXcomp -lXcompext -lXcompshad -lXrender -lX11 -lNX_Xext -lXfixes -lXfont \
                 -L../../../nx-X11/exports/lib -lXtst -lXrandr -lXcomposite -lXinerama -lXdmcp \
 `pkg-config --libs libxml-2.0`
 #endif
@@ -468,7 +468,7 @@ nxagent_static_nolibs:  nxagent
 	else exit 0; fi
 	$(CCLINK) -o nxagent_static_nolibs -Wl,-Bstatic $(LDOPTIONS) $(NXAGENTOBJS) \
 	$(NXAGENTLIBS) $(LOADABLEEXTS) $(LIBCWRAPPER) $(LDLIBS) \
-	$(LDPRELIBS) $(SYSLIBS) -Wl,-Bdynamic -lNX_Xext -lNX_X11 $(EXTRA_LOAD_FLAGS)
+	$(LDPRELIBS) $(SYSLIBS) -Wl,-Bdynamic -lNX_Xext -lX11 $(EXTRA_LOAD_FLAGS)
 #endif /* NXAgentServer */
 
 #if defined(NXWinServer) && NXWinServer

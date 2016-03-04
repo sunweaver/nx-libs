@@ -15,11 +15,11 @@
 /*                                                                        */
 /**************************************************************************/
 
-#include "X.h"
+#include <X11/X.h>
 #include "signal.h"
 #include "unistd.h"
 #define NEED_EVENTS
-#include "Xproto.h"
+#include <X11/Xproto.h>
 #include "screenint.h"
 #include "input.h"
 #include "dix.h"
@@ -29,7 +29,7 @@
 #include "servermd.h"
 #include "mi.h"
 #include "selection.h"
-#include "keysym.h"
+#include <X11/keysym.h>
 #include "fb.h"
 #include "mibstorest.h"
 #include "osdep.h"
@@ -43,8 +43,6 @@
 #include "Windows.h"
 #include "Pixmaps.h"
 #include "Keyboard.h"
-#include "Keystroke.h"
-#include "Events.h"
 #include "Pointer.h"
 #include "Rootless.h"
 #include "Splash.h"
@@ -66,7 +64,7 @@
 #define Window     XlibWindow
 #define Atom   XlibAtom
 #define Time XlibXID
-#include "X11/include/Xfixes_nxagent.h"
+#include <X11/extensions/Xfixes.h>
 #undef Window
 #undef Atom
 #undef Time
@@ -77,25 +75,29 @@
 #endif
 
 #define Time XlibXID
-#include "XKBlib.h"
+#include <X11/XKBlib.h>
 #undef Time
 
 #define GC     XlibGC
 #define Font   XlibFont
 #define KeySym XlibKeySym
 #define XID    XlibXID
-#include "Xlibint.h"
+#include <X11/Xlibint.h>
 #undef  GC
 #undef  Font
 #undef  KeySym
 #undef  XID
 
-#include <nx-X11/cursorfont.h>
+#include <X11/cursorfont.h>
 
 #include "Shadow.h"
 #include "X11/include/Xrandr_nxagent.h"
 
 #include "NXlib.h"
+#include "NXlibint.h"
+
+#include "Keystroke.h"
+#include "Events.h"
 
 /*
  * Set here the required log level. Please note
@@ -285,6 +287,57 @@ void ProcessInputEvents()
 
   mieqProcessInputEvents();
 }
+
+#ifdef NX_TRANS_SOCKET
+/*
+ * This is just like XCheckIfEvent() but doesn't
+ * flush the output buffer if it can't read new
+ * events.
+ */
+
+Bool nxagentCheckIfEventNoFlush (dpy, event, predicate, arg)
+        register Display *dpy;
+	Bool (*predicate)(
+	    Display*		/* display */,
+	    XEvent*		/* event */,
+	    char*		/* arg */
+	);			/* function to call */
+	register XEvent *event;	/* XEvent to be filled in. */
+	char *arg;
+{
+	register _XQEvent *prev, *qelt;
+	unsigned long qe_serial = 0;
+	int n;			/* time through count */
+
+        LockDisplay(dpy);
+	prev = NULL;
+	for (n = 2; --n >= 0;) {
+	    for (qelt = prev ? prev->next : dpy->head;
+		 qelt;
+		 prev = qelt, qelt = qelt->next) {
+		if(qelt->qserial_num > qe_serial
+		   && (*predicate)(dpy, &qelt->event, arg)) {
+		    *event = qelt->event;
+		    _XDeq(dpy, prev, qelt);
+		    UnlockDisplay(dpy);
+		    return True;
+		}
+	    }
+	    if (prev)
+		qe_serial = prev->qserial_num;
+	    switch (n) {
+	      case 1:
+		_XEventsQueued(dpy, QueuedAfterReading);
+		break;
+	    }
+	    if (prev && prev->qserial_num != qe_serial)
+		/* another thread has snatched this event */
+		prev = NULL;
+	}
+	UnlockDisplay(dpy);
+	return False;
+}
+#endif
 
 #ifdef DEBUG_TREE
 

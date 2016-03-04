@@ -36,7 +36,7 @@ Equipment Corporation.
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
-#include <nx-X11/Xlibint.h>
+#include <X11/Xlibint.h>
 #include <nx-X11/extensions/dpms.h>
 #include <nx-X11/extensions/dpmsstr.h>
 #include <nx-X11/extensions/Xext.h>

@@ -47,8 +47,8 @@ SOFTWARE.
 #define NEED_EVENTS
 #define NEED_REPLIES
 #endif
-#include <nx-X11/Xlib.h>
-#include <nx-X11/Intrinsic.h>
+#include <X11/Xlib.h>
+#include <X11/Intrinsic.h>
 #include <nx-X11/extensions/xtrapdi.h>
 #include <nx-X11/extensions/xtrapemacros.h>
 

@@ -38,8 +38,8 @@ is" without express or implied warranty.
 #include <time.h>
 #include <errno.h>
 
-#include <nx-X11/X.h>
-#include <nx-X11/Xproto.h>
+#include <X11/X.h>
+#include <X11/Xproto.h>
 #include "screenint.h"
 #include "input.h"
 #include "misc.h"
@@ -55,12 +55,10 @@ is" without express or implied warranty.
 #include "NXalert.h"
 
 #include "Agent.h"
-#include "Display.h"
 #include "Visual.h"
 #include "Options.h"
 #include "Error.h"
 #include "Init.h"
-#include "Args.h"
 #include "Image.h"
 #include "Icons.h"
 #include "Render.h"
@@ -75,6 +73,9 @@ is" without express or implied warranty.
 
 #include "NX.h"
 #include "NXlib.h"
+
+#include "Args.h"
+#include "Display.h"
 
 #include NXAGENT_ICON_NAME
 #include X2GOAGENT_ICON_NAME

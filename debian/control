@@ -12,6 +12,9 @@ Build-Depends:
  libjpeg-dev,
  zlib1g-dev,
  quilt (>= 0.46-7~),
+ libx11-dev,
+ libxkbfile-dev,
+ libxau-dev,
  libxmltok1-dev,
  libxml2-dev,
  libxpm-dev,
@@ -53,105 +56,99 @@ Section: libdevel
 Architecture: any
 Depends:
  ${misc:Depends},
-Breaks: nxlibs (<= 3.5.1),
-        libnx-x11-dev (<< 2:3.5.0.29-0x2go2~),
-Description: nx-X11 core wire protocol and auxiliary headers
+Description: nx-X11 core wire protocol and auxiliary headers (dummy package)
  NX is a software suite which implements very efficient
  compression of the X11 protocol. This increases performance when
  using X applications over a network, especially a slow one.
  .
- This package provides development headers describing the wire protocol
- for the core nx-X11 protocol, and also provides a number of utility headers,
- used to abstract OS-specific functions.
+ This package removes the obsoleted x11proto-core headers shipped with
+ NX. With recent versions of NX, the system-wide installed X11 proto headers
+ get used.
+ .
+ This package can be safely removed.
 
 Package: libnx-x11
 Architecture: any
 Multi-Arch: same
 Depends:
  ${misc:Depends},
- libnx-x11-6 (>= ${source:Version}), libnx-x11-6 (<< ${source:Version}.1), 
-Description: nx-X11 client-side library (transitional dummy package)
+Description: nx-X11 client-side library (dummy package)
  NX is a software suite which implements very efficient
  compression of the X11 protocol. This increases performance when
  using X applications over a network, especially a slow one.
  .
- This package is a transitional dummy package and can be safely removed
- (inducing transition of libnx-x11 to libnx-x11-6).
+ This package removes the obsoleted libNX_X11.so.6 library. With
+ recent versions of NX, the system-wide installed libX11 gets used.
+ .
+ This package can be safely removed.
 
 Package: libnx-x11-6
 Architecture: any
 Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends},
 Depends:
- ${shlibs:Depends},
  ${misc:Depends},
- nx-x11-common (>= ${source:Version}), nx-x11-common (<< ${source:Version}.1), 
-Breaks: nxlibs (<= 3.5.1),
-        libnx-x11 (<< 2:3.5.0.29-0x2go2~),
 Replaces: nxlibs,
-Description: nx-X11 client-side library
+Description: nx-X11 client-side library (dummy package)
  NX is a software suite which implements very efficient
  compression of the X11 protocol. This increases performance when
  using X applications over a network, especially a slow one.
  .
- This package provides the core nx-X11 libraries customized for
- nxagent.
+ This package removes the obsoleted libNX_X11.so.6 library. With
+ recent versions of NX, the system-wide installed libX11 gets used.
+ .
+ This package can be safely removed.
 
 Package: libnx-x11-dev
 Provides: libnx-x11-6-dev
 Section: libdevel
 Architecture: any
-Breaks: nxlibs-dev (<=3.5.1),
-Replaces: nxlibs-dev,
 Depends:
  libnx-x11-6 (= ${binary:Version}),
  ${misc:Depends},
-Description: nx-X11 client-side library (development headers)
+Description: nx-X11 client-side library (development headers, dummy package)
  NX is a software suite which implements very efficient
  compression of the X11 protocol. This increases performance when
  using X applications over a network, especially a slow one.
  .
- This package provides the development headers for the core nx-X11
- libraries customized for nxagent.
+ This package removes the obsoleted headers for the libNX_X11.so.6
+ library. With recent versions of NX, the system-wide installed libX11
+ gets used.
+ .
+ This package can be safely removed.
 
 Package: libnx-x11-6-dbg
 Architecture: any
 Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends},
 Depends:
  libnx-x11-6 (= ${binary:Version}),
  ${misc:Depends},
 Section: debug
-Breaks: nx-x11-dbg (<< 2:3.5.0.29-0x2go2~),
-Replaces: nx-x11-dbg,
-Description: nx-X11 client-side library (debug package)
+Description: nx-X11 client-side library (debug package, dummy package)
  NX is a software suite which implements very efficient
  compression of the X11 protocol. This increases performance when
  using X applications over a network, especially a slow one.
  .
- This package contains debug symbols for the core nx-X11 libraries
- customized for nxagent.
+ This package removes the debug symbols for the obsoleted
+ libNX_X11.so.6 library. With recent versions of NX, the
+ system-wide installed libXau gets used.
+ .
+ This package can be safely removed.
 
 Package: libnx-xau6
 Architecture: any
 Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends},
 Depends:
- ${shlibs:Depends},
  ${misc:Depends},
-Breaks: nxlibs (<= 3.5.1),
-        libnx-x11 (<< 2:3.5.0.29-0x2go2~),
-Description: nx-X11 authorisation library
+Description: nx-X11 authorisation library (transitional dummy package)
  NX is a software suite which implements very efficient
  compression of the X11 protocol. This increases performance when
  using X applications over a network, especially a slow one.
  .
- This package provides the main interface to the nx-X11 authorisation handling,
- which controls authorisation for X connections, both client-side and
- server-side.
+ This package removes the obsoleted libNX_Xau.so.6 library. With
+ recent versions of NX, the system-wide installed libXau gets
+ used.
+ .
+ This package can be safely removed.
 
 Package: libnx-xau-dev
 Provides: libnx-xau6-dev
@@ -168,11 +165,11 @@ Description: nx-X11 authorisation library (development headers)
  compression of the X11 protocol. This increases performance when
  using X applications over a network, especially a slow one.
  .
- This package provides the main interface to the nx-X11 authorisation handling,
- which controls authorisation for X connections, both client-side and
- server-side.
+ This package removes the obsoleted headers for the libNX_Xau.so.6
+ library. With recent versions of NX, the system-wide installed libXau
+ gets used.
  .
- This package contains the development headers for this library.
+ This package can be safely removed.
 
 Package: libnx-xau6-dbg
 Architecture: any
@@ -189,11 +186,11 @@ Description: nx-X11 authorisation library (debug package)
  compression of the X11 protocol. This increases performance when
  using X applications over a network, especially a slow one.
  .
- This package provides the main interface to the nx-X11 authorisation handling,
- which controls authorisation for X connections, both client-side and
- server-side.
+ This package removes the debug symbols for the obsoleted
+ libNX_Xau.so.6 library. With recent versions of NX, the
+ system-wide installed libXau gets used.
  .
- This package contains debug symbols for this library.
+ This package can be safely removed.
 
 Package: libnx-xcomposite1
 Architecture: any

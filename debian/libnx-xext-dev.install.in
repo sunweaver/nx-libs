@@ -1,16 +1,10 @@
 usr/lib/*/libNX_Xext.so
 usr/include/*/nx-X11/extensions/MITMisc.h
-usr/include/*/nx-X11/extensions/XEVI.h
-usr/include/*/nx-X11/extensions/XEVIstr.h
-usr/include/*/nx-X11/extensions/Xevie.h
-usr/include/*/nx-X11/extensions/Xeviestr.h
 usr/include/*/nx-X11/extensions/XLbx.h
 usr/include/*/nx-X11/extensions/XShm.h
 usr/include/*/nx-X11/extensions/Xag.h
 usr/include/*/nx-X11/extensions/Xagsrv.h
 usr/include/*/nx-X11/extensions/Xagstr.h
-usr/include/*/nx-X11/extensions/Xcup.h
-usr/include/*/nx-X11/extensions/Xcupstr.h
 usr/include/*/nx-X11/extensions/Xdbe.h
 usr/include/*/nx-X11/extensions/Xdbeproto.h
 usr/include/*/nx-X11/extensions/Xext.h

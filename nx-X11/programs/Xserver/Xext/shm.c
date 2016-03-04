@@ -47,8 +47,8 @@ in this Software without prior written authorization from The Open Group.
 #include <sys/stat.h>
 #define NEED_REPLIES
 #define NEED_EVENTS
-#include <nx-X11/X.h>
-#include <nx-X11/Xproto.h>
+#include <X11/X.h>
+#include <X11/Xproto.h>
 #include "misc.h"
 #include "os.h"
 #include "dixstruct.h"
@@ -61,7 +61,7 @@ in this Software without prior written authorization from The Open Group.
 #include "servermd.h"
 #define _XSHM_SERVER_
 #include <nx-X11/extensions/shmstr.h>
-#include <nx-X11/Xfuncproto.h>
+#include <X11/Xfuncproto.h>
 #ifdef EXTMODULE
 #include "xf86_ansic.h"
 #endif

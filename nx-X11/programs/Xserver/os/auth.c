@@ -57,8 +57,8 @@ from The Open Group.
 #ifdef K5AUTH
 # include   <krb5/krb5.h>
 #endif
-# include   <nx-X11/X.h>
-# include   <nx-X11/Xauth.h>
+# include   <X11/X.h>
+# include   <X11/Xauth.h>
 # include   "misc.h"
 # include   "osdep.h"
 # include   "dixstruct.h"

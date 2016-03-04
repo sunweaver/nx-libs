@@ -36,24 +36,24 @@
 #include <ctype.h>
 #include <stdlib.h>
 
-#include <nx-X11/Xfuncs.h>
+#include <X11/Xfuncs.h>
 
-#include <nx-X11/Xfuncs.h>
+#include <X11/Xfuncs.h>
 
 #ifndef XKB_IN_SERVER
 
-#include <nx-X11/Xos.h>
+#include <X11/Xos.h>
 #include <nx-X11/Xlib.h>
-#include <nx-X11/keysym.h>
+#include <X11/keysym.h>
 #include <nx-X11/XKBlib.h>
 #include "XKBfileInt.h"
 
 #else
 
-#include <nx-X11/X.h>
+#include <X11/X.h>
 #define	NEED_EVENTS
-#include <nx-X11/keysym.h>
-#include <nx-X11/Xproto.h>
+#include <X11/keysym.h>
+#include <X11/Xproto.h>
 #include "misc.h"
 #include "inputstr.h"
 #include "dix.h"
@@ -61,7 +61,7 @@
 #include <nx-X11/extensions/XKBsrv.h>
 #endif
 
-#include <nx-X11/extensions/XKBconfig.h>
+#include <X11/extensions/XKBconfig.h>
 
 /***====================================================================***/
 

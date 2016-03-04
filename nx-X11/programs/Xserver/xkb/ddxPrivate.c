@@ -10,7 +10,7 @@
 
 #include <stdio.h>
 #define NEED_EVENTS 1
-#include <nx-X11/X.h>
+#include <X11/X.h>
 #include "windowstr.h"
 #define XKBSRV_NEED_FILE_FUNCS
 #include <nx-X11/extensions/XKBsrv.h>

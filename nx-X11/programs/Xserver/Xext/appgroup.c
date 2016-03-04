@@ -32,8 +32,8 @@ from The Open Group.
 #include <dix-config.h>
 #endif
 
-#include <nx-X11/X.h>
-#include <nx-X11/Xproto.h>
+#include <X11/X.h>
+#include <X11/Xproto.h>
 #include "misc.h"
 #include "dixstruct.h"
 #include "extnsionst.h"
@@ -46,7 +46,7 @@ from The Open Group.
 #include <nx-X11/extensions/Xagsrv.h>
 #define _SECURITY_SERVER
 #include <nx-X11/extensions/security.h>
-#include <nx-X11/Xfuncproto.h>
+#include <X11/Xfuncproto.h>
 
 #define XSERV_t
 #include <nx-X11/Xtrans/Xtrans.h>

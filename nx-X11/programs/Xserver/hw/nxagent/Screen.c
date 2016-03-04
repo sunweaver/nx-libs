@@ -77,24 +77,24 @@ is" without express or implied warranty.
 #include "Shadow.h"
 #include "Utils.h"
 
-#include "X11/include/Xrandr_nxagent.h"
+#include <X11/extensions/Xrandr.h>
 
-#include <nx-X11/Xlib.h>
-#include "X11/include/Xinerama_nxagent.h"
+#include <X11/Xlib.h>
+#include <X11/extensions/Xinerama.h>
 
 
 #define GC     XlibGC
 #define Font   XlibFont
 #define KeySym XlibKeySym
 #define XID    XlibXID
-#include <nx-X11/Xlibint.h>
+#include <X11/Xlibint.h>
 #undef  GC
 #undef  Font
 #undef  KeySym
 #undef  XID
 
-#include "Xatom.h"
-#include "Xproto.h"
+#include <X11/Xatom.h>
+#include <X11/Xproto.h>
 
 #include "NXlib.h"
 

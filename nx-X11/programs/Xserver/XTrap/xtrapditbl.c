@@ -39,11 +39,11 @@ SOFTWARE.
 #include <dix-config.h>
 #endif
 
-#include <nx-X11/X.h>
+#include <X11/X.h>
 #define NEED_REPLIES
 #define NEED_EVENTS
-#include <nx-X11/Xproto.h>
-#include <nx-X11/Xprotostr.h>
+#include <X11/Xproto.h>
+#include <X11/Xprotostr.h>
 #include <nx-X11/extensions/xtrapdi.h>
 #include "input.h"          /* Server DevicePtr definitions */
 #include "misc.h"
