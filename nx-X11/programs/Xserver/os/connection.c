@@ -75,7 +75,7 @@ SOFTWARE.
 #define XSERV_t
 #define TRANS_SERVER
 #define TRANS_REOPEN
-#include <nx-X11/Xtrans/Xtrans.h>
+#include <X11/Xtrans/Xtrans.h>
 #include <errno.h>
 #include <signal.h>
 #include <stdio.h>
@@ -490,17 +490,19 @@ CreateWellKnownSockets(void)
  * a pointer in the transport function table.
  */
 
-extern void _XSERVTransSocketRejectConnection(XtransConnInfo);
+/* extern void _XSERVTransSocketRejectConnection(XtransConnInfo); */
 
 void
 RejectWellKnownSockets ()
 {
+/*
     int i;
 
     for (i = 0; i < ListenTransCount; i++)
     {
         _XSERVTransSocketRejectConnection(ListenTransConns[i]);
     }
+*/
 }
 
 #endif /* #ifndef __DARWIN__ */

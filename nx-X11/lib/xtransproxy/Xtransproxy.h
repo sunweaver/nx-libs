@@ -1,4 +1,3 @@
-/* $Xorg: transport.c,v 1.4 2001/02/09 02:04:07 xorgcvs Exp $ */
 /*
 
 Copyright 1993, 1994, 1998  The Open Group
@@ -26,7 +25,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
-/* $XFree86: xc/lib/xtrans/transport.c,v 3.9 2002/05/31 18:45:51 dawes Exp $ */
+/* $XFree86: xc/lib/xtrans/Xtrans.h,v 3.21 2003/07/20 16:12:15 tsi Exp $ */
 
 /* Copyright 1993, 1994 NCR Corporation - Dayton, Ohio, USA
  *
@@ -51,36 +50,28 @@ from The Open Group.
  * CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifdef __UNIXOS2__
-#define I_NEED_OS2_H
+#ifndef _XTRANSPROXY_H_
+#define _XTRANSPROXY_H_
+
+#ifdef XPROXY_t
+#define TRANS(func) _XproxyTrans##func
+#if defined(XTRANSDEBUG)
+static const char* __xtransname = "_XproxyTrans";
 #endif
 
-#ifdef XSERV_t
-#include "os.h"
-#else
-#include <stdlib.h>
-#define xalloc(_size)		malloc(_size)
-#define xcalloc(_num,_size)	calloc(_num,_size)
-#define xrealloc(_ptr,_size)	realloc(_ptr,_size)
-#define xfree(_ptr)		free(_ptr)
-#endif
+#include <X11/Xtrans/Xtransint.h>
 
-#include "Xtransint.h"
+int TRANS(ConvertAddress)(
+    int *,              /* familyp */
+    int *,              /* addrlenp */
+    Xtransaddr **       /* addrp */
+);
 
-#ifdef DNETCONN
-#include "Xtransdnet.c"
-#endif
-#ifdef LOCALCONN
-#include "Xtranslcl.c"
-#endif
-#ifdef OS2PIPECONN
-#include "Xtransos2.c"
-#endif
-#if defined(TCPCONN) || defined(UNIXCONN)
-#include "Xtranssock.c"
-#endif
-#ifdef STREAMSCONN
-#include "Xtranstli.c"
-#endif
-#include "Xtrans.c"
-#include "Xtransutil.c"
+#endif /* XPROXY_t */
+
+int TRANS(GetHostname) (
+    char *      /* buf */,
+    int         /* maxlen */
+);
+
+#endif /* _XTRANSPROXY_H_ */

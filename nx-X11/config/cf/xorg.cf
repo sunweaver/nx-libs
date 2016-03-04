@@ -192,8 +192,6 @@ NX_VERSION_CURRENT_STRING  = nxVersionString
 
 #if BuildXFree86ConfigTools && BuildLibrariesForConfigTools
 #define BuildLibraries		YES
-#define BuildXKBlib		YES
-#define BuildXKBfilelib		YES
 #endif
 
 /*
@@ -438,10 +436,6 @@ IPLAN2P8_DEFS = -DUSE_IPLAN2P8
 
 #ifndef BuildRECORDlib
 # define BuildRECORDlib	YES
-#endif
-
-#ifndef BuildXKBlib
-# define BuildXKBlib	YES
 #endif
 
 #ifndef BuildScreenSaverExt

@@ -150,6 +150,9 @@ XORGRELSTRING = XorgManVersionString
 #ifndef BuildLoadableXlibXcursor
 #define BuildLoadableXlibXcursor (HasDlopen && SharedLibX11)
 #endif
+#ifndef BuildXproxyLib
+#define BuildXproxyLib		BuildLibraries
+#endif
 #ifndef BuildXextLib
 #define BuildXextLib		BuildLibraries
 #endif
@@ -186,12 +189,6 @@ XORGRELSTRING = XorgManVersionString
 #endif
 #ifndef BuildXKB
 #define BuildXKB		YES
-#endif
-#ifndef BuildXKBlib
-#define BuildXKBlib		(BuildXKB && !BuildServersOnly)
-#endif
-#ifndef BuildXKBfilelib
-#define BuildXKBfilelib		(BuildXKB && !BuildServersOnly)
 #endif
 
 	/*
@@ -1122,6 +1119,8 @@ XCOMM X Window System make variables; these need to be coordinated with rules
         PSWRAPSRC = $(XTOP)/config/pswrap
      TRANSCOMMSRC = $(LIBSRC)/xtrans
    TRANS_INCLUDES = -I$(TRANSCOMMSRC)
+TRANSPROXYCOMMSRC = $(LIBSRC)/xtransproxy
+TRANSPROXY_INCLUDES = -I$(TRANSPROXYCOMMSRC)
  CONNECTION_FLAGS = ConnectionFlags ExtraConnectionDefs
 XTRANS_FAILDEFINES = XtransFailDefine 
 #ifdef X11ProjectRoot
@@ -1234,52 +1233,26 @@ LINTEXTENSIONLIB = $(LINTEXTENSION)
           DEPXLIB = $(DEPEXTENSIONLIB) $(DEPXONLYLIB)
              XLIB = $(EXTENSIONLIB) $(XONLYLIB)
          LINTXLIB = $(LINTXONLYLIB)
-#ifndef SharedLibXau
-#define SharedLibXau		YES
+#ifndef SharedLibXproxy
+#define SharedLibXproxy HasSharedLibraries
 #endif
-#ifndef NormalLibXau
-#define NormalLibXau (!SharedLibXau | ForceNormalLib)
+#ifndef NormalLibXproxy
+#define NormalLibXproxy (!SharedLibXproxy | ForceNormalLib)
 #endif
-#ifndef DebugLibXau
-#define DebugLibXau		NO	/* debugged auth library */
+#ifndef DebugLibXproxy
+#define DebugLibXproxy		NO	/* debugged Xproxy library */
 #endif
-#ifndef ProfileLibXau
-#define ProfileLibXau		NO	/* profiled auth library */
+#ifndef ProfileLibXproxy
+#define ProfileLibXproxy	NO	/* profiled Xproxy library */
 #endif
-         XAUTHSRC = $(LIBSRC)/Xau
-#if SharedLibXau
-#ifndef SharedXauRev
-#define SharedXauRev 6.0
+          XPROXYLIBSRC = $(LIBSRC)/Xproxy
+#if SharedLibXproxy
+#ifndef SharedXproxyRev
+#define SharedXproxyRev 1
 #endif
-SharedLibReferences(XAUTH,NX_Xau,$(XAUTHSRC),SOXAUTHREV,SharedXauRev)
+SharedLibReferences(PROXY,NX_Xproxy,$(XLIBSRC),SOXPROXYREV,SharedXproxyRev)
 #else
-#if !UseInstalledXauLib
-ProjectUnsharedLibReferences(XAUTH,NX_Xau,$(XAUTHSRC),XBuildLibDir)
-#else
-ProjectUnsharedLibReferences(XAUTH,NX_Xau,$(XAUTHSRC),$(USRLIBDIR))
-#endif
-#endif
-
-#ifndef SharedOldX
-#define SharedOldX HasSharedLibraries
-#endif
-#ifndef NormalOldX
-#define NormalOldX (!SharedOldX | ForceNormalLib)
-#endif
-#ifndef DebugOldX
-#define DebugOldX		NO	/* debugged old X library */
-#endif
-#ifndef ProfileOldX
-#define ProfileOldX		NO	/* profiled old X library */
-#endif
-       OLDXLIBSRC = $(LIBSRC)/oldX
-#if SharedOldX
-#ifndef SharedOldXRev
-#define SharedOldXRev 6.0
-#endif
-SharedLibReferences(OLDX,NX_oldX,$(OLDXLIBSRC),SOOLDXREV,SharedOldXRev)
-#else
-ProjectUnsharedLibReferences(OLDX,NX_oldX,$(OLDXLIBSRC),XBuildLibDir)
+ProjectUnsharedLibReferences(PROXY,NX_Xproxy,$(XLIBSRC),XBuildLibDir)
 #endif
 
 #if HasMotif
@@ -1333,67 +1306,12 @@ MOTIFINCLUDES = -I$(MOTIFINCDIR)
 #define LdLibraryPath LD_LIBRARY_PATH
 #endif
 
-#if BuildXKBlib
-# ifndef SharedLibxkbfile
-#  define SharedLibxkbfile	HasSharedLibraries
-# endif
-# ifndef NormalLibxkbfile
-#  define NormalLibxkbfile	(!SharedLibxkbfile | ForceNormalLib)
-# endif
-# ifndef DebugLibxkbfile
-#  define DebugLibxkbfile	NO
-# endif
-# ifndef ProfileLibxkbfile
-#  define ProfileLibxkbfile	NO
-# endif
-#else
-# ifndef SharedLibxkbfile
-#  define SharedLibxkbfile	NO
-# endif
-# ifndef NormalLibxkbfile
-#  define NormalLibxkbfile	NO
-# endif
-# ifndef DebugLibxkbfile
-#  define DebugLibxkbfile	NO
-# endif
-# ifndef ProfileLibxkbfile
-#  define ProfileLibxkbfile	NO
-# endif
+#ifndef XkbClientDepLibs
+# define XkbClientDepLibs
 #endif
-    XKBFILELIBSRC = $(LIBSRC)/xkbfile
-#if SharedLibxkbfile
-# ifndef SharedxkbfileRev
-#  define SharedxkbfileRev	1.0
-# endif
-SharedLibReferences(XKBFILE,NX_xkbfile,$(XKBFILESRC),SOXKBFILEREV, SharedxkbfileRev)
-#else
-ProjectUnsharedLibReferences(XKBFILE,NX_xkbfile,$(XKBFILELIBSRC),XBuildLibDir)
+#ifndef XkbClientLibs
+# define XkbClientLibs
 #endif
-
-#if BuildXKBlib
-# ifndef XkbClientDepLibs
-#  if UseXKBInClients
-#   define XkbClientDepLibs	$(DEPXKBFILELIB)
-#  else
-#   define XkbClientDepLibs	/**/
-#  endif
-# endif
-# ifndef XkbClientLibs
-#  if UseXKBInClients
-#   define XkbClientLibs	$(XKBFILELIB)
-#  else
-#   define XkbClientLibs	/**/
-#  endif
-# endif
-
-#else /* !BuildXKBlib */
-# ifndef XkbClientDepLibs
-#  define XkbClientDepLibs
-# endif
-# ifndef XkbClientLibs
-#  define XkbClientLibs
-# endif
-#endif /* BuildXKBlib */
 
 #ifndef NeedDefaultDepLibs
 #define NeedDefaultDepLibs YES

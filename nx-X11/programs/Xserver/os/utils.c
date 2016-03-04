@@ -84,8 +84,8 @@ OR PERFORMANCE OF THIS SOFTWARE.
 #include <nx-X11/Xos.h>
 #include <stdio.h>
 #include "misc.h"
-#include <nx-X11/X.h>
-#include <nx-X11/Xtrans/Xtrans.h>
+#include <X11/X.h>
+#include <X11/Xtrans/Xtrans.h>
 #include "input.h"
 #include "dixfont.h"
 #include "osdep.h"

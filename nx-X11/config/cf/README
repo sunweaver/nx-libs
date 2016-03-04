@@ -183,7 +183,6 @@ X11.tmpl provides defaults for the following variables:
 	BuildXInputExt		build X Input extension (requires ddx support,
 					which exists only in Xhp and XFree86)
 	BuildXKB		build X Keyboard Extension?
-	BuildXKBlib		build X Keyboard Extension into Xlib?
 	UseXKBInClients		Use XKB functions in normal clients?
 	ConfigDir		install directory for config files
 	ConnectionFlags		-D's for supported transports

@@ -16,12 +16,6 @@ GLXDIR = GL
 
 SUBDIRS = extensions $(GLXDIR)
 
-#ifdef Win32Architecture
-EXTRA_HEADERS = Xw32defs.h Xwinsock.h Xwindows.h
-#elif defined(cygwinArchitecture)
-EXTRA_HEADERS = Xwindows.h
-#endif
-
 HEADERS = \
 	DECkeysym.h \
 	HPkeysym.h \

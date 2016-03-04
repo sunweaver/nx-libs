@@ -77,8 +77,12 @@ is" without express or implied warranty.
 #include "Screen.h"
 #include "Handlers.h"
 
+#include <nx-X11/Xproxy.h>
 #include <nx/NX.h>
 #include <nx/NXlib.h>
+
+#include "Args.h"
+#include "Display.h"
 
 #include NXAGENT_ICON_NAME
 #include X2GOAGENT_ICON_NAME
@@ -633,7 +637,13 @@ FIXME: Should print a warning if the user tries to let
               display);
   #endif
 
-  newDisplay = XOpenDisplay(display);
+  newDisplay = XproxyOpenDisplay(display);
+
+  #ifdef TEST
+  if (newDisplay->xcb && newDisplay->xcb->next_id)
+    fprintf(stderr, "nxagentInternalOpenDisplay: %s.", newDisplay->xcb->next_id);
+  #endif
+  
 
   alarm(0);
 
@@ -1858,7 +1868,7 @@ FIXME: Is this needed?
   fprintf(stderr, "nxagentCloseDisplay: Setting the display to NULL.\n");
   #endif
 
-  XCloseDisplay(nxagentDisplay);
+  XproxyCloseDisplay(nxagentDisplay);
 
   nxagentDisplay = NULL;
 }
@@ -2094,7 +2104,7 @@ void nxagentCleanupBackupDisplayInfo(void)
 
   if (nxagentDisplayBackup)
   {
-    XCloseDisplay(nxagentDisplayBackup);
+    XproxyCloseDisplay(nxagentDisplayBackup);
 
     nxagentDisplayBackup = NULL;
   }
@@ -2153,7 +2163,7 @@ void nxagentDisconnectDisplay(void)
               nxagentDisplayBackup &&
                   (nxagentDisplay != nxagentDisplayBackup))
       {
-        XCloseDisplay(nxagentDisplay);
+        XproxyCloseDisplay(nxagentDisplay);
       }
     case NOTHING:
       nxagentDisplay = nxagentDisplayBackup;

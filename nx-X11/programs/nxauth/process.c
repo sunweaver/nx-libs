@@ -1809,7 +1809,7 @@ do_generate(char *inputfilename, int lineno, int argc, char **argv)
 
     // generate authorization using the Security extension /
 
-    dpy = XOpenDisplay (displayname);
+    dpy = XOpenDisplayWithProxySupport (displayname);
     if (!dpy) {
 	prefix (inputfilename, lineno);
 	fprintf (stderr, "unable to open display \"%s\".\n", displayname);

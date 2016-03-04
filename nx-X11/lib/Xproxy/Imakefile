@@ -1,0 +1,87 @@
+NULL =
+
+#define DoNormalLib NormalLibXproxy
+#define DoSharedLib SharedLibXproxy
+#define DoExtraLib SharedLibXproxy
+#define DoDebugLib DebugLibXproxy
+#define DoProfileLib ProfileLibXproxy
+#define LibName NX_Xproxy
+#define SoRev SOXPROXYREV
+#define HugeLibrary NO
+#define IncSubdir nx-X11
+
+#include <Threads.tmpl>
+
+#ifdef SharedXextReqs
+REQUIREDLIBS = SharedXproxyReqs
+#endif
+
+         NX_INCLUDES = -I../../../nxcomp
+
+   NX_XCOMPLIBDIR    = $(XTOP)/../nxcomp
+   NX_XCOMPLIBLINK   = Xcomp
+   NX_REQUIREDLIBS   = -L$(NX_XCOMPLIBDIR) -l$(NX_XCOMPLIBLINK)
+
+          NX_DEFINES = -DNX_TRANS_SOCKET	\
+                       -DNX_TRANS_EXIT		\
+                       -DNX_TRANS_WARN		\
+                       -DNX_TRANS_INFO		\
+                       -DNX_TRANS_TEST		\
+                       -DNX_TRANS_DEBUG		\
+                       $(NULL)
+
+#                      -DNX_TRANS_CHANGE	\
+
+#if HasPoll
+        POLL_DEFINES = -DUSE_POLL
+#endif
+#if HasBSD44Sockets
+        SOCK_DEFINES = -DBSD44SOCKETS
+#endif
+        CONN_DEFINES = $(CONNECTION_FLAGS)
+
+    XTRANS_X_DEFINES = -DXPROXY_t -DTRANS_CLIENT $(XTRANS_FAILDEFINES)
+
+#ifdef SharedXproxyReqs
+REQUIREDXPROXYLIBS = SharedXproxyReqs
+#endif
+
+REQUIREDLIBS=$(REQUIREDXPROXYLIBS) $(NX_REQUIREDLIBS)
+
+HEADERS = \
+	Xproxy.h \
+	$(NULL)
+
+SRCS =			\
+	ChkIfEv.c	\
+	ClDisplay.c	\
+	ConnDis.c	\
+	OpenDis.c	\
+	XproxyInt.c	\
+	x11trans.c	\
+	$(NULL)
+
+OBJS = \
+	ChkIfEv.o	\
+	ClDisplay.o	\
+	ConnDis.o	\
+	OpenDis.o	\
+	XproxyInt.o	\
+	x11trans.o	\
+	$(NULL)
+
+DEFINES = $(NX_DEFINES) $(NX_INCLUDES)
+
+#define IncludeSharedObjectInNormalLib
+#define UnsharedLibObjCompile(options) LibObjCompile(unshared,$(CDEBUGFLAGS) $(CLIBDEBUGFLAGS) options $(PICFLAGS))
+
+#include <Library.tmpl>
+
+SpecialCLibObjectRule(x11trans,$(ICONFIGFILES),$(TRANSPROXY_INCLUDES) $(CONN_DEFINES) $(SOCK_DEFINES) $(XTRANS_X_DEFINES) $(POLL_DEFINES))
+SpecialCLibObjectRule(XproxyInt,$(ICONFIGFILES),$(CONN_DEFINES) $(XTRANS_X_DEFINES) $(POLL_DEFINES))
+LinkFile(x11trans.c,$(TRANSPROXYCOMMSRC)/transport.c)
+SpecialCLibObjectRule(ConnDis,$(ICONFIGFILES),$(CONN_DEFINES) $(XTRANS_X_DEFINES))
+SpecialCLibObjectRule(ClDisplay,$(ICONFIGFILES),$(XTRANS_X_DEFINES))
+SpecialCLibObjectRule(OpenDis,$(ICONFIGFILES),$(XTRANS_X_DEFINES))
+
+DependTarget()

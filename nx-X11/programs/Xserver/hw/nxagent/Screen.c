@@ -1727,6 +1727,20 @@ N/A
 
       #ifdef TEST
       fprintf(stderr, "nxagentOpenScreen: Going to create new default window.\n");
+
+      fprintf(stderr, "nxagentOpenScreen: At (%d,%d) with size %dx%d with border width %d and color depth %d.\n",
+                        nxagentOption(X) + POSITION_OFFSET,
+                        nxagentOption(Y) + POSITION_OFFSET,
+                        nxagentOption(Width),
+                        nxagentOption(Height),
+                        nxagentOption(BorderWidth),
+                        pScreen->rootDepth
+      );
+
+      if (!nxagentDisplay->xcb)
+        fprintf(stderr, "nxagentOpenScreen: nxagentDisplay->xcb undefined.\n");
+      if (!nxagentDisplay->xcb->next_id)
+        fprintf(stderr, "nxagentOpenScreen: nxagentDisplay->xcb undefined.\n");
       #endif
 
       nxagentDefaultWindows[pScreen->myNum] =
@@ -1741,6 +1755,10 @@ N/A
                         InputOutput,
                         nxagentDefaultVisual(pScreen),
                         valuemask, &attributes);
+
+      #ifdef TEST
+      fprintf(stderr, "nxagentOpenScreen: nxagentDefaultWindows successfully created.\n");
+      #endif
 
        if (nxagentOption(Rootless) == 0)
        {
@@ -1757,6 +1775,9 @@ N/A
                            0, 0, InputOnly,
                            nxagentDefaultVisual(pScreen),
                            valuemask , &attributes);
+         #ifdef TEST
+         fprintf(stderr, "nxagentOpenScreen: nxagentInputWindows successfully created.\n");
+         #endif
       }
 
       #ifdef TEST
@@ -4473,7 +4494,7 @@ void nxagentShowPixmap(PixmapPtr pPixmap, int x, int y, int width, int height)
 
   if (init)
   {
-    shadow = XOpenDisplay("localhost:0");
+    shadow = XproxyOpenDisplay("localhost:0");
 
     if (shadow == NULL)
     {

@@ -1322,7 +1322,7 @@ Bool nxagentPixmapOnShadowDisplay(PixmapPtr pMap)
     height = pPixmap -> drawable.height;
     format = (depth == 1) ? XYPixmap : ZPixmap;
 
-    shadow = XOpenDisplay("localhost:0");
+    shadow = XproxyOpenDisplay("localhost:0");
 
     if (shadow == NULL)
     {
@@ -1471,7 +1471,7 @@ Bool nxagentFbOnShadowDisplay()
 
   if (init)
   {
-    shadow = XOpenDisplay("localhost:0");
+    shadow = XproxyOpenDisplay("localhost:0");
 
     if (shadow == NULL)
     {
