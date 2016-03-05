@@ -71,6 +71,7 @@ is" without express or implied warranty.
 #include "Screen.h"
 #include "Handlers.h"
 
+#include <nx-X11/Xproxy.h>
 #include "NX.h"
 #include "NXlib.h"
 
@@ -630,7 +631,7 @@ FIXME: Should print a warning if the user tries to let
               display);
   #endif
 
-  newDisplay = XOpenDisplay(display);
+  newDisplay = XOpenDisplayWithProxySupport(display);
 
   alarm(0);
 
@@ -1855,7 +1856,7 @@ FIXME: Is this needed?
   fprintf(stderr, "nxagentCloseDisplay: Setting the display to NULL.\n");
   #endif
 
-  XCloseDisplay(nxagentDisplay);
+  XCloseDisplayWithProxySupport(nxagentDisplay);
 
   nxagentDisplay = NULL;
 }
@@ -2091,7 +2092,7 @@ void nxagentCleanupBackupDisplayInfo(void)
 
   if (nxagentDisplayBackup)
   {
-    XCloseDisplay(nxagentDisplayBackup);
+    XCloseDisplayWithProxySupport(nxagentDisplayBackup);
 
     nxagentDisplayBackup = NULL;
   }
@@ -2150,7 +2151,7 @@ void nxagentDisconnectDisplay(void)
               nxagentDisplayBackup &&
                   (nxagentDisplay != nxagentDisplayBackup))
       {
-        XCloseDisplay(nxagentDisplay);
+        XCloseDisplayWithProxySupport(nxagentDisplay);
       }
     case NOTHING:
       nxagentDisplay = nxagentDisplayBackup;

@@ -134,6 +134,66 @@ Description: nx-X11 client-side library (debug package, dummy package)
  .
  This package can be safely removed.
 
+Package: libnx-xproxy1
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+Description: nx-X11 proxy client-side library
+ NX is a software suite which implements very efficient
+ compression of the X11 protocol. This increases performance when
+ using X applications over a network, especially a slow one.
+ .
+ This package helps nxagent to wrap around X.Org's libX11. Traditional
+ connections (local connections, socket connections) are directly handed
+ over to X.Org's libX11.
+ .
+ Connections via the NX protocol (i.e., to an nxproxy on the other end)
+ are handled directly.
+
+Package: libnx-xproxy-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends:
+ libnx-xproxy1 (= ${binary:Version}),
+ ${misc:Depends},
+Description: nx-X11 proxy client-side library (development headers)
+ NX is a software suite which implements very efficient
+ compression of the X11 protocol. This increases performance when
+ using X applications over a network, especially a slow one.
+ .
+ This package helps nxagent to wrap around X.Org's libX11. Traditional
+ connections (local connections, socket connections) are directly handed
+ over to X.Org's libX11.
+ .
+ Connections via the NX protocol (i.e., to an nxproxy on the other end)
+ are handled directly.
+ .
+ This package contains the development headers for this library.
+
+Package: libnx-xproxy-dbg
+Architecture: any
+Multi-Arch: same
+Depends:
+ libnx-xproxy1 (= ${binary:Version}),
+ ${misc:Depends},
+Section: debug
+Description: nx-X11 proxy client-side library (debug package)
+ NX is a software suite which implements very efficient
+ compression of the X11 protocol. This increases performance when
+ using X applications over a network, especially a slow one.
+ .
+ This package helps nxagent to wrap around X.Org's libX11. Traditional
+ connections (local connections, socket connections) are directly handed
+ over to X.Org's libX11.
+ .
+ Connections via the NX protocol (i.e., to an nxproxy on the other end)
+ are handled directly.
+ .
+ This package contains debug symbols for this library.
+
 Package: libnx-xau6
 Architecture: any
 Multi-Arch: same

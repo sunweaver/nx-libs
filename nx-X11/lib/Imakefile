@@ -11,11 +11,16 @@ XCOMM $XFree86: xc/lib/Imakefile,v 3.74 2003/04/14 20:37:07 herrb Exp $
 
 NULL =
 
+#if BuildXproxyLib
+XPROXYLIBDIR = Xproxy
+#endif
+
 #if BuildXextLib
 XEXTLIBDIR = Xext
 #endif
 
-LINTSUBDIRS = $(XEXTLIBDIR) \
+LINTSUBDIRS = $(XPROXYLIBDIR) \
+              $(XEXTLIBDIR) \
               $(NULL)
 
 SUBDIRS = xtrans $(LINTSUBDIRS)
@@ -24,3 +29,4 @@ MakeSubdirs($(SUBDIRS))
 DependSubdirs($(SUBDIRS))
 MakeLintLibSubdirs($(LINTSUBDIRS))
 MakeLintSubdirs($(LINTSUBDIRS),install.ln,install.ln)
+

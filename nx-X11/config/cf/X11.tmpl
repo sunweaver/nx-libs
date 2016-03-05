@@ -150,6 +150,9 @@ XORGRELSTRING = XorgManVersionString
 #ifndef BuildLoadableXlibXcursor
 #define BuildLoadableXlibXcursor (HasDlopen && SharedLibX11)
 #endif
+#ifndef BuildXproxyLib
+#define BuildXproxyLib		BuildLibraries
+#endif
 #ifndef BuildXextLib
 #define BuildXextLib		BuildLibraries
 #endif
@@ -1301,6 +1304,27 @@ LINTEXTENSIONLIB = $(LINTEXTENSION)
           DEPXLIB = $(DEPEXTENSIONLIB) $(DEPXONLYLIB)
              XLIB = $(EXTENSIONLIB) $(XONLYLIB)
          LINTXLIB = $(LINTXONLYLIB)
+#ifndef SharedLibXproxy
+#define SharedLibXproxy HasSharedLibraries
+#endif
+#ifndef NormalLibXproxy
+#define NormalLibXproxy (!SharedLibXproxy | ForceNormalLib)
+#endif
+#ifndef DebugLibXproxy
+#define DebugLibXproxy		NO	/* debugged Xproxy library */
+#endif
+#ifndef ProfileLibXproxy
+#define ProfileLibXproxy	NO	/* profiled Xproxy library */
+#endif
+          XPROXYLIBSRC = $(LIBSRC)/Xproxy
+#if SharedLibXproxy
+#ifndef SharedXproxyRev
+#define SharedXproxyRev 1
+#endif
+SharedLibReferences(PROXY,NX_Xproxy,$(XLIBSRC),SOXPROXYREV,SharedXproxyRev)
+#else
+ProjectUnsharedLibReferences(PROXY,NX_Xproxy,$(XLIBSRC),XBuildLibDir)
+#endif
 
 #if HasMotif
 

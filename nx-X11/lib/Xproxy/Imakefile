@@ -1,0 +1,42 @@
+NULL =
+
+#define DoNormalLib NormalLibXproxy
+#define DoSharedLib SharedLibXproxy
+#define DoExtraLib SharedLibXproxy
+#define DoDebugLib DebugLibXproxy
+#define DoProfileLib ProfileLibXproxy
+#define LibName NX_Xproxy
+#define SoRev SOXPROXYREV
+#define HugeLibrary NO
+#define IncSubdir nx-X11
+
+#include <Threads.tmpl>
+
+#ifdef SharedXextReqs
+REQUIREDLIBS = SharedXproxyReqs
+#endif
+
+HEADERS = \
+	Xproxy.h \
+	$(NULL)
+
+SRCS = \
+	ClDisplay.c \
+	OpenDis.c \
+	$(NULL)
+
+OBJS = \
+	ClDisplay.o \
+	OpenDis.o \
+	$(NULL)
+
+#define IncludeSharedObjectInNormalLib
+#define UnsharedLibObjCompile(options) LibObjCompile(unshared,$(CDEBUGFLAGS) $(CLIBDEBUGFLAGS) options $(PICFLAGS))
+
+#include <Library.tmpl>
+
+SpecialCLibObjectRule(ConnDis,$(ICONFIGFILES),$(XDMAUTHDEFS) $(RPCDEFS) $(CONN_DEFINES) $(SOCK_DEFINES) $(POLL_DEFINES) $(XTRANS_X_DEFINES) $(K5INCL) $(K5DEFS))
+LinkFile(x11trans.c,$(TRANSCOMMSRC)/transport.c)
+SpecialCLibObjectRule(OpenDis,$(ICONFIGFILES),$(BC_DEFINES) $(OPEN_DEFINES) $(XTRANS_X_DEFINES) $(XKB_DEFINES))
+
+DependTarget()

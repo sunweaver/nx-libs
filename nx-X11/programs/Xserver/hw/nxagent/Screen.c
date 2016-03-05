@@ -4485,7 +4485,7 @@ void nxagentShowPixmap(PixmapPtr pPixmap, int x, int y, int width, int height)
 
   if (init)
   {
-    shadow = XOpenDisplay("localhost:0");
+    shadow = XOpenDisplayWithProxySupport("localhost:0");
 
     if (shadow == NULL)
     {
