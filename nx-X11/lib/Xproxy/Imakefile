@@ -21,14 +21,27 @@ HEADERS = \
 	$(NULL)
 
 SRCS = \
+	ChkIfEv.c \
 	ClDisplay.c \
 	OpenDis.c \
 	$(NULL)
 
 OBJS = \
+	ChkIfEv.o \
 	ClDisplay.o \
 	OpenDis.o \
 	$(NULL)
+
+NX_DEFINES = -DNX_TRANS_SOCKET \
+             -DNX_TRANS_EXIT \
+
+#            -DNX_TRANS_CHANGE    \
+#            -DNX_TRANS_WARN      \
+#            -DNX_TRANS_INFO      \
+#            -DNX_TRANS_TEST      \
+#            -DNX_TRANS_DEBUG     \
+
+DEFINES = $(NX_DEFINES)
 
 #define IncludeSharedObjectInNormalLib
 #define UnsharedLibObjCompile(options) LibObjCompile(unshared,$(CDEBUGFLAGS) $(CLIBDEBUGFLAGS) options $(PICFLAGS))

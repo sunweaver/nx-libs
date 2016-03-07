@@ -16,6 +16,16 @@ Display *XOpenDisplayWithProxySupport(
 int XCloseDisplayWithProxySupport (
 	Display *dpy
 );
+Bool XCheckIfEventNoFlush(
+	Display*		/* display */,
+	XEvent*			/* event_return */,
+	Bool (*) (
+		Display*	/* display */,
+		XEvent*		/* event */,
+		XPointer	/* arg */
+	)			/* predicate */,
+	XPointer		/* arg */
+);
 
 _XFUNCPROTOEND
 

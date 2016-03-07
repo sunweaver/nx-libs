@@ -65,6 +65,7 @@
 #define Atom   XlibAtom
 #define Time XlibXID
 #include <X11/extensions/Xfixes.h>
+#include <nx-X11/Xproxy.h>
 #undef Window
 #undef Atom
 #undef Time
@@ -287,57 +288,6 @@ void ProcessInputEvents()
 
   mieqProcessInputEvents();
 }
-
-#ifdef NX_TRANS_SOCKET
-/*
- * This is just like XCheckIfEvent() but doesn't
- * flush the output buffer if it can't read new
- * events.
- */
-
-Bool nxagentCheckIfEventNoFlush (dpy, event, predicate, arg)
-        register Display *dpy;
-	Bool (*predicate)(
-	    Display*		/* display */,
-	    XEvent*		/* event */,
-	    char*		/* arg */
-	);			/* function to call */
-	register XEvent *event;	/* XEvent to be filled in. */
-	char *arg;
-{
-	register _XQEvent *prev, *qelt;
-	unsigned long qe_serial = 0;
-	int n;			/* time through count */
-
-        LockDisplay(dpy);
-	prev = NULL;
-	for (n = 2; --n >= 0;) {
-	    for (qelt = prev ? prev->next : dpy->head;
-		 qelt;
-		 prev = qelt, qelt = qelt->next) {
-		if(qelt->qserial_num > qe_serial
-		   && (*predicate)(dpy, &qelt->event, arg)) {
-		    *event = qelt->event;
-		    _XDeq(dpy, prev, qelt);
-		    UnlockDisplay(dpy);
-		    return True;
-		}
-	    }
-	    if (prev)
-		qe_serial = prev->qserial_num;
-	    switch (n) {
-	      case 1:
-		_XEventsQueued(dpy, QueuedAfterReading);
-		break;
-	    }
-	    if (prev && prev->qserial_num != qe_serial)
-		/* another thread has snatched this event */
-		prev = NULL;
-	}
-	UnlockDisplay(dpy);
-	return False;
-}
-#endif
 
 #ifdef DEBUG_TREE
 
