@@ -16,30 +16,40 @@ NULL =
 REQUIREDLIBS = SharedXproxyReqs
 #endif
 
+#if HasPoll
+   POLL_DEFINES = -DUSE_POLL
+#endif
+   CONN_DEFINES = $(CONNECTION_FLAGS)
+   XTRANS_X_DEFINES = -DX11_t -DTRANS_CLIENT $(XTRANS_FAILDEFINES)
+
 HEADERS = \
 	Xproxy.h \
 	$(NULL)
 
-SRCS = \
-	ChkIfEv.c \
-	ClDisplay.c \
-	OpenDis.c \
+SRCS =			\
+	ChkIfEv.c	\
+	ClDisplay.c	\
+	ConnDis.c	\
+	OpenDis.c	\
+	x11trans.c	\
 	$(NULL)
 
 OBJS = \
-	ChkIfEv.o \
-	ClDisplay.o \
-	OpenDis.o \
+	ChkIfEv.o	\
+	ClDisplay.o	\
+	ConnDis.o	\
+	OpenDis.o	\
+	x11trans.o	\
 	$(NULL)
 
-NX_DEFINES = -DNX_TRANS_SOCKET \
-             -DNX_TRANS_EXIT \
-
-#            -DNX_TRANS_CHANGE    \
-#            -DNX_TRANS_WARN      \
-#            -DNX_TRANS_INFO      \
-#            -DNX_TRANS_TEST      \
-#            -DNX_TRANS_DEBUG     \
+NX_DEFINES = -DNX_TRANS_SOCKET	\
+             -DNX_TRANS_EXIT	\
+             -DNX_TRANS_CHANGE	\
+             -DNX_TRANS_WARN	\
+             -DNX_TRANS_INFO	\
+             -DNX_TRANS_TEST	\
+             -DNX_TRANS_DEBUG	\
+             $(NULL)
 
 DEFINES = $(NX_DEFINES)
 
@@ -48,8 +58,9 @@ DEFINES = $(NX_DEFINES)
 
 #include <Library.tmpl>
 
-SpecialCLibObjectRule(ConnDis,$(ICONFIGFILES),$(XDMAUTHDEFS) $(RPCDEFS) $(CONN_DEFINES) $(SOCK_DEFINES) $(POLL_DEFINES) $(XTRANS_X_DEFINES) $(K5INCL) $(K5DEFS))
+SpecialCLibObjectRule(x11trans,$(ICONFIGFILES),$(TRANS_INCLUDES) $(CONN_DEFINES) $(SOCK_DEFINES) $(XTRANS_X_DEFINES) $(POLL_DEFINES))
 LinkFile(x11trans.c,$(TRANSCOMMSRC)/transport.c)
-SpecialCLibObjectRule(OpenDis,$(ICONFIGFILES),$(BC_DEFINES) $(OPEN_DEFINES) $(XTRANS_X_DEFINES) $(XKB_DEFINES))
+XCOMM SpecialCLibObjectRule(ConnDis,$(ICONFIGFILES),$(XDMAUTHDEFS) $(RPCDEFS) $(CONN_DEFINES) $(SOCK_DEFINES) $(POLL_DEFINES) $(XTRANS_X_DEFINES) $(K5INCL) $(K5DEFS))
+XCOMM SpecialCLibObjectRule(OpenDis,$(ICONFIGFILES),$(BC_DEFINES) $(OPEN_DEFINES) $(XTRANS_X_DEFINES) $(XKB_DEFINES))
 
 DependTarget()

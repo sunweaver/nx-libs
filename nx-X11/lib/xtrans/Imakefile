@@ -9,6 +9,7 @@ DEFINES = $(FAILDEFINES)
 # Since xtrans source is #include'd into software that uses it, we install
 # the .c files as if they were headers.
 HEADERS = \
+	Xtranssockproxy.c \
 	transport.c
 
 DependTarget()

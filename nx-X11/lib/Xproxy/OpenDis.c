@@ -54,7 +54,9 @@ in this Software without prior written authorization from The Open Group.
 #endif
 
 #include <X11/Xlib.h>
-#include <nx-X11/Xproxy.h>
+#include <X11/Xlibint.h>
+#include "Xproxy.h"
+#include "Xproxyintconn.h"
 
 #ifdef NX_TRANS_SOCKET
 /* extern void *_X11TransSocketProxyConnInfo(XtransConnInfo); */
@@ -66,7 +68,7 @@ in this Software without prior written authorization from The Open Group.
 #define Size_t size_t
 #endif
 
-#define NX_TRANS_TEST
+/* #define NX_TRANS_TEST */
 
 /*
  * Connects to a server, creates a Display object and returns a pointer to
@@ -82,7 +84,13 @@ XOpenDisplayWithProxySupport (
 	register _Xconst char *display)
 {
 
+	register Display *dpy;          /* New Display object being created. */
 	char *display_name;
+	char *fullname = NULL;          /* expanded name of display */
+	int idisplay;                   /* display number */
+	int iscreen;                    /* screen number */
+	char *conn_auth_name, *conn_auth_data;
+	int conn_auth_namelen, conn_auth_datalen;
 
 	/*
 	 * If the display specifier string supplied as an argument to this 
@@ -112,6 +120,38 @@ XOpenDisplayWithProxySupport (
 
 #if defined(NX_TRANS_SOCKET) && defined(NX_TRANS_TEST)
 		fprintf(stderr, "XOpenDisplayWithProxySupport: Obviously a session to be handled via libXcomp.\n");
+#endif
+
+		/*
+		 * Set the default error handlers.  This allows the global variables to
+		 * default to NULL for use with shared libraries.
+		 */
+		if (_XErrorFunction == NULL) (void) XSetErrorHandler(NULL);
+		if (_XIOErrorFunction == NULL) (void) XSetIOErrorHandler(NULL);
+
+		if ((dpy = (Display *)Xcalloc(1, sizeof(Display))) == NULL) {
+            		return(NULL);
+		}
+
+		/*
+		 * Call the Connect routine to get the transport connection object.
+		 * If NULL is returned, the connection failed. The connect routine
+		 * will set fullname to point to the expanded name.
+		 */
+
+		if ((dpy->trans_conn = _X11TransConnectDisplay(
+		                                 display_name, &fullname, &idisplay,
+		                                 &iscreen, &conn_auth_name,
+		                                 &conn_auth_namelen, &conn_auth_data,
+		                                 &conn_auth_datalen)) == NULL) {
+			Xfree((char *) dpy);
+			return(NULL);
+		}
+
+		dpy->fd = _X11TransGetConnectionNumber (dpy->trans_conn);
+
+#if defined(NX_TRANS_SOCKET) && defined(NX_TRANS_TEST) 
+		fprintf(stderr, "\nXOpenDisplayWithProxySupport: Connected display with dpy->fd = [%d].\n", dpy->fd);
 #endif
 
 		return(NULL);

@@ -37,7 +37,7 @@ from The Open Group.
 
 #include "Xproxy.h"
 
-#define NX_TRANS_TEST
+/* #define NX_TRANS_TEST */
 
 /*
  * XCloseDisplay - XSync the connection to the X Server, close the connection,
