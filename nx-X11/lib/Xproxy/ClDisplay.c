@@ -26,10 +26,18 @@ from The Open Group.
 
 */
 
+#include <stdio.h>
+#include <string.h>
+
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
 #include <X11/Xlib.h>
+#include <X11/Xlibint.h>
+
+#include "Xproxy.h"
+
+#define NX_TRANS_TEST
 
 /*
  * XCloseDisplay - XSync the connection to the X Server, close the connection,
@@ -41,5 +49,29 @@ int
 XCloseDisplayWithProxySupport (
 	register Display *dpy)
 {
-	return XCloseDisplay(dpy);
+
+	char **display_name;		 /* pointer to display name */
+
+	*display_name = (char *)Xmalloc(strlen(dpy->display_name));
+	strcpy(*display_name, dpy->display_name);
+
+#if defined(NX_TRANS_SOCKET) && defined(NX_TRANS_TEST)
+        fprintf(stderr, "\nXCloseDisplayWithProxySupport: Called with display [%s].\n", *display_name);
+#endif
+
+	if (!strncasecmp(*display_name, "nx/", 3) || !strcasecmp(*display_name, "nx") ||
+	    !strncasecmp(*display_name, "nx:", 3) || !strncasecmp(*display_name, "nx,", 3))
+	{
+
+		/* Handle connection closure via libXcomp */
+#if defined(NX_TRANS_SOCKET) && defined(NX_TRANS_TEST)
+		fprintf(stderr, "XCloseDisplayWithProxySupport: Obviously a session to be handled via libXcomp.\n");
+#endif
+
+		return 0;
+
+	} else {
+
+		return XCloseDisplay(dpy);
+	}
 }

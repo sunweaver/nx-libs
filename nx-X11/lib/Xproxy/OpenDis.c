@@ -44,6 +44,9 @@ in this Software without prior written authorization from The Open Group.
 
 /* $XFree86: xc/lib/X11/OpenDis.c,v 3.16 2003/07/04 16:24:23 eich Exp $ */
 
+#include <stdlib.h>
+#include <stdio.h>
+
 #define NEED_REPLIES
 #define NEED_EVENTS
 #ifdef HAVE_CONFIG_H
@@ -63,6 +66,8 @@ in this Software without prior written authorization from The Open Group.
 #define Size_t size_t
 #endif
 
+#define NX_TRANS_TEST
+
 /*
  * Connects to a server, creates a Display object and returns a pointer to
  * the newly created Display back to the caller.
@@ -76,5 +81,47 @@ Display *
 XOpenDisplayWithProxySupport (
 	register _Xconst char *display)
 {
-	return XOpenDisplay(display);
+
+	char *display_name;
+
+	/*
+	 * If the display specifier string supplied as an argument to this 
+	 * routine is NULL or a pointer to NULL, read the DISPLAY variable.
+	 */
+	if (display == NULL || *display == '\0') {
+		if ((display_name = getenv("DISPLAY")) == NULL) {
+			/* Oops! No DISPLAY environment variable - error. */
+			return(NULL);
+		}
+	}
+	else {
+		/* Display is non-NULL, copy the pointer */
+		display_name = strdup(display);
+		fprintf(stderr, "\n%s", display_name);
+	}
+
+#if defined(NX_TRANS_SOCKET) && defined(NX_TRANS_TEST)
+	fprintf(stderr, "\nXOpenDisplayWithProxySupport: Called with display [%s].\n", display_name);
+#endif
+
+	if (!strncasecmp(display_name, "nx/", 3) || !strcasecmp(display_name, "nx") ||
+	    !strncasecmp(display_name, "nx:", 3) || !strncasecmp(display_name, "nx,", 3))
+	{
+
+		/* Handle opening display via libXcomp */
+
+#if defined(NX_TRANS_SOCKET) && defined(NX_TRANS_TEST)
+		fprintf(stderr, "XOpenDisplayWithProxySupport: Obviously a session to be handled via libXcomp.\n");
+#endif
+
+		return(NULL);
+
+	} else {
+
+		/* Obviously a normal TCP / Unix Socket based X11 session, handing
+		 * it over to libX11 from X.Org.
+		 */
+
+		return XOpenDisplay(display);
+	}
 }

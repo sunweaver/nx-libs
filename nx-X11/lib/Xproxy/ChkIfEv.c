@@ -30,6 +30,8 @@ in this Software without prior written authorization from The Open Group.
 #endif
 #include <X11/Xlibint.h>
 
+/* #define NX_TRANS_TEST */
+
 #ifdef NX_TRANS_SOCKET
 
 /*

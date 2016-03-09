@@ -76,4 +76,7 @@ from The Open Group.
 #if defined(TCPCONN) || defined(UNIXCONN)
 #include <X11/Xtrans/Xtranssock.c>
 #endif
+#if defined(NX_TRANS_SOCKET) && defined(XSERV_t)
+#include "Xtranssockproxy.c"
+#endif
 #include <X11/Xtrans/Xtrans.c>
