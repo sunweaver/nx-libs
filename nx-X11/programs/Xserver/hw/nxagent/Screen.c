@@ -171,6 +171,9 @@ WindowPtr nxagentViewportFrameBelow;
 Bool nxagentCreateScreenResources(ScreenPtr pScreen);
 void nxagentPrintAgentGeometry(char *hdrMessage, char *prefix);
 
+int nxagentAdjustRandRXinerama(ScreenPtr pScreen);
+
+
 /*
  * These variables are for shadowing feature.
  */
