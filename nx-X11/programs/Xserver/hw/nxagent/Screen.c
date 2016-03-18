@@ -393,8 +393,8 @@ Window nxagentCreateIconWindow()
                                         valuemask, &attributes);
 
   #ifdef TEST
-  fprintf(stderr, "nxagentCreateIconWindow: Created new icon window with id [%ld].\n",
-              nxagentIconWindow);
+  fprintf(stderr, "nxagentCreateIconWindow: Created new icon window with id [%lu].\n",
+              (long unsigned int)nxagentIconWindow);
   #endif
 
   /*
@@ -456,7 +456,7 @@ void nxagentSetScreenSaverTime(void)
 {
   #ifdef TEST
   fprintf(stderr, "nxagentSetScreenSaverTime: ScreenSaverTime was [%lu], ScreenSaverInterval was [%lu].\n",
-                  ScreenSaverTime, ScreenSaverInterval);
+                  (long unsigned int)ScreenSaverTime, (long unsigned int)ScreenSaverInterval);
   #endif
 
   /*
@@ -476,7 +476,7 @@ void nxagentSetScreenSaverTime(void)
 
   #ifdef TEST
   fprintf(stderr, "nxagentSetScreenSaverTime: ScreenSaverTime now is [%lu], ScreenSaverInterval now is [%lu].\n",
-                  ScreenSaverTime, ScreenSaverInterval);
+                  (long unsigned int)ScreenSaverTime, (long unsigned int)ScreenSaverInterval);
   #endif
 }
 
@@ -1234,7 +1234,7 @@ Bool nxagentOpenScreen(int index, ScreenPtr pScreen,
 
       #if defined(DEBUG) || defined(DEBUG_COLORMAP)
       fprintf(stderr, "Debug: Added visual [%lu].\n" ,
-                  visuals[numVisuals].vid); 
+                  (long unsigned int)visuals[numVisuals].vid); 
       #endif
 
       for (j = 0; j < numDepths; j++)
@@ -1273,7 +1273,7 @@ Bool nxagentOpenScreen(int index, ScreenPtr pScreen,
 
       #if defined(DEBUG) || defined(DEBUG_COLORMAP)
       fprintf(stderr, "Debug: Registered visual [%lu] for depth [%d (%d)].\n" ,
-                  visuals[numVisuals].vid, depthIndex,
+                  (long unsigned int)visuals[numVisuals].vid, depthIndex,
                       depths[depthIndex].depth); 
       #endif
 
@@ -1282,7 +1282,7 @@ Bool nxagentOpenScreen(int index, ScreenPtr pScreen,
 
     #if defined(DEBUG) || defined(DEBUG_COLORMAP)
     fprintf(stderr, "Debug: Setting default visual [%d (%lu)].\n",
-                defaultVisualIndex, visuals[defaultVisualIndex].vid);
+                defaultVisualIndex, (long unsigned int)visuals[defaultVisualIndex].vid);
 
     fprintf(stderr, "Debug: Setting root depth [%d].\n",
                 visuals[defaultVisualIndex].nplanes); 
@@ -1318,8 +1318,8 @@ Bool nxagentOpenScreen(int index, ScreenPtr pScreen,
 
     #if defined(DEBUG) || defined(DEBUG_COLORMAP)
     fprintf(stderr, "nxagentOpenScreen: Before fbScreenInit numVisuals [%d] numDepths [%d] "
-              "rootDepth [%d] defaultVisual [%ld].\n", numVisuals, numDepths,
-                  rootDepth, defaultVisual);
+              "rootDepth [%d] defaultVisual [%lu].\n", numVisuals, numDepths,
+                  rootDepth, (long unsigned int)defaultVisual);
     #endif
 
     if (monitorResolution < 1)
@@ -1335,8 +1335,8 @@ Bool nxagentOpenScreen(int index, ScreenPtr pScreen,
 
     #if defined(DEBUG) || defined(DEBUG_COLORMAP)
     fprintf(stderr, "nxagentOpenScreen: After fbScreenInit numVisuals [%d] numDepths [%d] "
-              "rootDepth [%d] defaultVisual [%ld].\n", numVisuals, numDepths,
-                  rootDepth, defaultVisual);
+              "rootDepth [%d] defaultVisual [%lu].\n", numVisuals, numDepths,
+                  rootDepth, (long unsigned int)defaultVisual);
     #endif
 
     /*
@@ -1347,8 +1347,8 @@ Bool nxagentOpenScreen(int index, ScreenPtr pScreen,
 
     #if defined(DEBUG) || defined(DEBUG_COLORMAP)
     fprintf(stderr, "nxagentOpenScreen: Before GLX numVisuals [%d] numDepths [%d] "
-              "rootDepth [%d] defaultVisual [%ld].\n", numVisuals, numDepths,
-                  rootDepth, defaultVisual);
+              "rootDepth [%d] defaultVisual [%lu].\n", numVisuals, numDepths,
+                  rootDepth, (long unsigned int)defaultVisual);
     #endif
 
     nxagentInitGlxExtension(&visuals, &depths, &numVisuals, &numDepths,
@@ -1356,8 +1356,8 @@ Bool nxagentOpenScreen(int index, ScreenPtr pScreen,
 
     #if defined(DEBUG) || defined(DEBUG_COLORMAP)
     fprintf(stderr, "nxagentOpenScreen: After GLX numVisuals [%d] numDepths [%d] "
-              "rootDepth [%d] defaultVisual [%ld].\n", numVisuals, numDepths,
-                  rootDepth, defaultVisual);
+              "rootDepth [%d] defaultVisual [%lu].\n", numVisuals, numDepths,
+                  rootDepth, (long unsigned int)defaultVisual);
     #endif
 
     /*
@@ -1723,7 +1723,7 @@ N/A
 
         #ifdef TEST
         fprintf(stderr, "nxagentOpenScreen: Using root window id [%ld].\n",
-                    nxagentDefaultWindows[pScreen->myNum]);
+                    (long int)nxagentDefaultWindows[pScreen->myNum]);
         #endif
       }
 
@@ -1763,7 +1763,7 @@ N/A
 
       #ifdef TEST
       fprintf(stderr, "nxagentOpenScreen: Created new default window with id [%ld].\n",
-                  nxagentDefaultWindows[pScreen->myNum]);
+                  (long int)nxagentDefaultWindows[pScreen->myNum]);
       #endif
 
       /*
@@ -1775,7 +1775,7 @@ N/A
       {
         #ifdef TEST
         fprintf(stderr, "nxagentOpenScreen: Setting WM_CLASS and WM_NAME for window withid [%ld].\n",
-                nxagentDefaultWindows[pScreen->myNum]);
+                (long int)nxagentDefaultWindows[pScreen->myNum]);
         #endif
         XClassHint hint;
         hint.res_name=malloc(strlen("X2GoAgent")+1);
@@ -1790,7 +1790,7 @@ N/A
       {
         #ifdef TEST
         fprintf(stderr, "nxagentOpenScreen: Setting WM_CLASS and WM_NAME for window withid [%ld].\n",
-                nxagentDefaultWindows[pScreen->myNum]);
+                (long int)nxagentDefaultWindows[pScreen->myNum]);
         #endif
 
         XClassHint hint;
@@ -3188,7 +3188,7 @@ void nxagentShadowAdaptDepth(unsigned int width, unsigned int height,
   }
 
   #ifdef TEST
-  fprintf(stderr, "nxagentCorrectDepthShadow: Shadow redMask [%x] greenMask[%x] blueMask[%x].\n",
+  fprintf(stderr, "nxagentCorrectDepthShadow: Shadow redMask [%lu] greenMask[%lu] blueMask[%lu].\n",
              pVisual -> red_mask, pVisual -> green_mask, pVisual -> blue_mask);
   #endif
 
@@ -3197,7 +3197,7 @@ void nxagentShadowAdaptDepth(unsigned int width, unsigned int height,
   blueMask = nxagentShadowDisplay -> screens[0].root_visual[0].blue_mask;
 
   #ifdef TEST
-  fprintf(stderr, "nxagentCorrectDepthShadow: Master redMask [%x] greenMask[%x] blueMask[%x].\n",
+  fprintf(stderr, "nxagentCorrectDepthShadow: Master redMask [%lu] greenMask[%lu] blueMask[%lu].\n",
               redMask, greenMask, blueMask);
   #endif
 
