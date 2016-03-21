@@ -1942,12 +1942,16 @@ Bool nxagentMakeIcon(Display *display, Pixmap *nxIcon, Pixmap *nxMask)
   if(nxagentX2go)
   {
     agent_icon_name=X2GOAGENT_ICON_NAME;
-    agentIconData=x2goagentIconData;
+
+    agentIconData = Xmalloc((unsigned int)strlen(*x2goagentIconData)+1);
+    agentIconData = memcpy(agentIconData, x2goagentIconData, strlen(*x2goagentIconData)+1);
   }
   else
   {
     agent_icon_name=NXAGENT_ICON_NAME;
-    agentIconData=nxagentIconData;
+
+    agentIconData = Xmalloc((unsigned int)strlen(*nxagentIconData)+1);
+    agentIconData = memcpy(agentIconData, nxagentIconData, strlen(*nxagentIconData)+1);
   }
 
 
@@ -1994,7 +1998,7 @@ Bool nxagentMakeIcon(Display *display, Pixmap *nxIcon, Pixmap *nxMask)
   {
      status = XpmCreatePixmapFromData(display,
                                         DefaultRootWindow(display),
-                                        agentIconData,
+                                        &agentIconData,
                                         &IconPixmap,
                                         &IconShape,
                                         NULL);
@@ -2014,6 +2018,7 @@ Bool nxagentMakeIcon(Display *display, Pixmap *nxIcon, Pixmap *nxMask)
      }
   }
 
+  xfree(agentIconData);
 
   *nxIcon = IconPixmap;
   *nxMask = IconShape;
