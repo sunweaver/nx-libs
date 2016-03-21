@@ -86,6 +86,8 @@ typedef unsigned long Pixel;	/* Index into colormap */
 #include <nx-X11/Xlib.h>
 #include <nx-X11/Xutil.h>
 
+#include "../../Agent.h"
+
 /* Return ErrorStatus codes:
  * null     if full success
  * positive if partial success
@@ -242,15 +244,15 @@ _XFUNCPROTOBEGIN
 FUNC(XpmCreatePixmapFromData, int, (Display *display,
 				    Drawable d,
 				    char **data,
-				    Pixmap *pixmap_return,
-				    Pixmap *shapemask_return,
+				    XlibPixmap *pixmap_return,
+				    XlibPixmap *shapemask_return,
 				    XpmAttributes *attributes));
 /* Keep for hw/nxagent/Display.c */
 FUNC(XpmReadFileToPixmap, int, (Display *display,
                                 Drawable d,
                                 const char *filename,
-                                Pixmap *pixmap_return,
-                                Pixmap *shapemask_return,
+                                XlibPixmap *pixmap_return,
+                                XlibPixmap *shapemask_return,
                                 XpmAttributes *attributes));
 
 _XFUNCPROTOEND
