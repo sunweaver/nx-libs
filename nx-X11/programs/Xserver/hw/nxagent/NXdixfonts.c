@@ -73,6 +73,7 @@ Equipment Corporation.
 #include <dix-config.h>
 #endif
 
+#include <X11/fonts/fontmisc.h>
 #include <nx-X11/X.h>
 #include <nx-X11/Xmd.h>
 #include <nx-X11/Xproto.h>
