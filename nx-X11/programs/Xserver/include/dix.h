@@ -386,8 +386,8 @@ extern void ddxBeforeReset (void);
 /* dixutils.c */
 
 extern void CopyISOLatin1Lowered(
-    unsigned char * /*dest*/,
-    unsigned char * /*source*/,
+    char * /*dest*/,
+    const char * /*source*/,
     int /*length*/);
 
 extern int CompareISOLatin1Lowered(
@@ -511,9 +511,9 @@ extern Bool ClientIsAsleep(
 /* atom.c */
 
 extern Atom MakeAtom(
-    char * /*string*/,
+    const char * /*string*/,
     unsigned /*len*/,
-    Bool /*makeit*/);
+    int /*makeit*/);
 
 extern Bool ValidAtom(
     Atom /*atom*/);
