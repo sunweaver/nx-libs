@@ -61,7 +61,7 @@
 #undef  DEBUG
 #undef  DUMP
 
-static Pixmap nxagentPlaceholderPixmaps[MAXDEPTH + 1];
+static XlibPixmap nxagentPlaceholderPixmaps[MAXDEPTH + 1];
 
 void nxagentMarkPlaceholderNotLoaded(int depth)
 {
