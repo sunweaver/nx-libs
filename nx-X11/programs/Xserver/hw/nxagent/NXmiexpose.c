@@ -710,6 +710,12 @@ int what;
     ChangeGCVal gcval[7];
     ChangeGCVal newValues [COUNT_BITS];
 
+    /* don't let these undefined before using them */
+    int t;
+    for (t=0;t<COUNT_BITS;t++) {
+	newValues[t].ptr = NULL;
+	newValues[t].val = 0;
+    }
     BITS32 gcmask, index, mask;
     RegionRec prgnWin;
     DDXPointRec oldCorner;
