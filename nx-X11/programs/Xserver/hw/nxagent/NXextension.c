@@ -72,259 +72,24 @@ SOFTWARE.
 #define NEED_EVENTS
 #define NEED_REPLIES
 #include <nx-X11/Xproto.h>
-#include "misc.h"
 #include "dixstruct.h"
 #include "extnsionst.h"
-#include "gcstruct.h"
-#include "scrnintstr.h"
 #include "../../dix/dispatch.h"
 #ifdef XCSECURITY
 #define _SECURITY_SERVER
 #include <nx-X11/extensions/security.h>
 #endif
-#ifdef LBX
-#include "lbxserve.h"
-#endif
 
 #include "Trap.h"
 
-#define EXTENSION_BASE  128
-#define EXTENSION_EVENT_BASE  64
-#define LAST_EVENT  128
-#define LAST_ERROR 255
+extern ExtensionEntry **extensions;
 
-ScreenProcEntry AuxillaryScreenProcs[MAXSCREENS];
+extern unsigned int NumExtensions;
 
-static ExtensionEntry **extensions = (ExtensionEntry **)NULL;
-
-int lastEvent = EXTENSION_EVENT_BASE;
-static int lastError = FirstExtensionError;
-static unsigned int NumExtensions = 0;
-
-ExtensionEntry *
-AddExtension(char *name, int NumEvents, int NumErrors, 
-	     int (*MainProc)(ClientPtr c1), 
-	     int (*SwappedMainProc)(ClientPtr c2), 
-	     void (*CloseDownProc)(ExtensionEntry *e), 
-	     unsigned short (*MinorOpcodeProc)(ClientPtr c3))
-{
-    int i;
-    register ExtensionEntry *ext, **newexts;
-
-    if (!MainProc || !SwappedMainProc || !CloseDownProc || !MinorOpcodeProc)
-        return((ExtensionEntry *) NULL);
-    if ((lastEvent + NumEvents > LAST_EVENT) || 
-	        (unsigned)(lastError + NumErrors > LAST_ERROR))
-        return((ExtensionEntry *) NULL);
-
-    ext = (ExtensionEntry *) xalloc(sizeof(ExtensionEntry));
-    if (!ext)
-	return((ExtensionEntry *) NULL);
-    ext->name = (char *)xalloc(strlen(name) + 1);
-    ext->num_aliases = 0;
-    ext->aliases = (char **)NULL;
-    if (!ext->name)
-    {
-	xfree(ext);
-	return((ExtensionEntry *) NULL);
-    }
-    strcpy(ext->name,  name);
-    i = NumExtensions;
-    newexts = (ExtensionEntry **) xrealloc(extensions,
-					   (i + 1) * sizeof(ExtensionEntry *));
-    if (!newexts)
-    {
-	xfree(ext->name);
-	xfree(ext);
-	return((ExtensionEntry *) NULL);
-    }
-    NumExtensions++;
-    extensions = newexts;
-    extensions[i] = ext;
-    ext->index = i;
-    ext->base = i + EXTENSION_BASE;
-    ext->CloseDown = CloseDownProc;
-    ext->MinorOpcode = MinorOpcodeProc;
-    ProcVector[i + EXTENSION_BASE] = MainProc;
-    SwappedProcVector[i + EXTENSION_BASE] = SwappedMainProc;
-    if (NumEvents)
-    {
-        ext->eventBase = lastEvent;
-	ext->eventLast = lastEvent + NumEvents;
-	lastEvent += NumEvents;
-    }
-    else
-    {
-        ext->eventBase = 0;
-        ext->eventLast = 0;
-    }
-    if (NumErrors)
-    {
-        ext->errorBase = lastError;
-	ext->errorLast = lastError + NumErrors;
-	lastError += NumErrors;
-    }
-    else
-    {
-        ext->errorBase = 0;
-        ext->errorLast = 0;
-    }
-#ifdef XCSECURITY
-    ext->secure = FALSE;
-#endif
-
-#ifdef LBX
-    (void) LbxAddExtension(name, ext->base, ext->eventBase, ext->errorBase);
-#endif
-    return(ext);
-}
-
-Bool AddExtensionAlias(char *alias, ExtensionEntry *ext)
-{
-    char *name;
-    char **aliases;
-
-    aliases = (char **)xrealloc(ext->aliases,
-				(ext->num_aliases + 1) * sizeof(char *));
-    if (!aliases)
-	return FALSE;
-    ext->aliases = aliases;
-    name = (char *)xalloc(strlen(alias) + 1);
-    if (!name)
-	return FALSE;
-    strcpy(name,  alias);
-    ext->aliases[ext->num_aliases] = name;
-    ext->num_aliases++;
-#ifdef LBX
-    return LbxAddExtensionAlias(ext->index, alias);
-#else
-    return TRUE;
-#endif
-}
-
-static int
-FindExtension(char *extname, int len)
-{
-    int i, j;
-
-    for (i=0; i<NumExtensions; i++)
-    {
-	if ((strlen(extensions[i]->name) == len) &&
-	    !strncmp(extname, extensions[i]->name, len))
-	    break;
-	for (j = extensions[i]->num_aliases; --j >= 0;)
-	{
-	    if ((strlen(extensions[i]->aliases[j]) == len) &&
-		!strncmp(extname, extensions[i]->aliases[j], len))
-		break;
-	}
-	if (j >= 0) break;
-    }
-    return ((i == NumExtensions) ? -1 : i);
-}
-
-/*
- * CheckExtension returns the extensions[] entry for the requested
- * extension name.  Maybe this could just return a Bool instead?
- */
-ExtensionEntry *
-CheckExtension(const char *extname)
-{
-    int n;
-
-    n = FindExtension((char*)extname, strlen(extname));
-    if (n != -1)
-	return extensions[n];
-    else
-	return NULL;
-}
-
-void
-DeclareExtensionSecurity(char *extname, Bool secure)
-{
-#ifdef XCSECURITY
-    int i = FindExtension(extname, strlen(extname));
-    if (i >= 0)
-    {
-	int majorop = extensions[i]->base;
-	extensions[i]->secure = secure;
-	if (secure)
-	{
-	    UntrustedProcVector[majorop] = ProcVector[majorop];
-	    SwappedUntrustedProcVector[majorop] = SwappedProcVector[majorop];
-	}
-	else
-	{
-	    UntrustedProcVector[majorop]	= ProcBadRequest;
-	    SwappedUntrustedProcVector[majorop] = ProcBadRequest;
-	}
-    }
-#endif
-#ifdef LBX
-    LbxDeclareExtensionSecurity(extname, secure);
-#endif
-}
-
-unsigned short
-StandardMinorOpcode(ClientPtr client)
-{
-    return ((xReq *)client->requestBuffer)->data;
-}
-
-unsigned short
-MinorOpcodeOfRequest(ClientPtr client)
-{
-    unsigned char major;
-
-    major = ((xReq *)client->requestBuffer)->reqType;
-    if (major < EXTENSION_BASE)
-	return 0;
-    major -= EXTENSION_BASE;
-    if (major >= NumExtensions)
-	return 0;
-    return (*extensions[major]->MinorOpcode)(client);
-}
-
-void
-CloseDownExtensions()
-{
-    register int i,j;
-
-#ifdef LBX
-    LbxCloseDownExtensions();
-#endif
-
-    for (i = NumExtensions - 1; i >= 0; i--)
-    {
-	(* extensions[i]->CloseDown)(extensions[i]);
-	NumExtensions = i;
-	xfree(extensions[i]->name);
-	for (j = extensions[i]->num_aliases; --j >= 0;)
-	    xfree(extensions[i]->aliases[j]);
-	xfree(extensions[i]->aliases);
-	xfree(extensions[i]);
-    }
-    xfree(extensions);
-    extensions = (ExtensionEntry **)NULL;
-    lastEvent = EXTENSION_EVENT_BASE;
-    lastError = FirstExtensionError;
-    for (i=0; i<MAXSCREENS; i++)
-    {
-	register ScreenProcEntry *spentry = &AuxillaryScreenProcs[i];
-
-	while (spentry->num)
-	{
-	    spentry->num--;
-	    xfree(spentry->procList[spentry->num].name);
-	}
-	xfree(spentry->procList);
-	spentry->procList = (ProcEntryPtr)NULL;
-    }
-}
-
+extern int FindExtension(char *extname, int len);
 
 int
-ProcQueryExtension(ClientPtr client)
+nxagentProcQueryExtension(ClientPtr client)
 {
     xQueryExtensionReply reply;
     int i;
@@ -371,7 +136,7 @@ ProcQueryExtension(ClientPtr client)
 }
 
 int
-ProcListExtensions(ClientPtr client)
+nxagentProcListExtensions(ClientPtr client)
 {
     xListExtensionsReply reply;
     char *bufptr, *buffer;
@@ -441,70 +206,4 @@ ProcListExtensions(ClientPtr client)
     	DEALLOCATE_LOCAL(buffer);
     }
     return(client->noClientException);
-}
-
-
-ExtensionLookupProc 
-LookupProc(char *name, GCPtr pGC)
-{
-    register int i;
-    register ScreenProcEntry *spentry;
-    spentry  = &AuxillaryScreenProcs[pGC->pScreen->myNum];
-    if (spentry->num)    
-    {
-        for (i = 0; i < spentry->num; i++)
-            if (strcmp(name, spentry->procList[i].name) == 0)
-                return(spentry->procList[i].proc);
-    }
-    return (ExtensionLookupProc)NULL;
-}
-
-Bool
-RegisterProc(char *name, GC *pGC, ExtensionLookupProc proc)
-{
-    return RegisterScreenProc(name, pGC->pScreen, proc);
-}
-
-Bool
-RegisterScreenProc(char *name, ScreenPtr pScreen, ExtensionLookupProc proc)
-{
-    register ScreenProcEntry *spentry;
-    register ProcEntryPtr procEntry = (ProcEntryPtr)NULL;
-    char *newname;
-    int i;
-
-    spentry = &AuxillaryScreenProcs[pScreen->myNum];
-    /* first replace duplicates */
-    if (spentry->num)
-    {
-        for (i = 0; i < spentry->num; i++)
-            if (strcmp(name, spentry->procList[i].name) == 0)
-	    {
-                procEntry = &spentry->procList[i];
-		break;
-	    }
-    }
-    if (procEntry)
-        procEntry->proc = proc;
-    else
-    {
-	newname = (char *)xalloc(strlen(name)+1);
-	if (!newname)
-	    return FALSE;
-	procEntry = (ProcEntryPtr)
-			    xrealloc(spentry->procList,
-				     sizeof(ProcEntryRec) * (spentry->num+1));
-	if (!procEntry)
-	{
-	    xfree(newname);
-	    return FALSE;
-	}
-	spentry->procList = procEntry;
-        procEntry += spentry->num;
-        procEntry->name = newname;
-        strcpy(newname, name);
-        procEntry->proc = proc;
-        spentry->num++;        
-    }
-    return TRUE;
 }
