@@ -76,11 +76,17 @@ SOFTWARE.
 
 ScreenProcEntry AuxillaryScreenProcs[MAXSCREENS];
 
-static ExtensionEntry **extensions = (ExtensionEntry **)NULL;
+#ifndef NXAGENT_SERVER
+static
+#endif
+ExtensionEntry **extensions = (ExtensionEntry **)NULL;
 
 int lastEvent = EXTENSION_EVENT_BASE;
 static int lastError = FirstExtensionError;
-static unsigned int NumExtensions = 0;
+#ifndef NXAGENT_SERVER
+static
+#endif
+unsigned int NumExtensions = 0;
 
 ExtensionEntry *
 AddExtension(char *name, int NumEvents, int NumErrors, 
@@ -183,7 +189,10 @@ Bool AddExtensionAlias(char *alias, ExtensionEntry *ext)
 #endif
 }
 
-static int
+#ifndef NXAGENT_SERVER
+static
+#endif
+int
 FindExtension(char *extname, int len)
 {
     int i, j;
@@ -305,6 +314,9 @@ CloseDownExtensions()
 
 
 int
+#ifdef NXAGENT_SERVER
+__attribute__((weak))
+#endif
 ProcQueryExtension(ClientPtr client)
 {
     xQueryExtensionReply reply;
@@ -345,6 +357,9 @@ ProcQueryExtension(ClientPtr client)
 }
 
 int
+#ifdef NXAGENT_SERVER
+__attribute__((weak))
+#endif
 ProcListExtensions(ClientPtr client)
 {
     xListExtensionsReply reply;
