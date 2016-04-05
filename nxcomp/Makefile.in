@@ -294,8 +294,11 @@ install.lib: all
 	$(INSTALL_LINK) $(LIBLOAD)              $(DESTDIR)${libdir}
 	$(INSTALL_LINK) $(LIBSHARED)            $(DESTDIR)${libdir}
 	$(INSTALL_DATA) $(LIBARCHIVE)           $(DESTDIR)${libdir}
-	$(INSTALL_DATA) NX*.h                   $(DESTDIR)${includedir}/nx
-	$(INSTALL_DATA) MD5.h                   $(DESTDIR)${includedir}/nx
+	$(INSTALL_DATA) NX.h                    $(DESTDIR)${includedir}/nx
+	$(INSTALL_DATA) NXalert.h               $(DESTDIR)${includedir}/nx
+	$(INSTALL_DATA) NXpack.h                $(DESTDIR)${includedir}/nx
+	$(INSTALL_DATA) NXproto.h               $(DESTDIR)${includedir}/nx
+	$(INSTALL_DATA) NXvars.h                $(DESTDIR)${includedir}/nx
 	$(INSTALL_DATA) nxcomp.pc               $(DESTDIR)${pkgconfigdir}
 	echo "Running ldconfig tool, this may take a while..." && ldconfig || true
 
