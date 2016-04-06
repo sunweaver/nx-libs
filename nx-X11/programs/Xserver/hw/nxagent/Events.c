@@ -58,9 +58,9 @@
 #include "Utils.h"
 #include "Error.h"
 
-#include "NX.h"
-#include "NXvars.h"
-#include "NXproto.h"
+#include <NX.h>
+#include <NXvars.h>
+#include <NXproto.h>
 
 #include "xfixesproto.h"
 #define Window     XlibWindow
@@ -92,10 +92,10 @@
 
 #include <nx-X11/cursorfont.h>
 
-#include "Shadow.h"
+#include <Shadow.h>
 #include "X11/include/Xrandr_nxagent.h"
 
-#include "NXlib.h"
+#include <NXlib.h>
 
 /*
  * Set here the required log level. Please note

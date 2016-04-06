@@ -61,8 +61,8 @@ is" without express or implied warranty.
 #include "Millis.h"
 #include "Error.h"
 
-#include "NX.h"
-#include "NXlib.h"
+#include <NX.h>
+#include <NXlib.h>
 #include "Reconnect.h"
 /*
  * Set here the required log level.

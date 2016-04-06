@@ -56,8 +56,8 @@
 #include "Composite.h"
 #include "Events.h"
 
-#include "NX.h"
-#include "NXlib.h"
+#include <NX.h>
+#include <NXlib.h>
 
 #include "Xatom.h"
 

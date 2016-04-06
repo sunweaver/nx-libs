@@ -37,8 +37,8 @@
 #include "Pixels.h"
 #include "Utils.h"
 
-#include "NXlib.h"
-#include "NXpack.h"
+#include <NXlib.h>
+#include <NXpack.h>
 
 /*
  * Set here the required log level.

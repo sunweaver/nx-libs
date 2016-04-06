@@ -264,8 +264,8 @@ Bool noXvExtension = FALSE;
 
 #ifdef NX_TRANS_SOCKET
 
-#include "NX.h"
-#include "NXvars.h"
+#include <NX.h>
+#include <NXvars.h>
 
 #endif
 

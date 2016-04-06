@@ -50,8 +50,8 @@ is" without express or implied warranty.
 
 #include "Args.h"
 
-#include "NXlib.h"
-#include "NXalert.h"
+#include <NXlib.h>
+#include <NXalert.h>
 
 #include <string.h>
 #include <stdlib.h>

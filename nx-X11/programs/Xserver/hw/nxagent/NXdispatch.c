@@ -154,7 +154,7 @@ int ProcInitialConnection();
 #include "Reconnect.h"
 #include "Millis.h"
 #include "Font.h"
-#include "Shadow.h"
+#include <Shadow.h>
 #include "Handlers.h"
 #include "Keyboard.h"
 

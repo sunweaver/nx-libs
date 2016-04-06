@@ -54,9 +54,9 @@ is" without express or implied warranty.
 #include "Options.h"
 #include "Error.h"
 
-#include "NXlib.h"
+#include <NXlib.h>
 
-#include "Shadow.h"
+#include <Shadow.h>
 
 #ifdef XKB
 

@@ -57,7 +57,7 @@ is" without express or implied warranty.
 #include "windowstr.h"
 #include "resource.h"
 
-#include "NXlib.h"
+#include <NXlib.h>
 
 /*
  * Set here the required log level.

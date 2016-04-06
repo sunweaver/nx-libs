@@ -33,9 +33,9 @@
 #include "Display.h"
 #include "Dialog.h"
 
-#include "NX.h"
-#include "NXlib.h"
-#include "NXalert.h"
+#include <NX.h>
+#include <NXlib.h>
+#include <NXalert.h>
 
 /*
  * Set here the required log level.

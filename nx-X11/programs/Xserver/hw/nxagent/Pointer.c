@@ -46,7 +46,7 @@ is" without express or implied warranty.
 #include "Events.h"
 #include "Options.h"
 
-#include "NXlib.h"
+#include <NXlib.h>
 
 /*
  * Set here the required log level.

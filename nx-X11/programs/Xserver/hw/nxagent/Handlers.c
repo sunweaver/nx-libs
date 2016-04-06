@@ -32,8 +32,8 @@
 #include "Screen.h"
 #include "Millis.h"
 
-#include "NXlib.h"
-#include "Shadow.h"
+#include <NXlib.h>
+#include <Shadow.h>
 
 /*
  * Set here the required log level.

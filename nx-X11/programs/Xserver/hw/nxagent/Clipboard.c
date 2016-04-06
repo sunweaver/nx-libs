@@ -39,7 +39,7 @@
  * Use asyncronous get property replies.
  */
 
-#include "NXlib.h"
+#include <NXlib.h>
 
 /*
  * Set here the required log level.
