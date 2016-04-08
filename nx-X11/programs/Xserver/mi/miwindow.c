@@ -1048,7 +1048,7 @@ miSetShape(pWin)
 	bsExposed = (*pScreen->TranslateBackingStore)
 			     (pWin, 0, 0, pOldClip,
 			      pWin->drawable.x, pWin->drawable.y);
-	if (WasViewable)
+	if (WasViewable && pOldClip)
 	    RegionDestroy(pOldClip);
 	if (bsExposed)
 	{
