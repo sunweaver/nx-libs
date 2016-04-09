@@ -32,7 +32,7 @@
 
 #define PANIC
 #define WARNING
-#undef  TEST
+#define  TEST
 #undef  DEBUG
 
 /*
