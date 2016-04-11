@@ -160,7 +160,7 @@ static Bool TileScreenSaver(int i, int kind);
 int numSaveUndersViewable = 0;
 int deltaSaveUndersViewable = 0;
 
-#ifdef DEBUG
+#if defined(DEBUG) || (defined(NXAGENT_SERVER) && defined(WINDOW_TREE_DEBUG))
 /******
  * PrintWindowTree
  *    For debugging only
@@ -286,6 +286,7 @@ SetWindowToDefaults(register WindowPtr pWin)
 #endif
 }
 
+#ifndef NXAGENT_SERVER
 static void
 MakeRootTile(WindowPtr pWin)
 {
@@ -331,6 +332,7 @@ MakeRootTile(WindowPtr pWin)
    FreeScratchGC(pGC);
 
 }
+#endif /* NXAGENT_SERVER */
 
 WindowPtr
 AllocateWindow(ScreenPtr pScreen)
@@ -477,6 +479,7 @@ CreateRootWindow(ScreenPtr pScreen)
     return TRUE;
 }
 
+#ifndef NXAGENT_SERVER
 void
 InitRootWindow(WindowPtr pWin)
 {
@@ -498,6 +501,7 @@ InitRootWindow(WindowPtr pWin)
 
     MapWindow(pWin, serverClient);
 }
+#endif /* NXAGENT_SERVER */
 
 /* Set the region to the intersection of the rectangle and the
  * window's winSize.  The window is typically the parent of the
@@ -860,13 +864,15 @@ CrushTree(WindowPtr pWin)
 	}
     }
 }
-	
+
+
 /*****
  *  DeleteWindow
  *	 Deletes child of window then window itself
  *	 If wid is None, don't send any events
  *****/
 
+#ifndef NXAGENT_SERVER
 int
 DeleteWindow(void * value, XID wid)
  {
@@ -902,6 +908,7 @@ DeleteWindow(void * value, XID wid)
     xfree(pWin);
     return Success;
 }
+#endif /* NXAGENT_SERVER */
 
 void
 DestroySubwindows(register WindowPtr pWin, ClientPtr client)
@@ -1740,6 +1747,7 @@ GravityTranslate (register int x, register int y, int oldx, int oldy,
 }
 
 /* XXX need to retile border on each window with ParentRelative origin */
+#ifndef NXAGENT_SERVER
 void
 ResizeChildrenWinSize(register WindowPtr pWin, int dx, int dy, int dw, int dh)
 {
@@ -1804,6 +1812,7 @@ ResizeChildrenWinSize(register WindowPtr pWin, int dx, int dy, int dw, int dh)
 	}
     }
 }
+#endif /* NXAGENT_SERVER */
 
 #define GET_INT16(m, f) \
 	if (m & mask) \
@@ -2152,6 +2161,7 @@ ReflectStackChange(
  * ConfigureWindow
  *****/
 
+#ifndef NXAGENT_SERVER
 int
 ConfigureWindow(register WindowPtr pWin, register Mask mask, XID *vlist, ClientPtr client)
 {
@@ -2405,6 +2415,7 @@ ActuallyDoSomething:
 #undef RESIZE_WIN
 #undef REBORDER_WIN
 }
+#endif /* NXAGENT_SERVER */
 
 
 /******
@@ -2489,6 +2500,7 @@ CompareWIDs(
  *  ReparentWindow
  *****/
 
+#ifndef NXAGENT_SERVER
 int
 ReparentWindow(register WindowPtr pWin, register WindowPtr pParent,
                int x, int y, ClientPtr client)
@@ -2581,6 +2593,7 @@ ReparentWindow(register WindowPtr pWin, register WindowPtr pParent,
     RecalculateDeliverableEvents(pWin);
     return(Success);
 }
+#endif /* NXAGENT_SERVER */
 
 static void
 RealizeTree(WindowPtr pWin)
@@ -2623,6 +2636,7 @@ RealizeTree(WindowPtr pWin)
  *    MapNotify event is generated.
  *****/
 
+#ifndef NXAGENT_SERVER
 int
 MapWindow(register WindowPtr pWin, ClientPtr client)
 {
@@ -2725,7 +2739,7 @@ MapWindow(register WindowPtr pWin, ClientPtr client)
 
     return(Success);
 }
-
+#endif /* NXAGENT_SERVER */
 
 /*****
  * MapSubwindows
@@ -2914,6 +2928,7 @@ UnrealizeTree(
  *    generated.  Cannot unmap a root window.
  *****/
 
+#ifndef NXAGENT_SERVER
 int
 UnmapWindow(register WindowPtr pWin, Bool fromConfigure)
 {
@@ -2967,6 +2982,7 @@ UnmapWindow(register WindowPtr pWin, Bool fromConfigure)
 	WindowsRestructured ();
     return(Success);
 }
+#endif /* NXAGENT_SERVER */
 
 /*****
  * UnmapSubwindows
@@ -3239,6 +3255,7 @@ static void DrawLogo(
 );
 #endif
 
+#ifndef NXAGENT_SERVER
 void
 SaveScreens(int on, int mode)
 {
@@ -3351,6 +3368,7 @@ SaveScreens(int on, int mode)
     if (mode == ScreenSaverReset)
        SetScreenSaverTimer();
 }
+#endif /* NXAGENT_SERVER */
 
 static Bool
 TileScreenSaver(int i, int kind)
