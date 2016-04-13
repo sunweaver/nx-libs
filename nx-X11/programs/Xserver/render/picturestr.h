@@ -68,10 +68,14 @@ typedef struct _PictTransform {
 #define SourcePictTypeRadial 2
 #define SourcePictTypeConical 3
 
+#ifdef NXAGENT_SERVER
+#include "../hw/nxagent/NXpicturestr_PictSolidFill.h"
+#else
 typedef struct _PictSolidFill {
     unsigned int type;
     CARD32 color;
 } PictSolidFill, *PictSolidFillPtr;
+#endif /* NXAGENT_SERVER */
 
 typedef struct _PictGradientStop {
     xFixed x;
