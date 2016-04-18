@@ -1217,6 +1217,7 @@ CheckGrabForSyncs(register DeviceIntPtr thisDev, Bool thisMode, Bool otherMode)
     ComputeFreezes();
 }
 
+#ifndef NXAGENT_SERVER
 void
 ActivatePointerGrab(register DeviceIntPtr mouse, register GrabPtr grab, 
                     TimeStamp time, Bool autoGrab)
@@ -1318,7 +1319,6 @@ DeactivateKeyboardGrab(register DeviceIntPtr keybd)
     DoFocusEvents(keybd, grab->window, focusWin, NotifyUngrab);
     ComputeFreezes();
 }
-
 void
 AllowSome(ClientPtr client, TimeStamp time, DeviceIntPtr thisDev, int newState)
 {
@@ -1426,6 +1426,7 @@ AllowSome(ClientPtr client, TimeStamp time, DeviceIntPtr thisDev, int newState)
 	    break;
     }
 }
+#endif /* NXAGENT_SERVER */
 
 int
 ProcAllowEvents(register ClientPtr client)
@@ -1913,6 +1914,7 @@ PointInBorderSize(WindowPtr pWin, int x, int y)
     return FALSE;
 }
 
+#ifndef NXAGENT_SERVER
 static WindowPtr 
 XYToWindow(int x, int y)
 {
@@ -1960,6 +1962,7 @@ XYToWindow(int x, int y)
     }
     return spriteTrace[spriteTraceGood-1];
 }
+#endif /* NXAGENT_SERVER */
 
 static Bool
 CheckMotion(xEvent *xE)
@@ -2072,6 +2075,7 @@ void ReinitializeRootWindow(WindowPtr win, int xoff, int yoff)
 }
 #endif
 
+#ifndef NXAGENT_SERVER
 void
 DefineInitialRootWindow(register WindowPtr win)
 {
@@ -2113,6 +2117,7 @@ DefineInitialRootWindow(register WindowPtr win)
     }
 #endif
 }
+#endif /* NXAGENT_SERVER */
 
 /*
  * This does not take any shortcuts, and even ignores its argument, since
@@ -3968,6 +3973,7 @@ CloseDownEvents(void)
   spriteTraceSize = 0;
 }
 
+#ifndef NXAGENT_SERVER
 int
 ProcSendEvent(ClientPtr client)
 {
@@ -4055,6 +4061,7 @@ ProcSendEvent(ClientPtr client)
 				    NullGrab, 0);
     return Success;
 }
+#endif /* NXAGENT_SERVER */
 
 int
 ProcUngrabKey(ClientPtr client)
