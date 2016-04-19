@@ -75,7 +75,7 @@ static NodePtr *nodeTable;
 void FreeAtom(NodePtr patom);
 
 Atom 
-MakeAtom(const char *string, unsigned len, int makeit)
+MakeAtom(const char *string, unsigned len, Bool makeit)
 {
     register    NodePtr * np;
     unsigned i;

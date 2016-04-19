@@ -513,7 +513,7 @@ extern Bool ClientIsAsleep(
 extern Atom MakeAtom(
     const char * /*string*/,
     unsigned /*len*/,
-    int /*makeit*/);
+    Bool /*makeit*/);
 
 extern Bool ValidAtom(
     Atom /*atom*/);
