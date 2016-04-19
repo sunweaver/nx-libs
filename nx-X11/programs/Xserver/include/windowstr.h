@@ -227,8 +227,4 @@ extern ScreenSaverStuffRec savedScreenInfo[MAXSCREENS];
 extern int numSaveUndersViewable;
 extern int deltaSaveUndersViewable;
 
-#ifdef XEVIE
-extern WindowPtr xeviewin;
-#endif
-
 #endif /* WINDOWSTRUCT_H */
