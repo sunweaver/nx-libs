@@ -35,6 +35,7 @@ SRCS =  NXwindow.c \
 	Font.c \
 	GC.c \
 	GCOps.c \
+	Glyph.c \
 	Millis.c \
 	Handlers.c \
 	Init.c \
@@ -96,6 +97,7 @@ OBJS =  NXwindow.o \
 	Font.o \
 	GC.o \
 	GCOps.o \
+	Glyph.o \
 	Millis.o \
 	Handlers.o \
 	Init.o \
@@ -211,6 +213,9 @@ DEFINES = -g $(OS_DEFINES) $(EXT_DEFINES) $(NX_DEFINES) \
 	  -DRANDR_12_INTERFACE \
           -DPANORAMIX \
           -UDEBUG_TREE
+
+#          -UNX_RENDER_CLEANUP \
+
 
 all:: $(OBJS)
 
