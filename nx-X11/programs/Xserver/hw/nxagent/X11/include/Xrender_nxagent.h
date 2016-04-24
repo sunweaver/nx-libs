@@ -312,97 +312,6 @@ XRenderFreeGlyphs (Display	    *dpy,
 		   int		    nglyphs);
 
 void
-XRenderCompositeString8 (Display		    *dpy,
-			 int			    op,
-			 Picture		    src,
-			 Picture		    dst,
-			 _Xconst XRenderPictFormat  *maskFormat,
-			 GlyphSet		    glyphset,
-			 int			    xSrc,
-			 int			    ySrc,
-			 int			    xDst,
-			 int			    yDst,
-			 _Xconst char		    *string,
-			 int			    nchar);
-
-void
-XRenderCompositeString16 (Display		    *dpy,
-			  int			    op,
-			  Picture		    src,
-			  Picture		    dst,
-			  _Xconst XRenderPictFormat *maskFormat,
-			  GlyphSet		    glyphset,
-			  int			    xSrc,
-			  int			    ySrc,
-			  int			    xDst,
-			  int			    yDst,
-			  _Xconst unsigned short    *string,
-			  int			    nchar);
-
-void
-XRenderCompositeString32 (Display		    *dpy,
-			  int			    op,
-			  Picture		    src,
-			  Picture		    dst,
-			  _Xconst XRenderPictFormat *maskFormat,
-			  GlyphSet		    glyphset,
-			  int			    xSrc,
-			  int			    ySrc,
-			  int			    xDst,
-			  int			    yDst,
-			  _Xconst unsigned int	    *string,
-			  int			    nchar);
-
-void
-XRenderCompositeText8 (Display			    *dpy,
-		       int			    op,
-		       Picture			    src,
-		       Picture			    dst,
-		       _Xconst XRenderPictFormat    *maskFormat,
-		       int			    xSrc,
-		       int			    ySrc,
-		       int			    xDst,
-		       int			    yDst,
-		       _Xconst XGlyphElt8	    *elts,
-		       int			    nelt);
-
-void
-XRenderCompositeText16 (Display			    *dpy,
-			int			    op,
-			Picture			    src,
-			Picture			    dst,
-			_Xconst XRenderPictFormat   *maskFormat,
-			int			    xSrc,
-			int			    ySrc,
-			int			    xDst,
-			int			    yDst,
-			_Xconst XGlyphElt16	    *elts,
-			int			    nelt);
-
-void
-XRenderCompositeText32 (Display			    *dpy,
-			int			    op,
-			Picture			    src,
-			Picture			    dst,
-			_Xconst XRenderPictFormat   *maskFormat,
-			int			    xSrc,
-			int			    ySrc,
-			int			    xDst,
-			int			    yDst,
-			_Xconst XGlyphElt32	    *elts,
-			int			    nelt);
-
-void
-XRenderFillRectangle (Display		    *dpy,
-		      int		    op,
-		      Picture		    dst,
-		      _Xconst XRenderColor  *color,
-		      int		    x,
-		      int		    y,
-		      unsigned int	    width,
-		      unsigned int	    height);
-
-void
 XRenderFillRectangles (Display		    *dpy,
 		       int		    op,
 		       Picture		    dst,
@@ -454,32 +363,11 @@ XRenderCompositeTriFan (Display			*dpy,
 			_Xconst XPointFixed	*points,
 			int			npoint);
 
-void
-XRenderCompositeDoublePoly (Display		    *dpy,
-			    int			    op,
-			    Picture		    src,
-			    Picture		    dst,
-			    _Xconst XRenderPictFormat	*maskFormat,
-			    int			    xSrc,
-			    int			    ySrc,
-			    int			    xDst,
-			    int			    yDst,
-			    _Xconst XPointDouble    *fpoints,
-			    int			    npoints,
-			    int			    winding);
-Status
-XRenderParseColor(Display	*dpy,
-		  char		*spec,
-		  XRenderColor	*def);
-
 Cursor
 XRenderCreateCursor (Display	    *dpy,
 		     Picture	    source,
 		     unsigned int   x,
 		     unsigned int   y);
-
-XFilters *
-XRenderQueryFilters (Display *dpy, Drawable drawable);
 
 void
 XRenderSetPictureFilter (Display    *dpy,
@@ -487,20 +375,6 @@ XRenderSetPictureFilter (Display    *dpy,
 			 const char *filter,
 			 XFixed	    *params,
 			 int	    nparams);
-
-Cursor
-XRenderCreateAnimCursor (Display	*dpy,
-			 int		ncursor,
-			 XAnimCursor	*cursors);
-
-
-void
-XRenderAddTraps (Display	    *dpy,
-		 Picture	    picture,
-		 int		    xOff,
-		 int		    yOff,
-		 _Xconst XTrap	    *traps,
-		 int		    ntrap);
 
 Picture XRenderCreateSolidFill (Display *dpy,
                                 const XRenderColor *color);
