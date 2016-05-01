@@ -73,63 +73,6 @@ Equipment Corporation.
 #include	<stdio.h>
 #endif
 
-#ifdef NX_TRANS_SOCKET
-
-char _NXFontPath[1024];
-
-/*
- * Override the default font path and make
- * it configurable at run time, based on
- * the NX_FONT environment.
- */
-
-static const char *_NXGetFontPath(const char *path)
-{
-  const char *fontEnv;
-
-    /*
-     * Check the environment only once.
-     */
-
-    if (*_NXFontPath != '\0')
-    {
-        return _NXFontPath;
-    }
-
-    fontEnv = getenv("NX_FONT");
-
-    if (fontEnv != NULL && *fontEnv != '\0')
-    {
-        if (strlen(fontEnv) + 1 > 1024)
-        {
-#ifdef NX_TRANS_TEST
-            fprintf(stderr, "_NXGetFontPath: WARNING! Maximum length of font path exceeded.\n");
-#endif
-            goto _NXGetFontPathError;
-        }
-
-        strcpy(_NXFontPath, fontEnv);
-
-#ifdef NX_TRANS_TEST
-        fprintf(stderr, "_NXGetFontPath: Using NX font path [%s].\n", _NXFontPath);
-#endif
-
-        return _NXFontPath;
-    }
-
-_NXGetFontPathError:
-
-    strcpy(_NXFontPath, path);
-
-#ifdef NX_TRANS_TEST
-    fprintf(stderr, "_NXGetFontPath: Using default font path [%s].\n", _NXFontPath);
-#endif
-
-    return _NXFontPath;
-}
-
-#endif
-
 #ifdef PANORAMIX
 #include "panoramiX.h"
 #endif
@@ -287,6 +230,7 @@ FreeFPE (FontPathElementPtr fpe)
     }
 }
 
+#ifndef NXAGENT_SERVER
 static Bool
 doOpenFont(ClientPtr client, OFclosurePtr c)
 {
@@ -437,6 +381,7 @@ bail:
     xfree(c);
     return TRUE;
 }
+#endif /* NXAGENT_SERVER */
 
 int
 OpenFont(ClientPtr client, XID fid, Mask flags, unsigned lenfname, char *pfontname)
@@ -633,6 +578,7 @@ QueryFont(FontPtr pFont, xQueryFontReply *pReply, int nProtoCCIStructs)
     return;
 }
 
+#ifndef NXAGENT_SERVER
 static Bool
 doListFontsAndAliases(ClientPtr client, LFclosurePtr c)
 {
@@ -889,6 +835,7 @@ bail:
     if (resolved) xfree(resolved);
     return TRUE;
 }
+#endif /* NXAGENT_SERVER */
 
 int
 ListFonts(ClientPtr client, unsigned char *pattern, unsigned length, 
@@ -1400,6 +1347,11 @@ doPolyText(ClientPtr client, register PTclosurePtr c)
 			err = BadAlloc;
 			goto bail;
 		    }
+
+		    pGC->tileIsPixel = TRUE;
+		    pGC->tile.pixel = 0;
+		    pGC->stipple = NullPixmap;
+
 		    if ((err = CopyGC(c->pGC, pGC, GCFunction |
 				      GCPlaneMask | GCForeground |
 				      GCBackground | GCFillStyle |
@@ -1592,6 +1544,11 @@ doImageText(ClientPtr client, register ITclosurePtr c)
 		err = BadAlloc;
 		goto bail;
 	    }
+
+	    pGC->tileIsPixel = TRUE;
+	    pGC->tile.pixel = 0;
+	    pGC->stipple = NullPixmap;
+
 	    if ((err = CopyGC(c->pGC, pGC, GCFunction | GCPlaneMask |
 			      GCForeground | GCBackground | GCFillStyle |
 			      GCTile | GCStipple | GCTileStipXOrigin |
@@ -1732,7 +1689,6 @@ find_existing_fpe(FontPathElementPtr *list, int num, unsigned char *name, int le
     return (FontPathElementPtr) 0;
 }
 
-
 static int
 SetFontPathElements(int npaths, unsigned char *paths, int *bad, Bool persist)
 {
@@ -1809,11 +1765,13 @@ SetFontPathElements(int npaths, unsigned char *paths, int *bad, Bool persist)
 		    err = (*fpe_functions[fpe->type].init_fpe) (fpe);
 		if (err != Successful)
 		{
+#ifndef NXAGENT_SERVER
 		    if (persist)
 		    {
 			ErrorF("Could not init font path element %s, removing from list!\n",
 			       fpe->name);
 		    }
+#endif /* NXAGENT_SERVER */
 		    xfree (fpe->name);
 		    xfree (fpe);
 		}
@@ -1861,6 +1819,7 @@ SetFontPath(ClientPtr client, int npaths, unsigned char *paths, int *error)
     return err;
 }
 
+#ifndef NXAGENT_SERVER
 int
 SetDefaultFontPath(char *path)
 {
@@ -1909,6 +1868,7 @@ SetDefaultFontPath(char *path)
 
     return err;
 }
+#endif /* NXAGENT_SERVER */
 
 unsigned char *
 GetFontPath(int *count, int *length)
