@@ -161,7 +161,7 @@ BOOTSTRAPCFLAGS =
 		  -I$(TOP)/lib/Xau Krb5Includes $(NX_INCLUDES) \
 		  `pkg-config --cflags-only-I pixman-1`
  DEPEND_DEFINES = $(DBM_DEFINES) $(XDMCP_DEFINES) $(EXT_DEFINES) \
-		  $(TRANS_INCLUDES) $(CONNECTION_FLAGS) $(GETPEER_DEFINES) \
+		  $(CONNECTION_FLAGS) $(GETPEER_DEFINES) \
 		  DependDefines
        LINTLIBS = ../dix/llib-ldix.ln
 
@@ -189,8 +189,7 @@ SpecialCObjectRule(auth,$(ICONFIGFILES),$(XDMCP_DEFINES))
 SpecialCObjectRule(xdmauth,$(ICONFIGFILES),$(XDMCP_DEFINES))
 SpecialCObjectRule(xdmcp,$(ICONFIGFILES),$(SOCK_DEFINES) $(XDMCP_DEFINES))
 SpecialCObjectRule(connection,$(ICONFIGFILES),$(SOCK_DEFINES) $(XDMCP_DEFINES))
-SpecialCObjectRule(transport,$(ICONFIGFILES),$(TRANS_INCLUDES) $(CONN_DEFINES) $(SOCK_DEFINES))
-LinkSourceFile(transport.c,$(TRANSCOMMSRC))
+SpecialCObjectRule(transport,$(ICONFIGFILES),$(CONN_DEFINES) $(SOCK_DEFINES))
 SpecialCObjectRule(osinit,$(ICONFIGFILES),$(ADM_DEFINES))
 SpecialCObjectRule(WaitFor,$(ICONFIGFILES),$(EXT_DEFINES))
 SpecialCObjectRule(io,$(ICONFIGFILES),$(EXT_DEFINES))
