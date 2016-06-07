@@ -23,7 +23,7 @@
  * This Xinerama implementation comes from the SiS driver which has
  * the following notice:
  */
-/* 
+/*
  * SiS driver main code
  *
  * Copyright (C) 2001-2005 by Thomas Winischhofer, Vienna, Austria.
@@ -184,7 +184,7 @@ static int
 RRXineramaScreenCount (ScreenPtr pScreen)
 {
     int	i, n;
-    
+
     n = 0;
     if (rrGetScrPriv (pScreen))
     {
@@ -219,7 +219,7 @@ ProcRRXineramaGetScreenCount(ClientPtr client)
     #endif
     if (rc != Success)
 	return rc;
-    
+
     rep.type = X_Reply;
     rep.length = 0;
     rep.sequenceNumber = client->sequence;
@@ -255,7 +255,7 @@ ProcRRXineramaGetScreenSize(ClientPtr client)
 
     pScreen = pWin->drawable.pScreen;
     pRoot = WindowTable[pScreen->myNum];
-    
+
     rep.type = X_Reply;
     rep.length = 0;
     rep.sequenceNumber = client->sequence;
@@ -311,7 +311,7 @@ ProcRRXineramaQueryScreens(ClientPtr client)
 	if (pScrPriv->numCrtcs == 0 || pScrPriv->numOutputs == 0)
 	    RRGetInfo (pScreen);
     }
-    
+
     rep.type = X_Reply;
     rep.sequenceNumber = client->sequence;
     rep.number = RRXineramaScreenCount (pScreen);
