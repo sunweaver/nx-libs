@@ -121,7 +121,6 @@ extern int InitClientPrivates(ClientPtr client);
 
 extern void Dispatch(void);
 
-char *ConnectionInfo;
 xConnSetupPrefix connSetupPrefix;
 
 extern FontPtr defaultFont;
@@ -719,7 +718,7 @@ AddScreen(
 #endif
     pScreen->ClipNotify = 0;	/* for R4 ddx compatibility */
     pScreen->CreateScreenResources = 0;
-    
+
 #ifdef DEBUG
     for (jNI = &pScreen->QueryBestSize; 
 	 jNI < (void (**) ()) &pScreen->SendGraphicsExpose;

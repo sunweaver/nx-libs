@@ -286,7 +286,7 @@ TraverseTree(register WindowPtr pWin, VisitWindowProcPtr func, void * data)
 int
 WalkTree(ScreenPtr pScreen, VisitWindowProcPtr func, void * data)
 {
-    return(TraverseTree(WindowTable[pScreen->myNum], func, data));
+    return(TraverseTree(pScreen->root, func, data));
 }
 
 /* hack for forcing backing store on all windows */
@@ -458,6 +458,8 @@ CreateRootWindow(ScreenPtr pScreen)
     screenIsSaved = SCREEN_SAVER_OFF;
 
     WindowTable[pScreen->myNum] = pWin;
+
+    pScreen->root = pWin;
 
     pWin->drawable.pScreen = pScreen;
     pWin->drawable.type = DRAWABLE_WINDOW;

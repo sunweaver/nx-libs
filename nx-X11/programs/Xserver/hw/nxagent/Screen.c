@@ -3798,7 +3798,7 @@ int nxagentAdjustRandRXinerama(ScreenPtr pScreen)
        * do this here it will be done implicitely later and add mode(s) to
        * our crtc(s)!
        */
-      rrgetinfo = RRGetInfo(pScreen);
+      rrgetinfo = RRGetInfo(pScreen, FALSE);
 
       fprintf(stderr, "nxagentAdjustRandRXinerama: RRGetInfo returned [%d]\n", rrgetinfo);
     }
