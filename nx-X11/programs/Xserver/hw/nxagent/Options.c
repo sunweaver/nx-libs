@@ -155,7 +155,8 @@ void nxagentInitOptions()
 
   nxagentOptions.ImageRateLimit = 0;
 
-  nxagentOptions.Xinerama = 0;
+  nxagentOptions.Xinerama = 1;
+
 }
 
 /*
