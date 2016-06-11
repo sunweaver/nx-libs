@@ -31,8 +31,8 @@
 
 #include "resource.h"
 
-extern RESTYPE	RegionResType;
-extern int	XFixesErrorBase;
+extern RESTYPE RegionResType;
+extern int XFixesErrorBase;
 
 #define VERIFY_REGION(pRegion, rid, client, mode) { \
     pRegion = SecurityLookupIDByType (client, rid, RegionResType, mode); \
@@ -48,7 +48,6 @@ extern int	XFixesErrorBase;
 }
 
 RegionPtr
-XFixesRegionCopy (RegionPtr pRegion);
+ XFixesRegionCopy(RegionPtr pRegion);
 
-
-#endif /* _XFIXES_H_ */
+#endif                          /* _XFIXES_H_ */
