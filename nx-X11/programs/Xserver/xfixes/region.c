@@ -75,10 +75,10 @@ ProcXFixesCreateRegion (ClientPtr client)
     int		things;
     RegionPtr	pRegion;
     REQUEST (xXFixesCreateRegionReq);
-    
+
     REQUEST_AT_LEAST_SIZE(xXFixesCreateRegionReq);
     LEGAL_NEW_RESOURCE (stuff->region, client);
-    
+
     things = (client->req_len << 2) - sizeof (xXFixesCreateRegionReq);
     if (things & 4)
 	return BadLength;
@@ -89,7 +89,7 @@ ProcXFixesCreateRegion (ClientPtr client)
 	return BadAlloc;
     if (!AddResource (stuff->region, RegionResType, (void *) pRegion))
 	return BadAlloc;
-    
+
     return(client->noClientException);
 }
 
@@ -98,7 +98,7 @@ SProcXFixesCreateRegion (ClientPtr client)
 {
     register int n;
     REQUEST(xXFixesCreateRegionReq);
-    
+
     swaps(&stuff->length, n);
     REQUEST_AT_LEAST_SIZE(xXFixesCreateRegionReq);
     swapl(&stuff->region, n);
@@ -131,10 +131,10 @@ ProcXFixesCreateRegionFromBitmap (ClientPtr client)
 
     if (!pRegion)
 	return BadAlloc;
-    
+
     if (!AddResource (stuff->region, RegionResType, (void *) pRegion))
 	return BadAlloc;
-    
+
     return(client->noClientException);
 }
 
@@ -158,7 +158,7 @@ ProcXFixesCreateRegionFromWindow (ClientPtr client)
     Bool	copy = TRUE;
     WindowPtr	pWin;
     REQUEST (xXFixesCreateRegionFromWindowReq);
-    
+
     REQUEST_SIZE_MATCH (xXFixesCreateRegionFromWindowReq);
     LEGAL_NEW_RESOURCE (stuff->region, client);
     pWin = (WindowPtr) LookupIDByType (stuff->window, RT_WINDOW);
@@ -198,7 +198,7 @@ ProcXFixesCreateRegionFromWindow (ClientPtr client)
 	return BadAlloc;
     if (!AddResource (stuff->region, RegionResType, (void *) pRegion))
 	return BadAlloc;
-    
+
     return(client->noClientException);
 }
 
@@ -226,7 +226,7 @@ ProcXFixesCreateRegionFromGC (ClientPtr client)
     LEGAL_NEW_RESOURCE (stuff->region, client);
 
     SECURITY_VERIFY_GC(pGC, stuff->gc, client, SecurityReadAccess);
-    
+
     switch (pGC->clientClipType) {
     case CT_PIXMAP:
 	pRegion = BitmapToRegion(pGC->pScreen, (PixmapPtr) pGC->clientClip);
@@ -242,10 +242,10 @@ ProcXFixesCreateRegionFromGC (ClientPtr client)
     default:
 	return BadImplementation;   /* assume sane server bits */
     }
-    
+
     if (!AddResource (stuff->region, RegionResType, (void *) pRegion))
 	return BadAlloc;
-    
+
     return(client->noClientException);
 }
 
@@ -275,7 +275,7 @@ ProcXFixesCreateRegionFromPicture (ClientPtr client)
 
     VERIFY_PICTURE(pPicture, stuff->picture, client, SecurityReadAccess,
 		   RenderErrBase + BadPicture);
-    
+
     switch (pPicture->clientClipType) {
     case CT_PIXMAP:
 	pRegion = BitmapToRegion(pPicture->pDrawable->pScreen,
@@ -291,10 +291,10 @@ ProcXFixesCreateRegionFromPicture (ClientPtr client)
     default:
 	return BadImplementation;   /* assume sane server bits */
     }
-    
+
     if (!AddResource (stuff->region, RegionResType, (void *) pRegion))
 	return BadAlloc;
-    
+
     return(client->noClientException);
 #else
     return BadRequest;
@@ -347,7 +347,7 @@ ProcXFixesSetRegion (ClientPtr client)
 
     REQUEST_AT_LEAST_SIZE(xXFixesSetRegionReq);
     VERIFY_REGION(pRegion, stuff->region, client, SecurityWriteAccess);
-    
+
     things = (client->req_len << 2) - sizeof (xXFixesCreateRegionReq);
     if (things & 4)
 	return BadLength;
@@ -383,10 +383,10 @@ ProcXFixesCopyRegion (ClientPtr client)
 {
     RegionPtr	pSource, pDestination;
     REQUEST (xXFixesCopyRegionReq);
-    
+
     VERIFY_REGION(pSource, stuff->source, client, SecurityReadAccess);
     VERIFY_REGION(pDestination, stuff->destination, client, SecurityWriteAccess);
-    
+
     if (!RegionCopy(pDestination, pSource))
 	return BadAlloc;
 
@@ -417,7 +417,7 @@ ProcXFixesCombineRegion (ClientPtr client)
     VERIFY_REGION(pSource1, stuff->source1, client, SecurityReadAccess);
     VERIFY_REGION(pSource2, stuff->source2, client, SecurityReadAccess);
     VERIFY_REGION(pDestination, stuff->destination, client, SecurityWriteAccess);
-    
+
     switch (stuff->xfixesReqType) {
     case X_XFixesUnionRegion:
 	if (!RegionUnion(pDestination, pSource1, pSource2))
@@ -432,8 +432,8 @@ ProcXFixesCombineRegion (ClientPtr client)
 	    ret = BadAlloc;
 	break;
     }
-    
-    if (ret == Success) 
+
+    if (ret == Success)
 	ret = client->noClientException;
     return ret;
 }
@@ -471,7 +471,7 @@ ProcXFixesInvertRegion (ClientPtr client)
 	bounds.x2 = MAXSHORT;
     else
 	bounds.x2 = stuff->x + stuff->width;
-    
+
     if ((int) stuff->y + (int) stuff->height > MAXSHORT)
 	bounds.y2 = MAXSHORT;
     else
@@ -549,7 +549,7 @@ SProcXFixesRegionExtents (ClientPtr client)
 {
     int n;
     REQUEST(xXFixesRegionExtentsReq);
-    
+
     swaps (&stuff->length, n);
     REQUEST_SIZE_MATCH(xXFixesRegionExtentsReq);
     swapl (&stuff->source, n);
@@ -574,7 +574,7 @@ ProcXFixesFetchRegion (ClientPtr client)
     pExtent = RegionExtents(pRegion);
     pBox = RegionRects (pRegion);
     nBox = RegionNumRects (pRegion);
-    
+
     reply = xalloc (sizeof (xXFixesFetchRegionReply) +
 		    nBox * sizeof (xRectangle));
     if (!reply)
@@ -642,7 +642,7 @@ ProcXFixesSetGCClipRegion (ClientPtr client)
 	if (!pRegion)
 	    return BadAlloc;
     }
-    
+
     vals[0] = stuff->xOrigin;
     vals[1] = stuff->yOrigin;
     DoChangeGC (pGC, GCClipXOrigin|GCClipYOrigin, vals, 0);
@@ -773,14 +773,14 @@ ProcXFixesSetPictureClipRegion (ClientPtr client)
     ScreenPtr		pScreen;
     PictureScreenPtr	ps;
     REQUEST(xXFixesSetPictureClipRegionReq);
-    
+
     REQUEST_SIZE_MATCH (xXFixesSetPictureClipRegionReq);
     VERIFY_PICTURE(pPicture, stuff->picture, client, SecurityWriteAccess,
 		   RenderErrBase + BadPicture);
     pScreen = pPicture->pDrawable->pScreen;
     ps = GetPictureScreen (pScreen);
     VERIFY_REGION_OR_NONE(pRegion, stuff->region, client, SecurityReadAccess);
-    
+
     return SetPictureClipRegion (pPicture, stuff->xOrigin, stuff->yOrigin,
 				 pRegion);
 #else
@@ -793,7 +793,7 @@ SProcXFixesSetPictureClipRegion (ClientPtr client)
 {
     int n;
     REQUEST(xXFixesSetPictureClipRegionReq);
-    
+
     swaps (&stuff->length, n);
     REQUEST_SIZE_MATCH (xXFixesSetPictureClipRegionReq);
     swapl (&stuff->picture, n);
@@ -817,7 +817,7 @@ ProcXFixesExpandRegion (ClientPtr client)
     REQUEST_SIZE_MATCH (xXFixesExpandRegionReq);
     VERIFY_REGION(pSource, stuff->source, client, SecurityReadAccess);
     VERIFY_REGION(pDestination, stuff->destination, client, SecurityWriteAccess);
-    
+
     nBoxes = RegionNumRects(pSource);
     pSrc = RegionRects(pSource);
     if (nBoxes)
@@ -840,7 +840,7 @@ ProcXFixesExpandRegion (ClientPtr client)
 	    RegionUnion(pDestination, pDestination, &r);
 	}
     }
-    if (ret == Success) 
+    if (ret == Success)
 	ret = client->noClientException;
     return ret;
 }

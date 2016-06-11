@@ -63,10 +63,10 @@ XFixesExtensionInit(void);
 /* Save set */
 int
 ProcXFixesChangeSaveSet(ClientPtr client);
-    
+
 int
 SProcXFixesChangeSaveSet(ClientPtr client);
-    
+
 /* Selection events */
 int
 ProcXFixesSelectSelectionInput (ClientPtr client);
@@ -83,7 +83,7 @@ XFixesSelectionInit (void);
 /* Cursor notification */
 Bool
 XFixesCursorInit (void);
-    
+
 int
 ProcXFixesSelectCursorInput (ClientPtr client);
 

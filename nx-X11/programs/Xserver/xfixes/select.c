@@ -59,7 +59,7 @@ XFixesSelectionCallback (CallbackListPtr *callbacks, void * data, void * args)
     Selection		*selection = info->selection;
     int			subtype;
     CARD32		eventMask;
-    
+
     switch (info->kind) {
     case SelectionSetOwner:
 	subtype = XFixesSetSelectionOwnerNotify;
@@ -78,7 +78,7 @@ XFixesSelectionCallback (CallbackListPtr *callbacks, void * data, void * args)
     }
     for (e = selectionEvents; e; e = e->next)
     {
-	if (e->selection == selection->selection && 
+	if (e->selection == selection->selection &&
 	    (e->eventMask & eventMask) &&
 	    !e->pClient->clientGone)
 	{
@@ -225,7 +225,7 @@ SProcXFixesSelectSelectionInput (ClientPtr client)
     swapl(&stuff->eventMask, n);
     return ProcXFixesSelectSelectionInput(client);
 }
-    
+
 void
 SXFixesSelectionNotifyEvent (xXFixesSelectionNotifyEvent *from,
 			     xXFixesSelectionNotifyEvent *to)
@@ -244,7 +244,7 @@ SelectionFreeClient (void * data, XID id)
 {
     SelectionEventPtr	old = (SelectionEventPtr) data;
     SelectionEventPtr	*prev, e;
-    
+
     for (prev = &selectionEvents; (e = *prev); prev = &e->next)
     {
 	if (e == old)

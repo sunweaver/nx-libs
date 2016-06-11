@@ -210,7 +210,7 @@ static int
 GetBit (unsigned char *line, int x)
 {
     unsigned char   mask;
-    
+
     if (screenInfo.bitmapBitOrder == LSBFirst)
 	mask = (1 << (x & 7));
     else
@@ -233,7 +233,7 @@ SProcXFixesSelectCursorInput (ClientPtr client)
     swapl(&stuff->eventMask, n);
     return (*ProcXFixesVector[stuff->xfixesReqType]) (client);
 }
-    
+
 void
 SXFixesCursorNotifyEvent (xXFixesCursorNotifyEvent *from,
 			  xXFixesCursorNotifyEvent *to)
@@ -252,7 +252,7 @@ CopyCursorToImage (CursorPtr pCursor, CARD32 *image)
     int width = pCursor->bits->width;
     int height = pCursor->bits->height;
     int npixels = width * height;
-    
+
 #ifdef ARGB_CURSOR
     if (pCursor->bits->argb)
 	memcpy (image, pCursor->bits->argb, npixels * sizeof (CARD32));
@@ -265,11 +265,11 @@ CopyCursorToImage (CursorPtr pCursor, CARD32 *image)
 	int		x, y;
 	CARD32		fg, bg;
 	
-	fg = (0xff000000 | 
+	fg = (0xff000000 |
 	      ((pCursor->foreRed & 0xff00) << 8) |
 	      (pCursor->foreGreen & 0xff00) |
 	      (pCursor->foreBlue >> 8));
-	bg = (0xff000000 | 
+	bg = (0xff000000 |
 	      ((pCursor->backRed & 0xff00) << 8) |
 	      (pCursor->backGreen & 0xff00) |
 	      (pCursor->backBlue >> 8));
@@ -325,7 +325,7 @@ ProcXFixesGetCursorImage (ClientPtr client)
     rep->x = x;
     rep->y = y;
     rep->xhot = pCursor->bits->xhot;
-    rep->yhot = pCursor->bits->yhot; 
+    rep->yhot = pCursor->bits->yhot;
     rep->cursorSerial = pCursor->serialNumber;
 
     image = (CARD32 *) (rep + 1);
@@ -373,7 +373,7 @@ ProcXFixesSetCursorName (ClientPtr client)
     atom = MakeAtom (tchar, stuff->nbytes, TRUE);
     if (atom == BAD_RESOURCE)
 	return BadAlloc;
-    
+
     pCursor->name = atom;
     return(client->noClientException);
 }
@@ -407,7 +407,7 @@ ProcXFixesGetCursorName (ClientPtr client)
     else
 	str = "";
     len = strlen (str);
-    
+
     reply.type = X_Reply;
     reply.length = (len + 3) >> 2;
     reply.sequenceNumber = client->sequence;
@@ -423,7 +423,7 @@ ProcXFixesGetCursorName (ClientPtr client)
     }
     WriteReplyToClient(client, sizeof(xXFixesGetCursorNameReply), &reply);
     (void)WriteToClient(client, len, str);
-    
+
     return(client->noClientException);
 }
 
@@ -476,7 +476,7 @@ ProcXFixesGetCursorImageAndName (ClientPtr client)
     rep->x = x;
     rep->y = y;
     rep->xhot = pCursor->bits->xhot;
-    rep->yhot = pCursor->bits->yhot; 
+    rep->yhot = pCursor->bits->yhot;
     rep->cursorSerial = pCursor->serialNumber;
     rep->cursorName = pCursor->name;
     rep->nbytes = nbytes;
@@ -588,8 +588,8 @@ ReplaceCursor (CursorPtr pCursor,
     int	clientIndex;
     int resIndex;
     ReplaceCursorLookupRec  rcl;
-    
-    /* 
+
+    /*
      * Cursors exist only in the resource database, windows and grabs.
      * All of these are always pointed at by the resource database.  Walk
      * the whole thing looking for cursors
@@ -609,8 +609,8 @@ ReplaceCursor (CursorPtr pCursor,
 	    /*
 	     * This function walks the entire client resource database
 	     */
-	    LookupClientResourceComplex (clients[clientIndex], 
-					 rcl.type, 
+	    LookupClientResourceComplex (clients[clientIndex],
+					 rcl.type,
 					 ReplaceCursorLookup,
 					 (void *) &rcl);
 	}
@@ -619,7 +619,7 @@ ReplaceCursor (CursorPtr pCursor,
     WindowHasNewCursor (WindowTable[0]);
 }
 
-static Bool 
+static Bool
 TestForCursor (CursorPtr pCursor, void * closure)
 {
     return (pCursor == (CursorPtr) closure);
@@ -693,7 +693,7 @@ CursorFreeClient (void * data, XID id)
 {
     CursorEventPtr	old = (CursorEventPtr) data;
     CursorEventPtr	*prev, e;
-    
+
     for (prev = &cursorEvents; (e = *prev); prev = &e->next)
     {
 	if (e == old)
@@ -727,7 +727,7 @@ Bool
 XFixesCursorInit (void)
 {
     int	i;
-    
+
     if (CursorGeneration != serverGeneration)
     {
 	CursorScreenPrivateIndex = AllocateScreenPrivateIndex ();

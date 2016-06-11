@@ -35,7 +35,7 @@ ProcXFixesChangeSaveSet(ClientPtr client)
     int		result;
     WindowPtr	pWin;
     REQUEST(xXFixesChangeSaveSetReq);
-		  
+		
     REQUEST_SIZE_MATCH(xXFixesChangeSaveSetReq);
     pWin = (WindowPtr)SecurityLookupWindow(stuff->window, client,
 					   SecurityReadAccess);

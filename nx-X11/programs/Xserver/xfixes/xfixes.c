@@ -51,7 +51,7 @@ ProcXFixesQueryVersion(ClientPtr client)
 	rep.minorVersion = stuff->minorVersion;
     } else {
 	rep.majorVersion = XFIXES_MAJOR;
-	if (stuff->majorVersion == XFIXES_MAJOR && 
+	if (stuff->majorVersion == XFIXES_MAJOR &&
 	    stuff->minorVersion < XFIXES_MINOR)
 	    rep.minorVersion = stuff->minorVersion;
 	else
@@ -78,7 +78,7 @@ static const int version_requests[] = {
 };
 
 #define NUM_VERSION_REQUESTS	(sizeof (version_requests) / sizeof (version_requests[0]))
-    
+
 int	(*ProcXFixesVector[XFixesNumberRequests])(ClientPtr) = {
 /*************** Version 1 ******************/
     ProcXFixesQueryVersion,
@@ -209,14 +209,14 @@ XFixesExtensionInit(void)
     ExtensionEntry *extEntry;
 
     XFixesClientPrivateIndex = AllocateClientPrivateIndex ();
-    if (!AllocateClientPrivate (XFixesClientPrivateIndex, 
+    if (!AllocateClientPrivate (XFixesClientPrivateIndex,
 				sizeof (XFixesClientRec)))
 	return;
     if (!AddCallback (&ClientStateCallback, XFixesClientCallback, 0))
 	return;
 
     if (XFixesSelectionInit() && XFixesCursorInit () && XFixesRegionInit () &&
-	(extEntry = AddExtension(XFIXES_NAME, XFixesNumberEvents, 
+	(extEntry = AddExtension(XFIXES_NAME, XFixesNumberEvents,
 				 XFixesNumberErrors,
 				 ProcXFixesDispatch, SProcXFixesDispatch,
 				 XFixesResetProc, StandardMinorOpcode)) != 0)
