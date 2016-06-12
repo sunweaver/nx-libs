@@ -44,6 +44,7 @@ in this Software without prior written authorization from The Open Group.
 #include "dixstruct.h"
 #include "resource.h"
 #include "opaque.h"
+#include "protocol-versions.h"
 #define _SHAPE_SERVER_	/* don't want Xlib structures */
 #include <nx-X11/extensions/shapestr.h>
 #include "regionstr.h"
@@ -296,8 +297,8 @@ ProcShapeQueryVersion (client)
     rep.type = X_Reply;
     rep.length = 0;
     rep.sequenceNumber = client->sequence;
-    rep.majorVersion = SHAPE_MAJOR_VERSION;
-    rep.minorVersion = SHAPE_MINOR_VERSION;
+    rep.majorVersion = SERVER_SHAPE_MAJOR_VERSION;
+    rep.minorVersion = SERVER_SHAPE_MINOR_VERSION;
     if (client->swapped) {
     	swaps(&rep.sequenceNumber, n);
     	swapl(&rep.length, n);

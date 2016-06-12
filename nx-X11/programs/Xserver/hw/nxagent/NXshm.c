@@ -82,6 +82,7 @@ in this Software without prior written authorization from The Open Group.
 #ifdef EXTMODULE
 #include "xf86_ansic.h"
 #endif
+#include "protocol-versions.h"
 
 #ifdef PANORAMIX
 #include "panoramiX.h"
@@ -407,8 +408,8 @@ ProcShmQueryVersion(client)
     rep.sequenceNumber = client->sequence;
     rep.sharedPixmaps = sharedPixmaps;
     rep.pixmapFormat = pixmapFormat;
-    rep.majorVersion = SHM_MAJOR_VERSION;
-    rep.minorVersion = SHM_MINOR_VERSION;
+    rep.majorVersion = SERVER_SHM_MAJOR_VERSION;
+    rep.minorVersion = SERVER_SHM_MINOR_VERSION;
     rep.uid = geteuid();
     rep.gid = getegid();
     if (client->swapped) {
