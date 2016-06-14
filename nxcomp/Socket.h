@@ -85,4 +85,7 @@ inline int GetBytesReadable(int fd, int *readable)
 
 int GetHostAddress(const char *name);
 
+bool IsPort(char *value, long int *port);
+bool GetUnixSocketPath(char* value, char **unixPath, char* defaultUnixPath);
+
 #endif /* Socket_H */

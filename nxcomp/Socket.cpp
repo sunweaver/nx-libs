@@ -35,6 +35,8 @@
 #include <netdb.h>
 #include <fcntl.h>
 
+#include <stdlib.h>
+
 //
 // System specific defines.
 //
@@ -742,4 +744,60 @@ int GetHostAddress(const char *name)
   {
     return (*((int *) host -> h_addr_list[0]));
   }
+}
+
+bool IsPort(char *value, long *port)
+{
+  if (port)
+    *port = 0;
+
+  long p = -1;
+
+  if (value) {
+    char *end;
+    p = strtol(value, &end, 10);
+    if ((end == value) || (*end != '\0'))
+      return false;
+  }
+
+  if (port)
+    *port = p;
+
+  return true;
+}
+
+bool GetUnixSocketPath(char* value, char **unixPath, char* defaultUnixPath)
+{
+
+  if (unixPath) *unixPath = 0;
+
+  long p;
+  char *path = NULL;
+
+  if (IsPort(value, &p)) {
+
+    /*
+     * port "1" has a special meaning:
+     * -> use default port
+     */
+
+    if (p != 1) return false;
+
+  }
+  else if (value && (strncmp("unix:", value, 5) == 0)) {
+    path = value + 5;
+  }
+  else
+    return false;
+
+  if (!path || (*path == '\0')) {
+    path = defaultUnixPath;
+    if (!path)
+      return false;
+  }
+
+  if (unixPath)
+    *unixPath = strdup(path);
+
+  return true;
 }
