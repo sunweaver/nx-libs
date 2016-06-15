@@ -448,7 +448,7 @@ static int AcceptConnection(int fd, int domain, const char *label);
 // Other convenience functions.
 //
 
-static int WaitForRemote(int portNum);
+static int WaitForRemote(char* socketAddress);
 static int ConnectToRemote(const char *const hostName, int portNum);
 
 static int SendProxyOptions(int fd);
@@ -963,9 +963,18 @@ static sockaddr *xServerAddr          = NULL;
 static unsigned int xServerAddrLength = 0;
 
 //
-// The port where the local proxy will await
-// the peer connection or where the remote
-// proxy will be contacted.
+// The representation of a Unix socket path or TCP port,
+// denoting where the local proxy will await the peer
+// connection.
+//
+
+static char listenSocket[DEFAULT_STRING_LENGTH] = { 0 };
+
+//
+// The TCP port where the local proxy will await
+// the peer connection or where the remote proxy
+// will be contacted. These options get only set
+// if TCP is used for the connection setup.
 //
 
 static int listenPort  = -1;
@@ -3355,6 +3364,9 @@ int InitBeforeNegotiation()
 
 int SetupProxyConnection()
 {
+
+  char socketPath[108] = { 0 };
+
   if (proxyFD == -1)
   {
     if (WE_INITIATE_CONNECTION)
@@ -3381,17 +3393,32 @@ int SetupProxyConnection()
     }
     else
     {
-      if (listenPort < 0)
+
+      if (GetUnixSocketPath(listenSocket, (char**)&socketPath, NULL))
       {
-        listenPort = DEFAULT_NX_PROXY_PORT_OFFSET + proxyPort;
+        #ifdef TEST
+        *logofs << "Loop: Going to wait for connection on socket path " 
+                << socketPath << ".\n" << logofs_flush;
+        #else
+        ;
+        #endif
+      }
+      else
+      {
+
+        if (listenPort < 0)
+        {
+          listenPort = DEFAULT_NX_PROXY_PORT_OFFSET + proxyPort;
+        }
+        sprintf(listenSocket, "%d", listenPort);
+
+        #ifdef TEST
+        *logofs << "Loop: Going to wait for connection on port " 
+                << listenPort << ".\n" << logofs_flush;
+        #endif
       }
 
-      #ifdef TEST
-      *logofs << "Loop: Going to wait for connection on port " 
-              << listenPort << ".\n" << logofs_flush;
-      #endif
-
-      proxyFD = WaitForRemote(listenPort);
+      proxyFD = WaitForRemote(listenSocket);
 
       #ifdef TEST
 
@@ -6592,13 +6619,13 @@ void ResetTimer()
 }
 
 //
-// Open TCP socket to listen for remote proxy and
-// block until remote connects. If successful close
-// the listening socket and return FD on which the
-// other party is connected.
+// Open TCP or UNIX file socket to listen for remote proxy
+// and block until remote connects. If successful close
+// the listening socket and return FD on which the other
+// party is connected.
 //
 
-int WaitForRemote(int portNum)
+int WaitForRemote(char* socketAddress)
 {
   char hostLabel[DEFAULT_STRING_LENGTH] = { 0 };
 
@@ -6607,38 +6634,59 @@ int WaitForRemote(int portNum)
   int proxyFD = -1;
   int newFD   = -1;
 
-  //
-  // Get IP address of host to be awaited.
-  //
+  long portNum = -1;
+  char unixPath[DEFAULT_STRING_LENGTH] = { 0 };
 
   int acceptIPAddr = 0;
 
-  if (*acceptHost != '\0')
+  if (GetUnixSocketPath(socketAddress, (char**)&unixPath, NULL))
   {
-    acceptIPAddr = GetHostAddress(acceptHost);
 
-    if (acceptIPAddr == 0)
+    /* FIXME: do path existence and permission checks here */
+
+    proxyFD = ListenConnectionUnix(unixPath, "NX");
+
+  }
+  else if (IsPort(socketAddress, &portNum))
+  {
+
+    //
+    // Get IP address of host to be awaited.
+    //
+
+    if (*acceptHost != '\0')
     {
-      #ifdef PANIC
-      *logofs << "Loop: PANIC! Cannot accept connections from unknown host '"
-              << acceptHost << "'.\n" << logofs_flush;
-      #endif
+      acceptIPAddr = GetHostAddress(acceptHost);
 
-      cerr << "Error" << ": Cannot accept connections from unknown host '"
-           << acceptHost << "'.\n";
+      if (acceptIPAddr == 0)
+      {
+        #ifdef PANIC
+        *logofs << "Loop: PANIC! Cannot accept connections from unknown host '"
+                << acceptHost << "'.\n" << logofs_flush;
+        #endif
 
-      goto WaitForRemoteError;
+        cerr << "Error" << ": Cannot accept connections from unknown host '"
+             << acceptHost << "'.\n";
+
+        goto WaitForRemoteError;
+      }
+      strcpy(hostLabel, "any host");
     }
-    strcpy(hostLabel, "any host");
+    else
+    {
+      snprintf(hostLabel, sizeof(hostLabel), "'%s'", acceptHost);
+    }
+
+    proxyFD = ListenConnectionTCP(((loopbackBind || (control->ProxyMode == proxy_server)) ? "localhost" : "*"),
+                                  portNum, "NX");
   }
   else
   {
-    snprintf(hostLabel, sizeof(hostLabel), "'%s'", acceptHost);
+        cerr << "Error" << ": Socket address string " << socketAddress
+             << "is neither TCP port nor Unix socket file path.\n";
+
+        goto WaitForRemoteError;
   }
-
-  proxyFD = ListenConnectionTCP(((loopbackBind || (control->ProxyMode == proxy_server)) ? "localhost" : "*"),
-                                portNum, "NX");
-
   #ifdef TEST
   *logofs << "Loop: Waiting for connection from "
           << hostLabel  << " on port '" << portNum
@@ -8334,7 +8382,33 @@ int ParseEnvironmentOptions(const char *env, int force)
         return -1;
       }
 
-      listenPort = ValidateArg("local", name, value);
+      /* Can be a string representation of a TCP port number or a file system
+       * path to a UNIX socket file.
+       */
+      if (GetUnixSocketPath(value, NULL, NULL))
+
+        strncpy(listenSocket, value, DEFAULT_STRING_LENGTH - 1);
+
+      else if (IsPort(value, NULL)) {
+
+        strncpy(listenSocket, value, DEFAULT_STRING_LENGTH - 1);
+        listenPort = ValidateArg("local", name, value);
+
+      }
+      else
+      {
+
+        #ifdef PANIC
+        *logofs << "Loop: PANIC! Given value '" << value << "' for 'listen' parameter "
+                << "is neither TCP port nor Unix socket file path.\n" << logofs_flush;
+        #endif
+
+        cerr << "Error" << ": Given value '" << value << "' for 'listen' parameter "
+                << "is neither TCP port nor Unix socket file path.\n" << logofs_flush;
+
+        return -1;
+
+      }
     }
     else if (strcasecmp(name, "loopback") == 0)
     {
