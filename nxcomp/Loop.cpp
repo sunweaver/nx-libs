@@ -440,7 +440,7 @@ static int SetupDisplaySocket(int &xServerAddrFamily, sockaddr *&xServerAddr,
 
 static int ListenConnection(ChannelEndPoint &endPoint, const char *label);
 static int ListenConnectionTCP(const char *host, long port, const char *label);
-static int ListenConnectionUnix(const char *unixPath, const char *label);
+static int ListenConnectionUnix(const char *path, const char *label);
 static int ListenConnectionAny(sockaddr *addr, socklen_t addrlen, const char *label);
 static int AcceptConnection(int fd, int domain, const char *label);
 
