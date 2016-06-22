@@ -20,27 +20,29 @@ XCOMM $XFree86: xc/lib/Xext/Imakefile,v 1.12 2002/10/16 00:37:27 dawes Exp $
 REQUIREDLIBS = SharedXextReqs
 #endif
 
-#if HasShm
-      SHMSRCS = XShm.c
-      SHMOBJS = XShm.o
-#endif
-
 #if Malloc0ReturnsNull
 ALLOC_DEFINES = Malloc0ReturnsNullDefines
 #endif
 
+         NULL =
       DEFINES = $(ALLOC_DEFINES)
      INCLUDES = -I$(XLIBSRC)
-         SRCS = globals.c extutil.c XShape.c $(SHMSRCS)  \
-		XTestExt1.c XSync.c \
-		XSecurity.c DPMS.c
-         OBJS = globals.o extutil.o XShape.o $(SHMOBJS) \
-		XTestExt1.o XSync.o \
-		XSecurity.o DPMS.o
+         SRCS =					\
+                globals.c			\
+                extutil.c			\
+                XShape.c			\
+                XShm.c				\
+                $(NULL)
+
+         OBJS =					\
+                globals.o			\
+                extutil.o			\
+                XShape.o			\
+                XShm.o				\
+                $(NULL)
+
      LINTLIBS = $(LINTXLIB)
 
 #include <Library.tmpl>
-
-LinkFile(ImUtil.h,$(XLIBSRC)/ImUtil.h)
 
 DependTarget()
