@@ -2284,7 +2284,7 @@ void nxagentAddGlyphs(GlyphSetPtr glyphSet, Glyph *gids, xGlyphInfo *gi,
 
   if (normalizedImages != images)
   {
-    xfree(normalizedImages);
+    free(normalizedImages);
   }
 
   #ifdef DEBUG

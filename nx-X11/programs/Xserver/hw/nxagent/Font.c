@@ -196,11 +196,11 @@ void nxagentFreeFontCache(void)
       nxagentFreeFont(CACHE_FSTRUCT(i));
     }
 
-    xfree(CACHE_NAME(i));
-    xfree(CACHE_ENTRY(i));
+    free(CACHE_NAME(i));
+    free(CACHE_ENTRY(i));
   }
 
-  xfree(CACHE_ENTRY_PTR);
+  free(CACHE_ENTRY_PTR);
   CACHE_ENTRY_PTR = NULL;
   CACHE_INDEX = 0;
   CACHE_SIZE = 0;
@@ -364,10 +364,10 @@ static void nxagentFreeRemoteFontList(nxagentFontList *listRec)
   {
     if (listRec -> list[l])
     {
-      xfree(listRec -> list[l] -> name);
+      free(listRec -> list[l] -> name);
       listRec -> list[l] -> name = NULL;
 
-      xfree(listRec -> list[l]);
+      free(listRec -> list[l]);
       listRec -> list[l] = NULL;
     }
   }
@@ -686,7 +686,7 @@ Bool nxagentUnrealizeFont(ScreenPtr pScreen, FontPtr pFont)
     if (nxagentFontPriv(pFont) -> mirrorID)
       FreeResource(nxagentFontPriv(pFont) -> mirrorID, RT_NONE);
 
-    xfree(nxagentFontPriv(pFont));
+    free(nxagentFontPriv(pFont));
     FontSetPrivate(pFont, nxagentFontPrivateIndex, NULL);
   }
 

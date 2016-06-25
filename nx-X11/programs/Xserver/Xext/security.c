@@ -331,7 +331,7 @@ SecurityDeleteAuthorization(
     }
 
     SecurityAudit("revoked authorization ID %d\n", pAuth->id);
-    xfree(pAuth);
+    free(pAuth);
     return Success;
 
 } /* SecurityDeleteAuthorization */
@@ -356,7 +356,7 @@ SecurityDeleteAuthorizationEventClient(
 		prev->next = pEventClient->next;
 	    else
 		pAuth->eventClients = pEventClient->next;
-	    xfree(pEventClient);
+	    free(pEventClient);
 	    return(Success);
 	}
 	prev = pEventClient;
@@ -533,7 +533,7 @@ SecurityEventSelectForAuthorization(
     if (!AddResource(pEventClient->resource, RTEventClient,
 		     (void *)pAuth))
     {
-	xfree(pEventClient);
+	free(pEventClient);
 	return BadAlloc;
     }
     pAuth->eventClients = pEventClient;
@@ -734,7 +734,7 @@ bailout:
     if (removeAuth)
 	RemoveAuthorization(stuff->nbytesAuthProto, protoname,
 			    authdata_len, pAuthdata);
-    if (pAuth) xfree(pAuth);
+    if (pAuth) free(pAuth);
     return err;
 
 } /* ProcSecurityGenerateAuthorization */
@@ -1486,7 +1486,7 @@ SecurityFreePropertyAccessList(void)
     {
 	PropertyAccessPtr freeit = PropertyAccessList;
 	PropertyAccessList = PropertyAccessList->next;
-	xfree(freeit);
+	free(freeit);
     }
 } /* SecurityFreePropertyAccessList */
 

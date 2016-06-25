@@ -1487,7 +1487,7 @@ int nxagentInitClipboard(WindowPtr pWin)
 
   if (lastSelectionOwner != NULL)
   {
-    xfree(lastSelectionOwner);
+    free(lastSelectionOwner);
     lastSelectionOwner = NULL;
   }
 
