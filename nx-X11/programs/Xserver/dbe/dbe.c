@@ -176,7 +176,7 @@ DbeAllocWinPriv(pScreen)
     register int		i;
 
     pDbeScreenPriv = DBE_SCREEN_PRIV(pScreen);
-    pDbeWindowPriv = (DbeWindowPrivPtr)xalloc(pDbeScreenPriv->totalWinPrivSize);
+    pDbeWindowPriv = (DbeWindowPrivPtr)malloc(pDbeScreenPriv->totalWinPrivSize);
 
     if (pDbeWindowPriv)
     {
@@ -932,7 +932,7 @@ ProcDbeGetVisualInfo(client)
     }
 
     count = (stuff->n == 0) ? screenInfo.numScreens : stuff->n;
-    if (!(pScrVisInfo = (XdbeScreenVisualInfo *)xalloc(count *
+    if (!(pScrVisInfo = (XdbeScreenVisualInfo *)malloc(count *
                         sizeof(XdbeScreenVisualInfo))))
     {
         if (pDrawables)

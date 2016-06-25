@@ -1002,7 +1002,7 @@ RecordInstallHooks(pRCAP, oneclient)
 		    RecordClientPrivatePtr pClientPriv;
 		    /* no Record proc vector; allocate one */
 		    pClientPriv = (RecordClientPrivatePtr)
-				xalloc(sizeof(RecordClientPrivateRec));
+				malloc(sizeof(RecordClientPrivateRec));
 		    if (!pClientPriv)
 			return BadAlloc;
 		    /* copy old proc vector to new */
@@ -1238,7 +1238,7 @@ RecordAddClientToRCAP(pRCAP, clientspec)
 	}
 	else
 	{
-	    XID *pNewIDs = (XID *)xalloc((pRCAP->sizeClients +
+	    XID *pNewIDs = (XID *)malloc((pRCAP->sizeClients +
 				CLIENT_ARRAY_GROWTH_INCREMENT) * sizeof(XID));
 	    if (!pNewIDs)
 		return;
@@ -1380,7 +1380,7 @@ RecordCanonicalizeClientSpecifiers(pClientspecs, pNumClientspecs, excludespec)
 	    pClientspecs[i] == XRecordCurrentClients)
 	{ /* expand All/Current */
 	    int j, nc;
-	    XID *pCanon = (XID *)xalloc(sizeof(XID) * (currentMaxClients + 1));
+	    XID *pCanon = (XID *)malloc(sizeof(XID) * (currentMaxClients + 1));
 	    if (!pCanon) return NULL;
 	    for (nc = 0, j = 1; j < currentMaxClients; j++)
 	    {
@@ -1599,7 +1599,7 @@ RecordAllocIntervals(psi, nIntervals)
 {
     assert(!psi->intervals);
     psi->intervals = (RecordSetInterval *)
-			xalloc(nIntervals * sizeof(RecordSetInterval));
+			malloc(nIntervals * sizeof(RecordSetInterval));
     if (!psi->intervals)
 	return BadAlloc;
     bzero(psi->intervals, nIntervals * sizeof(RecordSetInterval));
@@ -1865,7 +1865,7 @@ RecordRegisterClients(pContext, client, stuff)
 
     /* allocate memory for the whole RCAP */
 
-    pRCAP = (RecordClientsAndProtocolPtr)xalloc(totRCAPsize);
+    pRCAP = (RecordClientsAndProtocolPtr)malloc(totRCAPsize);
     if (!pRCAP) 
     {
 	err = BadAlloc;
@@ -2030,7 +2030,7 @@ ProcRecordCreateContext(client)
     REQUEST_AT_LEAST_SIZE(xRecordCreateContextReq);
     LEGAL_NEW_RESOURCE(stuff->context, client);
 
-    pContext = (RecordContextPtr)xalloc(sizeof(RecordContextRec));
+    pContext = (RecordContextPtr)malloc(sizeof(RecordContextRec));
     if (!pContext)
 	goto bailout;
 

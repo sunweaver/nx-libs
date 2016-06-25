@@ -299,10 +299,10 @@ extern void *	XkbLastRepeatEvent;
 extern CARD32	xkbDebugFlags;
 extern CARD32	xkbDebugCtrls;
 
-#define	_XkbAlloc(s)		xalloc((s))
+#define	_XkbAlloc(s)		malloc((s))
 #define	_XkbCalloc(n,s)		Xcalloc((n)*(s))
 #define	_XkbRealloc(o,s)	Xrealloc((o),(s))
-#define	_XkbTypedAlloc(t)	((t *)xalloc(sizeof(t)))
+#define	_XkbTypedAlloc(t)	((t *)malloc(sizeof(t)))
 #define	_XkbTypedCalloc(n,t)	((t *)Xcalloc((n)*sizeof(t)))
 #define	_XkbTypedRealloc(o,n,t) \
 	((o)?(t *)Xrealloc((o),(n)*sizeof(t)):_XkbTypedCalloc(n,t))

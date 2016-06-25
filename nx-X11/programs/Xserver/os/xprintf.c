@@ -1,5 +1,5 @@
 /* 
- * printf routines which xalloc their buffer
+ * printf routines which malloc their buffer
  */ 
 /*
  * Copyright (c) 2004 Alexander Gottwald
