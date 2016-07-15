@@ -3409,7 +3409,6 @@ License: Expat
  FIXME
 
 Files: nx-X11/programs/Xserver/randr/mirandr.c
- nx-X11/programs/Xserver/randr/randrproto.h
  nx-X11/programs/Xserver/randr/randrstr.h
 Copyright: 2000, Compaq Computer Corporation
   2002, Hewlett-Packard Company
@@ -3605,13 +3604,6 @@ Files: nx-X11/lib/X11/lcUTF8.c
  nx-X11/lib/X11/lcUTF8Load.c
 Copyright: 1993, SunSoft, Inc
   1999-2000, Bruno Haible
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/include/extensions/randr.h
- nx-X11/lib/Xrandr/Xrandrint.h
-Copyright: 2000, Compaq Computer Corporation
-  2002, Hewlett Packard, Inc
 License: UNKNOWN
  FIXME
 
@@ -4047,24 +4039,11 @@ Copyright: 1991, 1998 The Open Group
 License: UNKNOWN
  FIXME
 
-Files: nx-X11/programs/Xserver/randr/randr.h
-Copyright: 2000, Compaq Computer Corporation
-  2002, Hewlett Packard Company
-  2006, Intel Corporation
-License: UNKNOWN
- FIXME
-
 Files: nx-X11/programs/Xserver/hw/nxagent/NXxrandrint.h
 Copyright: 2000, Compaq Computer Corporation
   2001, 2011 NoMachine, http://www.nomachine.com/. */
   2002, Hewlett Packard, Inc
   of NoMachine. Redistribution and use of the present */
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/include/extensions/randrproto.h
-Copyright: 2000, Compaq Computer Corporation
-  2002, Hewlett-Packard Company
 License: UNKNOWN
  FIXME
 

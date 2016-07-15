@@ -530,8 +530,6 @@ rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 %{_includedir}/nx-X11/extensions/compositeproto.h
 %{_includedir}/nx-X11/extensions/dpmsstr.h
 %{_includedir}/nx-X11/extensions/panoramiXproto.h
-%{_includedir}/nx-X11/extensions/randr.h
-%{_includedir}/nx-X11/extensions/randrproto.h
 %{_includedir}/nx-X11/extensions/securstr.h
 %{_includedir}/nx-X11/extensions/syncstr.h
 %{_includedir}/nx-X11/extensions/xcmiscstr.h
