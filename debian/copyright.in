@@ -39,7 +39,6 @@ Files: nx-X11/config/imake/ccimake.c
  nx-X11/include/extensions/Xcupstr.h
  nx-X11/include/extensions/Xext.h
  nx-X11/include/extensions/Xinerama.h
- nx-X11/include/extensions/bigreqstr.h
  nx-X11/include/extensions/extutil.h
  nx-X11/include/extensions/lbximage.h
  nx-X11/include/extensions/mitmiscstr.h

@@ -545,7 +545,6 @@ rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 %{_includedir}/nx-X11/extensions/XI.h
 %{_includedir}/nx-X11/extensions/XIproto.h
 %{_includedir}/nx-X11/extensions/XResproto.h
-%{_includedir}/nx-X11/extensions/bigreqstr.h
 %{_includedir}/nx-X11/extensions/composite.h
 %{_includedir}/nx-X11/extensions/compositeproto.h
 %{_includedir}/nx-X11/extensions/damagewire.h
