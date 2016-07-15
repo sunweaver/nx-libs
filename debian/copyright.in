@@ -3236,9 +3236,7 @@ Copyright: 1988-1990, 1994 Network Computing Devices, Inc
 License: UNKNOWN
  FIXME
 
-Files: nx-X11/include/extensions/XRes.h
- nx-X11/include/extensions/XResproto.h
- nx-X11/include/extensions/xf86dga.h
+Files: nx-X11/include/extensions/xf86dga.h
  nx-X11/lib/XRes/XRes.c
  nx-X11/programs/Xserver/Xext/xres.c
 Copyright: 1999, XFree86 Inc

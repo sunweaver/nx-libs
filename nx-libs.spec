@@ -525,7 +525,6 @@ rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 %{_includedir}/nx-X11/extensions/Xdbeproto.h
 %{_includedir}/nx-X11/extensions/XI.h
 %{_includedir}/nx-X11/extensions/XIproto.h
-%{_includedir}/nx-X11/extensions/XResproto.h
 %{_includedir}/nx-X11/extensions/dpmsstr.h
 %{_includedir}/nx-X11/extensions/panoramiXproto.h
 %{_includedir}/nx-X11/extensions/securstr.h
