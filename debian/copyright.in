@@ -4278,11 +4278,6 @@ Copyright: 1997, Matthieu Herrb
 License: UNKNOWN
  FIXME
 
-Files: nx-X11/include/Xarch.h
-Copyright: 1997, Metro Link Incorporated
-License: UNKNOWN
- FIXME
-
 Files: nx-X11/lib/xtrans/Xtranssock.c
 Copyright: 1993-1994, 1998 The Open Group
   1993-1994, NCR Corporation - Dayton, Ohio, USA
