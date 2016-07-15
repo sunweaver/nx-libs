@@ -1627,9 +1627,7 @@ Copyright: 1987, 1989 Digital Equipment Corporation, Maynard, Massachusetts
 License: UNKNOWN
  FIXME
 
-Files: nx-X11/include/extensions/composite.h
- nx-X11/include/extensions/compositeproto.h
- nx-X11/lib/Xcomposite/Xcomposite.c
+Files: nx-X11/lib/Xcomposite/Xcomposite.c
  nx-X11/lib/Xcomposite/Xcomposite.h
  nx-X11/lib/Xcomposite/xcompositeint.h
  nx-X11/lib/Xcursor/Xcursor.h
@@ -1690,11 +1688,6 @@ Files: nx-X11/include/extensions/composite.h
  nx-X11/programs/Xserver/fb/fbtrap.c
  nx-X11/programs/Xserver/fb/fbutil.c
  nx-X11/programs/Xserver/fb/fbwindow.c
- nx-X11/programs/Xserver/hw/nxagent/NXcomposite.c
- nx-X11/programs/Xserver/hw/nxagent/NXcomposite.h
- nx-X11/programs/Xserver/hw/nxagent/NXcompositeext.h
- nx-X11/programs/Xserver/hw/nxagent/NXcompositeint.h
- nx-X11/programs/Xserver/hw/nxagent/NXcompositeproto.h
  nx-X11/programs/Xserver/miext/damage/damage.c
  nx-X11/programs/Xserver/miext/damage/damage.h
  nx-X11/programs/Xserver/miext/damage/damagestr.h
