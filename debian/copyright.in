@@ -2869,8 +2869,6 @@ Files: nx-X11/include/extensions/XLbx.h
  nx-X11/include/extensions/lbxdeltastr.h
  nx-X11/include/extensions/lbxstr.h
  nx-X11/include/extensions/lbxzlib.h
- nx-X11/include/extensions/record.h
- nx-X11/include/extensions/recordstr.h
  nx-X11/lib/Xext/XLbx.c
  nx-X11/lib/font/fc/fsconvert.c
  nx-X11/lib/font/fc/fserve.h

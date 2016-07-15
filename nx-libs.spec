@@ -510,7 +510,6 @@ rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 %defattr(-,root,root)
 %dir %{_includedir}/nx-X11/extensions
 %{_includedir}/nx-X11/extensions/panoramiXext.h
-%{_includedir}/nx-X11/extensions/record.h
 %{_includedir}/nx-X11/misc.h
 %{_includedir}/nx-X11/os.h
 
@@ -533,7 +532,6 @@ rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 %{_includedir}/nx-X11/extensions/panoramiXproto.h
 %{_includedir}/nx-X11/extensions/randr.h
 %{_includedir}/nx-X11/extensions/randrproto.h
-%{_includedir}/nx-X11/extensions/recordstr.h
 %{_includedir}/nx-X11/extensions/render.h
 %{_includedir}/nx-X11/extensions/renderproto.h
 %{_includedir}/nx-X11/extensions/securstr.h
