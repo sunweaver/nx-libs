@@ -1342,7 +1342,6 @@ Files: nx-X11/config/util/aminstall.sh
  nx-X11/extras/Mesa/src/mesa/x86/rtasm/x86sse.c
  nx-X11/extras/Mesa/src/mesa/x86/rtasm/x86sse.h
  nx-X11/extras/Xpm/lib/Xpm-def.cpp
- nx-X11/include/Xw32defs.h
  nx-X11/include/extensions/XvMC.h
  nx-X11/include/extensions/XvMClib.h
  nx-X11/include/extensions/XvMCproto.h
