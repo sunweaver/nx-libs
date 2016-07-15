@@ -518,11 +518,7 @@ rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 %files -n nx-proto-devel
 %defattr(-,root,root)
 %dir %{_includedir}/nx-X11
-%{_includedir}/nx-X11/DECkeysym.h
-%{_includedir}/nx-X11/HPkeysym.h
-%{_includedir}/nx-X11/Sunkeysym.h
 %{_includedir}/nx-X11/X.h
-%{_includedir}/nx-X11/XF86keysym.h
 %{_includedir}/nx-X11/XWDFile.h
 %{_includedir}/nx-X11/Xalloca.h
 %{_includedir}/nx-X11/Xarch.h
@@ -537,9 +533,6 @@ rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 %{_includedir}/nx-X11/Xpoll.h
 %{_includedir}/nx-X11/Xproto.h
 %{_includedir}/nx-X11/Xprotostr.h
-%{_includedir}/nx-X11/ap_keysym.h
-%{_includedir}/nx-X11/keysym.h
-%{_includedir}/nx-X11/keysymdef.h
 %{_includedir}/nx-X11/extensions/Xdbeproto.h
 %{_includedir}/nx-X11/extensions/XI.h
 %{_includedir}/nx-X11/extensions/XIproto.h

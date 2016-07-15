@@ -1343,7 +1343,6 @@ Files: nx-X11/config/util/aminstall.sh
  nx-X11/extras/Mesa/src/mesa/x86/rtasm/x86sse.c
  nx-X11/extras/Mesa/src/mesa/x86/rtasm/x86sse.h
  nx-X11/extras/Xpm/lib/Xpm-def.cpp
- nx-X11/include/XF86keysym.h
  nx-X11/include/Xatom.h
  nx-X11/include/Xw32defs.h
  nx-X11/include/extensions/XvMC.h
@@ -1505,16 +1504,12 @@ Copyright: *No copyright*
 License: UNKNOWN
  FIXME
 
-Files: nx-X11/include/DECkeysym.h
- nx-X11/include/HPkeysym.h
- nx-X11/include/X.h
+Files: nx-X11/include/X.h
  nx-X11/include/Xmd.h
  nx-X11/include/Xproto.h
  nx-X11/include/Xprotostr.h
  nx-X11/include/extensions/sync.h
  nx-X11/include/extensions/syncstr.h
- nx-X11/include/keysym.h
- nx-X11/include/keysymdef.h
  nx-X11/lib/X11/ErrDes.c
  nx-X11/lib/X11/GetDflt.c
  nx-X11/lib/X11/GetHints.c
@@ -4083,12 +4078,6 @@ Copyright: 1992, Vrije Universiteit, The Netherlands
 License: UNKNOWN
  FIXME
 
-Files: nx-X11/include/ap_keysym.h
-Copyright: 1987, Apollo Computer Inc., Chelmsford, Massachusetts
-  1989, Hewlett-Packard Company
-License: UNKNOWN
- FIXME
-
 Files: nx-X11/lib/X11/utf8WMProps.c
 Copyright: 1991, 1998 The Open Group
   2000, Bruno Haible
@@ -4385,13 +4374,6 @@ License: UNKNOWN
 
 Files: nx-X11/lib/X11/imInsClbk.c
 Copyright: 1993-1994, Sony Corporation
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/include/Sunkeysym.h
-Copyright: 1991, 1998 The Open Group
-  1991, Sun Microsystems, Inc. Mountain View, CA
-  no-
 License: UNKNOWN
  FIXME
 
