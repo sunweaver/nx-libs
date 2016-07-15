@@ -3299,14 +3299,6 @@ Copyright: 2003, Tungsten Graphics, inc
 License: Expat
  FIXME
 
-Files: nx-X11/include/extensions/saver.h
- nx-X11/include/extensions/saverproto.h
- nx-X11/include/extensions/scrnsaver.h
- nx-X11/programs/Xserver/Xext/saver.c
-Copyright: 1992, X Consortium
-License: Expat
- FIXME
-
 Files: nx-X11/lib/X11/TextExt.c
  nx-X11/lib/X11/TextExt16.c
  nx-X11/lib/X11/lcDynamic.c
