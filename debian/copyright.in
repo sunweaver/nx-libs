@@ -2363,9 +2363,7 @@ Copyright: 1989-95 GROUPE BULL
 License: Expat
  FIXME
 
-Files: nx-X11/include/extensions/render.h
- nx-X11/include/extensions/renderproto.h
- nx-X11/lib/Xrender/Composite.c
+Files: nx-X11/lib/Xrender/Composite.c
  nx-X11/lib/Xrender/FillRect.c
  nx-X11/lib/Xrender/FillRects.c
  nx-X11/lib/Xrender/Glyph.c
