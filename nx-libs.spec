@@ -518,7 +518,6 @@ rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 %defattr(-,root,root)
 %dir %{_includedir}/nx-X11
 %{_includedir}/nx-X11/XWDFile.h
-%{_includedir}/nx-X11/Xalloca.h
 %{_includedir}/nx-X11/Xfuncproto.h
 %{_includedir}/nx-X11/Xfuncs.h
 %{_includedir}/nx-X11/Xos.h
