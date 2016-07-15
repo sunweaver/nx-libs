@@ -517,7 +517,6 @@ rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 %files -n nx-proto-devel
 %defattr(-,root,root)
 %dir %{_includedir}/nx-X11
-%{_includedir}/nx-X11/X.h
 %{_includedir}/nx-X11/XWDFile.h
 %{_includedir}/nx-X11/Xalloca.h
 %{_includedir}/nx-X11/Xarch.h
@@ -525,13 +524,10 @@ rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 %{_includedir}/nx-X11/Xdefs.h
 %{_includedir}/nx-X11/Xfuncproto.h
 %{_includedir}/nx-X11/Xfuncs.h
-%{_includedir}/nx-X11/Xmd.h
 %{_includedir}/nx-X11/Xos.h
 %{_includedir}/nx-X11/Xos_r.h
 %{_includedir}/nx-X11/Xosdefs.h
 %{_includedir}/nx-X11/Xpoll.h
-%{_includedir}/nx-X11/Xproto.h
-%{_includedir}/nx-X11/Xprotostr.h
 %{_includedir}/nx-X11/extensions/Xdbeproto.h
 %{_includedir}/nx-X11/extensions/XI.h
 %{_includedir}/nx-X11/extensions/XIproto.h
