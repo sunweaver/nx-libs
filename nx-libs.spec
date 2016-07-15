@@ -35,7 +35,7 @@ BuildRequires:  pkgconfig(xext)
 BuildRequires:  pkgconfig(xpm)
 BuildRequires:  pkgconfig(xfont)
 BuildRequires:  pkgconfig(xdmcp)
-BuildRequires:  pkgconfig(xdamage)
+BuildRequires:  pkgconfig(xdamag)
 BuildRequires:  pkgconfig(xcomposite)
 BuildRequires:  pkgconfig(xrandr)
 BuildRequires:  pkgconfig(xfixes)
@@ -547,8 +547,6 @@ rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 %{_includedir}/nx-X11/extensions/XResproto.h
 %{_includedir}/nx-X11/extensions/composite.h
 %{_includedir}/nx-X11/extensions/compositeproto.h
-%{_includedir}/nx-X11/extensions/damagewire.h
-%{_includedir}/nx-X11/extensions/damageproto.h
 %{_includedir}/nx-X11/extensions/dpmsstr.h
 %{_includedir}/nx-X11/extensions/panoramiXproto.h
 %{_includedir}/nx-X11/extensions/randr.h

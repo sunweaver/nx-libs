@@ -1642,8 +1642,6 @@ License: UNKNOWN
 
 Files: nx-X11/include/extensions/composite.h
  nx-X11/include/extensions/compositeproto.h
- nx-X11/include/extensions/damageproto.h
- nx-X11/include/extensions/damagewire.h
  nx-X11/lib/Xcomposite/Xcomposite.c
  nx-X11/lib/Xcomposite/Xcomposite.h
  nx-X11/lib/Xcomposite/xcompositeint.h
