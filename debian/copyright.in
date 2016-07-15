@@ -1342,7 +1342,6 @@ Files: nx-X11/config/util/aminstall.sh
  nx-X11/extras/Mesa/src/mesa/x86/rtasm/x86sse.c
  nx-X11/extras/Mesa/src/mesa/x86/rtasm/x86sse.h
  nx-X11/extras/Xpm/lib/Xpm-def.cpp
- nx-X11/include/Xatom.h
  nx-X11/include/Xw32defs.h
  nx-X11/include/extensions/XvMC.h
  nx-X11/include/extensions/XvMClib.h
@@ -3457,14 +3456,6 @@ Files: nx-X11/lib/font/Type1/fontfcn.c
  nx-X11/lib/font/Type1/util.c
 Copyright: 1994-1999, Silicon Graphics, Inc.
   International Business Machines,Corp. 1991
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/include/Xdefs.h
- nx-X11/include/fonts/fontproto.h
- nx-X11/programs/Xserver/Xext/xf86dga2.c
-Copyright: 1999, - The XFree86 Project Inc
-  1999, The XFree86 Project Inc
 License: UNKNOWN
  FIXME
 
