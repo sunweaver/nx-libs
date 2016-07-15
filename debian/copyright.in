@@ -2691,9 +2691,7 @@ Copyright: International Business Machines,Corp. 1991
 License: UNKNOWN
  FIXME
 
-Files: nx-X11/include/extensions/xfixesproto.h
- nx-X11/include/extensions/xfixeswire.h
- nx-X11/lib/Xfixes/Cursor.c
+Files: nx-X11/lib/Xfixes/Cursor.c
  nx-X11/lib/Xfixes/SaveSet.c
  nx-X11/lib/Xfixes/Selection.c
  nx-X11/lib/Xfixes/Xfixes.c
