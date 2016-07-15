@@ -19,7 +19,6 @@ Files: nx-X11/config/imake/ccimake.c
  nx-X11/config/util/makestrs.c
  nx-X11/config/util/mergelib.cpp
  nx-X11/config/util/mkdirhier.c
- nx-X11/include/XWDFile.h
  nx-X11/include/Xfuncproto.h
  nx-X11/include/Xfuncs.h
  nx-X11/include/Xos.h
