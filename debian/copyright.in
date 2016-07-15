@@ -47,7 +47,6 @@ Files: nx-X11/config/imake/ccimake.c
  nx-X11/include/extensions/securstr.h
  nx-X11/include/extensions/shmstr.h
  nx-X11/include/extensions/xcmiscstr.h
- nx-X11/include/extensions/xteststr.h
  nx-X11/lib/X11/AllCells.c
  nx-X11/lib/X11/AllPlanes.c
  nx-X11/lib/X11/AllowEv.c
@@ -3323,15 +3322,6 @@ Files: nx-X11/lib/X11/TextExt.c
 Copyright: 1989, 1998 The Open Group
   1995, FUJITSU LIMITED
   1996, 1998 The Open Group
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/include/extensions/xtestext1.h
- nx-X11/lib/Xext/XTestExt1.c
- nx-X11/programs/Xserver/Xext/xtest1dd.c
- nx-X11/programs/Xserver/Xext/xtest1di.c
-Copyright: 1986-1988, 1998 The Open Group
-  1986-1988, Hewlett-Packard Corporation
 License: UNKNOWN
  FIXME
 

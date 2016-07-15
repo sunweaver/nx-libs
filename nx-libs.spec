@@ -416,7 +416,6 @@ rm -r %{buildroot}%{_includedir}/nx-X11/extensions/*Xv*.h
 rm -r %{buildroot}%{_includedir}/nx-X11/extensions/dpms.h
 rm -r %{buildroot}%{_includedir}/nx-X11/extensions/security.h
 rm -r %{buildroot}%{_includedir}/nx-X11/extensions/sync.h
-rm -r %{buildroot}%{_includedir}/nx-X11/extensions/xtestext1.h
 rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 
 %if 0%{?fdupes:1}
@@ -553,8 +552,6 @@ rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 %{_includedir}/nx-X11/extensions/xf86bigfstr.h
 %{_includedir}/nx-X11/extensions/xfixesproto.h
 %{_includedir}/nx-X11/extensions/xfixeswire.h
-%{_includedir}/nx-X11/extensions/xtestconst.h
-%{_includedir}/nx-X11/extensions/xteststr.h
 
 %files -n nxagent
 %defattr(-,root,root)
