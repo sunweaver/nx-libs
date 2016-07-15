@@ -26,7 +26,6 @@ Files: nx-X11/config/imake/ccimake.c
  nx-X11/include/Xos.h
  nx-X11/include/Xos_r.h
  nx-X11/include/Xosdefs.h
- nx-X11/include/Xwindows.h
  nx-X11/include/extensions/MITMisc.h
  nx-X11/include/extensions/XShm.h
  nx-X11/include/extensions/XTest.h
