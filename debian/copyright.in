@@ -2976,9 +2976,7 @@ Copyright: International Business Machines, Corp. 1991
 License: UNKNOWN
  FIXME
 
-Files: nx-X11/include/extensions/Xdbe.h
- nx-X11/include/extensions/Xdbeproto.h
- nx-X11/lib/Xext/Xdbe.c
+Files: nx-X11/lib/Xext/Xdbe.c
  nx-X11/programs/Xserver/dbe/dbe.c
  nx-X11/programs/Xserver/dbe/dbestruct.h
  nx-X11/programs/Xserver/dbe/midbe.c
