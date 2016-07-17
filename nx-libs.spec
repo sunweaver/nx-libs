@@ -516,7 +516,6 @@ rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 %files -n nx-proto-devel
 %defattr(-,root,root)
 %dir %{_includedir}/nx-X11
-%{_includedir}/nx-X11/Xfuncs.h
 %{_includedir}/nx-X11/Xos_r.h
 %{_includedir}/nx-X11/Xpoll.h
 %{_includedir}/nx-X11/extensions/XI.h
