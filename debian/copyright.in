@@ -1627,7 +1627,6 @@ Files: nx-X11/extras/Mesa/include/GL/glext.h
  nx-X11/include/GL/glu.h
  nx-X11/include/GL/glx.h
  nx-X11/include/GL/glxmd.h
- nx-X11/include/GL/glxproto.h
  nx-X11/include/GL/glxtokens.h
  nx-X11/programs/Xserver/GL/glx/g_disptab.c
  nx-X11/programs/Xserver/GL/glx/g_disptab.h
