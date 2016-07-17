@@ -414,7 +414,6 @@ rm -r %{buildroot}%{_includedir}/nx-X11/extensions/XInput.h
 rm -r %{buildroot}%{_includedir}/nx-X11/extensions/XK*.h
 rm -r %{buildroot}%{_includedir}/nx-X11/extensions/*Xv*.h
 rm -r %{buildroot}%{_includedir}/nx-X11/extensions/security.h
-rm -r %{buildroot}%{_includedir}/nx-X11/extensions/sync.h
 rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 
 %if 0%{?fdupes:1}
@@ -514,7 +513,6 @@ rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 %defattr(-,root,root)
 %dir %{_includedir}/nx-X11
 %{_includedir}/nx-X11/Xpoll.h
-%{_includedir}/nx-X11/extensions/syncstr.h
 
 %files -n nxagent
 %defattr(-,root,root)

@@ -1335,9 +1335,7 @@ Copyright: *No copyright*
 License: UNKNOWN
  FIXME
 
-Files: nx-X11/include/extensions/sync.h
- nx-X11/include/extensions/syncstr.h
- nx-X11/lib/X11/ErrDes.c
+Files: nx-X11/lib/X11/ErrDes.c
  nx-X11/lib/X11/GetDflt.c
  nx-X11/lib/X11/GetHints.c
  nx-X11/lib/X11/GetStCmap.c
@@ -1358,6 +1356,7 @@ Files: nx-X11/include/extensions/sync.h
  nx-X11/lib/X11/imThaiFlt.c
  nx-X11/lib/X11/poly.h
  nx-X11/programs/Xserver/Xext/sync.c
+ nx-X11/programs/Xserver/Xext/syncsrv.h
  nx-X11/programs/Xserver/dix/atom.c
  nx-X11/programs/Xserver/dix/colormap.c
  nx-X11/programs/Xserver/dix/cursor.c
