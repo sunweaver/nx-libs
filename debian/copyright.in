@@ -1528,7 +1528,6 @@ License: UNKNOWN
 
 Files: nx-X11/include/extensions/XEVI.h
  nx-X11/include/extensions/XEVIstr.h
- nx-X11/include/extensions/XKB.h
  nx-X11/include/extensions/XKBgeom.h
  nx-X11/include/extensions/XKBproto.h
  nx-X11/include/extensions/XKBsrv.h
