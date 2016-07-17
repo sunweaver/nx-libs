@@ -35,7 +35,6 @@ Files: nx-X11/config/imake/ccimake.c
  nx-X11/include/extensions/multibuf.h
  nx-X11/include/extensions/multibufst.h
  nx-X11/include/extensions/security.h
- nx-X11/include/extensions/securstr.h
  nx-X11/include/extensions/shmstr.h
  nx-X11/lib/X11/AllCells.c
  nx-X11/lib/X11/AllPlanes.c

@@ -514,7 +514,6 @@ rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 %defattr(-,root,root)
 %dir %{_includedir}/nx-X11
 %{_includedir}/nx-X11/Xpoll.h
-%{_includedir}/nx-X11/extensions/securstr.h
 %{_includedir}/nx-X11/extensions/syncstr.h
 
 %files -n nxagent
