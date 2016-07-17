@@ -2439,9 +2439,7 @@ Copyright: 1999, Keith Whitwell
 License: Expat
  FIXME
 
-Files: nx-X11/include/extensions/panoramiXext.h
- nx-X11/include/extensions/panoramiXproto.h
- nx-X11/programs/Xserver/Xext/dpms.c
+Files: nx-X11/programs/Xserver/Xext/dpms.c
  nx-X11/programs/Xserver/Xext/dpmsstubs.c
  nx-X11/programs/Xserver/Xext/panoramiX.c
  nx-X11/programs/Xserver/Xext/panoramiX.h
