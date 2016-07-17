@@ -58,7 +58,7 @@ in this Software without prior written authorization from The Open Group.
 #endif
 #include <nx-X11/Xlibint.h>
 #include <nx-X11/Xtrans/Xtrans.h>
-#include <nx-X11/Xauth.h>
+#include <X11/Xauth.h>
 #include <X11/Xdmcp.h>
 #include <stdio.h>
 #include <ctype.h>

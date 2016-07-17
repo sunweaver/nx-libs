@@ -453,7 +453,6 @@ rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 %dir %{_includedir}/nx
 %dir %{_includedir}/nx-X11
 %{_includedir}/nx-X11/ImUtil.h
-%{_includedir}/nx-X11/Xauth.h
 %{_includedir}/nx-X11/XKBlib.h
 %{_includedir}/nx-X11/Xcms.h
 %{_includedir}/nx-X11/Xlib.h

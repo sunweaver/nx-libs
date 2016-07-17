@@ -16,11 +16,8 @@ GLXDIR = GL
 
 SUBDIRS = extensions $(GLXDIR)
 
-AU_HEADERS = Xauth.h
-
 HEADERS = \
 	Xpoll.h \
-	$(AU_HEADERS) \
 	$(NULL)
 
 all::

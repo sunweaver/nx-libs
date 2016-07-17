@@ -61,7 +61,7 @@ from The Open Group.
 #endif
 
 # include   <X11/X.h>
-# include   <nx-X11/Xauth.h>
+# include   <X11/Xauth.h>
 # include   "misc.h"
 # include   "osdep.h"
 # include   "dixstruct.h"

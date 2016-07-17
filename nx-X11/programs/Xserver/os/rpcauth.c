@@ -39,7 +39,7 @@ from The Open Group.
 #ifdef SECURE_RPC
 
 #include <X11/X.h>
-#include <nx-X11/Xauth.h>
+#include <X11/Xauth.h>
 #include "misc.h"
 #include "os.h"
 #include "dixstruct.h"

@@ -65,7 +65,7 @@ SOFTWARE.
 #include <stdio.h>
 #include <stdlib.h>
 #include <nx-X11/Xtrans/Xtrans.h>
-#include <nx-X11/Xauth.h>
+#include <X11/Xauth.h>
 #include <X11/X.h>
 #include <X11/Xproto.h>
 #include "misc.h"
