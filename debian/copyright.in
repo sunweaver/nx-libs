@@ -265,114 +265,6 @@ Files: nx-X11/config/imake/ccimake.c
  nx-X11/lib/X11/locking.h
  nx-X11/lib/X11/mbWMProps.c
  nx-X11/lib/X11/util/makekeys.c
- nx-X11/lib/Xau/AuDispose.c
- nx-X11/lib/Xau/AuFileName.c
- nx-X11/lib/Xau/AuGetAddr.c
- nx-X11/lib/Xau/AuGetBest.c
- nx-X11/lib/Xau/AuLock.c
- nx-X11/lib/Xau/AuRead.c
- nx-X11/lib/Xau/AuUnlock.c
- nx-X11/lib/Xau/AuWrite.c
- nx-X11/lib/Xau/Autest.c
- nx-X11/lib/Xau/Xauth.h
- nx-X11/lib/Xau/k5encode.c
- nx-X11/lib/Xdmcp/A8Eq.c
- nx-X11/lib/Xdmcp/AA16.c
- nx-X11/lib/Xdmcp/AA32.c
- nx-X11/lib/Xdmcp/AA8.c
- nx-X11/lib/Xdmcp/Alloc.c
- nx-X11/lib/Xdmcp/AofA8.c
- nx-X11/lib/Xdmcp/CA8.c
- nx-X11/lib/Xdmcp/CmpKey.c
- nx-X11/lib/Xdmcp/DA16.c
- nx-X11/lib/Xdmcp/DA32.c
- nx-X11/lib/Xdmcp/DA8.c
- nx-X11/lib/Xdmcp/DAofA8.c
- nx-X11/lib/Xdmcp/DecKey.c
- nx-X11/lib/Xdmcp/Fill.c
- nx-X11/lib/Xdmcp/Flush.c
- nx-X11/lib/Xdmcp/GenKey.c
- nx-X11/lib/Xdmcp/IncKey.c
- nx-X11/lib/Xdmcp/RA16.c
- nx-X11/lib/Xdmcp/RA32.c
- nx-X11/lib/Xdmcp/RA8.c
- nx-X11/lib/Xdmcp/RAofA8.c
- nx-X11/lib/Xdmcp/RC16.c
- nx-X11/lib/Xdmcp/RC32.c
- nx-X11/lib/Xdmcp/RC8.c
- nx-X11/lib/Xdmcp/RHead.c
- nx-X11/lib/Xdmcp/RR.c
- nx-X11/lib/Xdmcp/RaA16.c
- nx-X11/lib/Xdmcp/RaA32.c
- nx-X11/lib/Xdmcp/RaA8.c
- nx-X11/lib/Xdmcp/RaAoA8.c
- nx-X11/lib/Xdmcp/Unwrap.c
- nx-X11/lib/Xdmcp/WA16.c
- nx-X11/lib/Xdmcp/WA32.c
- nx-X11/lib/Xdmcp/WA8.c
- nx-X11/lib/Xdmcp/WAofA8.c
- nx-X11/lib/Xdmcp/WC16.c
- nx-X11/lib/Xdmcp/WC32.c
- nx-X11/lib/Xdmcp/WC8.c
- nx-X11/lib/Xdmcp/Whead.c
- nx-X11/lib/Xdmcp/Wrap.c
- nx-X11/lib/Xext/MITMisc.c
- nx-X11/lib/Xext/XAppgroup.c
- nx-X11/lib/Xext/XMultibuf.c
- nx-X11/lib/Xext/XSecurity.c
- nx-X11/lib/Xext/XShape.c
- nx-X11/lib/Xext/XShm.c
- nx-X11/lib/Xext/Xcup.c
- nx-X11/lib/Xext/extutil.c
- nx-X11/lib/Xext/globals.c
- nx-X11/lib/font/Speedo/bics-iso.h
- nx-X11/lib/font/Speedo/useropt.h
- nx-X11/lib/font/Type1/minimain.c
- nx-X11/lib/font/bitmap/bdfint.h
- nx-X11/lib/font/bitmap/bitmap.c
- nx-X11/lib/font/bitmap/bitmapfunc.c
- nx-X11/lib/font/bitmap/bitmaputil.c
- nx-X11/lib/font/bitmap/bitscale.c
- nx-X11/lib/font/bitmap/fontink.c
- nx-X11/lib/font/bitmap/pcf.h
- nx-X11/lib/font/bitmap/pcfread.c
- nx-X11/lib/font/bitmap/pcfwrite.c
- nx-X11/lib/font/fontfile/bitsource.c
- nx-X11/lib/font/fontfile/bufio.c
- nx-X11/lib/font/fontfile/defaults.c
- nx-X11/lib/font/fontfile/dirfile.c
- nx-X11/lib/font/fontfile/ffcheck.c
- nx-X11/lib/font/fontfile/fileio.c
- nx-X11/lib/font/fontfile/filewr.c
- nx-X11/lib/font/fontfile/fontdir.c
- nx-X11/lib/font/fontfile/fontfile.c
- nx-X11/lib/font/fontfile/fontscale.c
- nx-X11/lib/font/fontfile/printerfont.c
- nx-X11/lib/font/fontfile/register.c
- nx-X11/lib/font/fontfile/renderers.c
- nx-X11/lib/font/include/bitmap.h
- nx-X11/lib/font/include/bufio.h
- nx-X11/lib/font/include/fntfil.h
- nx-X11/lib/font/include/fntfilio.h
- nx-X11/lib/font/include/fntfilst.h
- nx-X11/lib/font/include/fontmisc.h
- nx-X11/lib/font/include/fontshow.h
- nx-X11/lib/font/include/fontxlfd.h
- nx-X11/lib/font/util/atom.c
- nx-X11/lib/font/util/fontaccel.c
- nx-X11/lib/font/util/fontnames.c
- nx-X11/lib/font/util/fontutil.c
- nx-X11/lib/font/util/fontxlfd.c
- nx-X11/lib/font/util/miscutil.c
- nx-X11/lib/font/util/patcache.c
- nx-X11/lib/font/util/private.c
- nx-X11/lib/font/util/utilbitmap.c
- nx-X11/lib/oldX/X10.h
- nx-X11/lib/oldX/XCrAssoc.c
- nx-X11/lib/oldX/XDelAssoc.c
- nx-X11/lib/oldX/XDestAssoc.c
- nx-X11/lib/oldX/XLookAssoc.c
- nx-X11/lib/oldX/XMakeAssoc.c
  nx-X11/programs/Xserver/Xext/appgroup.c
  nx-X11/programs/Xserver/Xext/bigreq.c
  nx-X11/programs/Xserver/Xext/cup.c
@@ -1409,50 +1301,6 @@ Files: nx-X11/config/util/aminstall.sh
  nx-X11/lib/X11/lcUniConv/utf8.h
  nx-X11/lib/X11/lcUniConv/viscii.h
  nx-X11/lib/X11/util/mkks.sh
- nx-X11/lib/XRes/XRes-def.cpp
- nx-X11/lib/XTrap/XTrap-def.cpp
- nx-X11/lib/Xcomposite/autogen.sh
- nx-X11/lib/Xcursor/Xcursor-def.cpp
- nx-X11/lib/Xcursor/autogen.sh
- nx-X11/lib/Xcursor/config.h
- nx-X11/lib/Xdamage/autogen.sh
- nx-X11/lib/Xdmcp/Wrap.h
- nx-X11/lib/Xdmcp/Wraphelp.c
- nx-X11/lib/Xext/Xext-def.cpp
- nx-X11/lib/Xfixes/Xfixes-def.cpp
- nx-X11/lib/Xfixes/autogen.sh
- nx-X11/lib/Xinerama/Xinerama-def.cpp
- nx-X11/lib/Xpm/Xpm-def.cpp
- nx-X11/lib/Xrandr/Xrandr-def.cpp
- nx-X11/lib/Xrandr/test.c
- nx-X11/lib/Xrender/Xrender-def.cpp
- nx-X11/lib/Xrender/autogen.sh
- nx-X11/lib/Xrender/config.h
- nx-X11/lib/Xtst/Xtst-def.cpp
- nx-X11/lib/font/Speedo/adobe-iso.h
- nx-X11/lib/font/Speedo/bics-unicode.h
- nx-X11/lib/font/fontfile/gunzip.c
- nx-X11/lib/font/include/fontmod.h
- nx-X11/lib/font/include/fontutil.h
- nx-X11/lib/font/stubs/cauthgen.c
- nx-X11/lib/font/stubs/csignal.c
- nx-X11/lib/font/stubs/delfntcid.c
- nx-X11/lib/font/stubs/errorf.c
- nx-X11/lib/font/stubs/fatalerror.c
- nx-X11/lib/font/stubs/findoldfnt.c
- nx-X11/lib/font/stubs/getcres.c
- nx-X11/lib/font/stubs/getdefptsize.c
- nx-X11/lib/font/stubs/getnewfntcid.c
- nx-X11/lib/font/stubs/gettime.c
- nx-X11/lib/font/stubs/initfshdl.c
- nx-X11/lib/font/stubs/regfpefunc.c
- nx-X11/lib/font/stubs/rmfshdl.c
- nx-X11/lib/font/stubs/servclient.c
- nx-X11/lib/font/stubs/setfntauth.c
- nx-X11/lib/font/stubs/stfntcfnt.c
- nx-X11/lib/font/stubs/stubs.h
- nx-X11/lib/font/stubs/xpstubs.c
- nx-X11/lib/oldX/oldX-def.cpp
  nx-X11/lib/xkbfile/xkbfile-def.cpp
  nx-X11/lib/xkbui/xkbui-def.cpp
  nx-X11/programs/Xserver/GL/glx/glx-def.cpp
@@ -1492,11 +1340,7 @@ Copyright: *No copyright*
 License: UNKNOWN
  FIXME
 
-Files: nx-X11/include/X.h
- nx-X11/include/Xmd.h
- nx-X11/include/Xproto.h
- nx-X11/include/Xprotostr.h
- nx-X11/include/extensions/sync.h
+Files: nx-X11/include/extensions/sync.h
  nx-X11/include/extensions/syncstr.h
  nx-X11/lib/X11/ErrDes.c
  nx-X11/lib/X11/GetDflt.c
@@ -1518,11 +1362,6 @@ Files: nx-X11/include/X.h
  nx-X11/lib/X11/Xutil.h
  nx-X11/lib/X11/imThaiFlt.c
  nx-X11/lib/X11/poly.h
- nx-X11/lib/Xext/XSync.c
- nx-X11/lib/font/bitmap/bdfread.c
- nx-X11/lib/font/bitmap/bdfutils.c
- nx-X11/lib/font/bitmap/snfread.c
- nx-X11/lib/font/bitmap/snfstr.h
  nx-X11/programs/Xserver/Xext/sync.c
  nx-X11/programs/Xserver/dix/atom.c
  nx-X11/programs/Xserver/dix/colormap.c
@@ -1622,28 +1461,7 @@ Copyright: 1987, 1989 Digital Equipment Corporation, Maynard, Massachusetts
 License: UNKNOWN
  FIXME
 
-Files: nx-X11/lib/Xcomposite/Xcomposite.c
- nx-X11/lib/Xcomposite/Xcomposite.h
- nx-X11/lib/Xcomposite/xcompositeint.h
- nx-X11/lib/Xcursor/Xcursor.h
- nx-X11/lib/Xcursor/cursor.c
- nx-X11/lib/Xcursor/display.c
- nx-X11/lib/Xcursor/file.c
- nx-X11/lib/Xcursor/library.c
- nx-X11/lib/Xcursor/xcursorint.h
- nx-X11/lib/Xcursor/xlib.c
- nx-X11/lib/Xdamage/Xdamage.c
- nx-X11/lib/Xdamage/Xdamage.h
- nx-X11/lib/Xdamage/xdamageint.h
- nx-X11/lib/Xfixes/Region.c
- nx-X11/lib/Xrender/AddTrap.c
- nx-X11/lib/Xrender/Color.c
- nx-X11/lib/Xrender/Cursor.c
- nx-X11/lib/Xrender/Filter.c
- nx-X11/lib/Xrender/Poly.c
- nx-X11/lib/Xrender/Trap.c
- nx-X11/lib/Xrender/Tri.c
- nx-X11/programs/Xserver/composite/compalloc.c
+Files: nx-X11/programs/Xserver/composite/compalloc.c
  nx-X11/programs/Xserver/composite/compext.c
  nx-X11/programs/Xserver/composite/compinit.c
  nx-X11/programs/Xserver/composite/compint.h
@@ -1740,7 +1558,6 @@ Files: nx-X11/include/extensions/XEVI.h
  nx-X11/lib/X11/XKBleds.c
  nx-X11/lib/X11/XKBlib.h
  nx-X11/lib/X11/XKBlibint.h
- nx-X11/lib/Xext/XEVI.c
  nx-X11/lib/xkbfile/XKBbells.h
  nx-X11/lib/xkbfile/XKBconfig.h
  nx-X11/lib/xkbfile/XKBfile.h
@@ -2351,21 +2168,7 @@ Copyright: 1989-95 GROUPE BULL
 License: Expat
  FIXME
 
-Files: nx-X11/lib/Xrender/Composite.c
- nx-X11/lib/Xrender/FillRect.c
- nx-X11/lib/Xrender/FillRects.c
- nx-X11/lib/Xrender/Glyph.c
- nx-X11/lib/Xrender/Picture.c
- nx-X11/lib/Xrender/Xrender.c
- nx-X11/lib/Xrender/Xrender.h
- nx-X11/lib/Xrender/Xrenderint.h
- nx-X11/lib/font/builtins/builtin.h
- nx-X11/lib/font/builtins/dir.c
- nx-X11/lib/font/builtins/file.c
- nx-X11/lib/font/builtins/fonts.c
- nx-X11/lib/font/builtins/fpe.c
- nx-X11/lib/font/builtins/render.c
- nx-X11/programs/Xserver/fb/fb24_32.c
+Files: nx-X11/programs/Xserver/fb/fb24_32.c
  nx-X11/programs/Xserver/fb/fb24_32.h
  nx-X11/programs/Xserver/fb/fboverlay.c
  nx-X11/programs/Xserver/fb/fboverlay.h
@@ -2470,37 +2273,6 @@ Files: nx-X11/extras/Mesa/src/mesa/drivers/dri/mach64/mach64_context.c
  nx-X11/extras/Mesa/src/mesa/drivers/dri/mach64/server/mach64_dri.h
 Copyright: 2000, Gareth Hughes
 License: Expat
- FIXME
-
-Files: nx-X11/include/DPS/ColorSB.h
- nx-X11/include/DPS/ColorSBP.h
- nx-X11/include/DPS/DPSScrollW.h
- nx-X11/include/DPS/DPSScrollWP.h
- nx-X11/include/DPS/FontCreatP.h
- nx-X11/include/DPS/FontCreato.h
- nx-X11/include/DPS/FontSB.h
- nx-X11/include/DPS/FontSBP.h
- nx-X11/include/DPS/FontSamplP.h
- nx-X11/include/DPS/FontSample.h
- nx-X11/include/DPS/PSres.h
- nx-X11/include/DPS/dpsNXargs.h
- nx-X11/include/DPS/dpsXclient.h
- nx-X11/include/DPS/dpsXcommon.h
- nx-X11/include/DPS/dpsXpreview.h
- nx-X11/include/DPS/dpsXshare.h
- nx-X11/include/DPS/dpsXuserpath.h
- nx-X11/include/DPS/dpsclient.h
- nx-X11/include/DPS/dpsconfig.h
- nx-X11/include/DPS/dpsexcept.h
- nx-X11/include/DPS/dpsfriends.h
-Copyright: 1984-1994, Adobe Systems Incorporated
-  1988-1994, Adobe Systems Incorporated
-  1989-1994, Adobe Systems Incorporated
-  1990-1994, Adobe Systems Incorporated
-  1991-1994, Adobe Systems Incorporated
-  1992-1994, Adobe Systems Incorporated
-  1993-1994, Adobe Systems Incorporated
-License: UNKNOWN
  FIXME
 
 Files: nx-X11/extras/Mesa/src/mesa/drivers/dri/mach64/mach64_texmem.c
@@ -2614,26 +2386,6 @@ Copyright: 2000, David S. Miller
 License: Expat
  FIXME
 
-Files: nx-X11/lib/font/Speedo/do_char.c
- nx-X11/lib/font/Speedo/do_trns.c
- nx-X11/lib/font/Speedo/htest.c
- nx-X11/lib/font/Speedo/iface.c
- nx-X11/lib/font/Speedo/keys.h
- nx-X11/lib/font/Speedo/nsample.c
- nx-X11/lib/font/Speedo/out_bl2d.c
- nx-X11/lib/font/Speedo/out_blk.c
- nx-X11/lib/font/Speedo/out_outl.c
- nx-X11/lib/font/Speedo/out_scrn.c
- nx-X11/lib/font/Speedo/out_util.c
- nx-X11/lib/font/Speedo/reset.c
- nx-X11/lib/font/Speedo/set_spcs.c
- nx-X11/lib/font/Speedo/set_trns.c
- nx-X11/lib/font/Speedo/spdo_prv.h
- nx-X11/lib/font/Speedo/speedo.h
-Copyright: 1989-1991, Bitstream Inc., Cambridge, MA
-License: UNKNOWN
- FIXME
-
 Files: nx-X11/programs/Xserver/hw/nxagent/NXdispatch.c
  nx-X11/programs/Xserver/hw/nxagent/NXevents.c
  nx-X11/programs/Xserver/hw/nxagent/NXextension.c
@@ -2659,33 +2411,7 @@ Copyright: 1987, 1989 Digital Equipment Corporation, Maynard, Massachusetts
 License: UNKNOWN
  FIXME
 
-Files: nx-X11/lib/font/Type1/cluts.h
- nx-X11/lib/font/Type1/digit.h
- nx-X11/lib/font/Type1/fonts.h
- nx-X11/lib/font/Type1/hdigit.h
- nx-X11/lib/font/Type1/pictures.h
- nx-X11/lib/font/Type1/strokes.h
- nx-X11/lib/font/Type1/t1hdigit.h
- nx-X11/lib/font/Type1/t1imager.h
- nx-X11/lib/font/Type1/t1snap.c
- nx-X11/lib/font/Type1/t1stdio.h
- nx-X11/lib/font/Type1/t1stub.c
- nx-X11/lib/font/Type1/t1test.c
- nx-X11/lib/font/Type1/token.c
- nx-X11/lib/font/Type1/token.h
- nx-X11/lib/font/Type1/tokst.h
- nx-X11/lib/font/Type1/trig.h
-Copyright: International Business Machines,Corp. 1991
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/lib/Xfixes/Cursor.c
- nx-X11/lib/Xfixes/SaveSet.c
- nx-X11/lib/Xfixes/Selection.c
- nx-X11/lib/Xfixes/Xfixes.c
- nx-X11/lib/Xfixes/Xfixes.h
- nx-X11/lib/Xfixes/Xfixesint.h
- nx-X11/programs/Xserver/fb/fbcompose.c
+Files: nx-X11/programs/Xserver/fb/fbcompose.c
  nx-X11/programs/Xserver/fb/fbpict.h
  nx-X11/programs/Xserver/hw/nxagent/NXmitrap.c
  nx-X11/programs/Xserver/render/animcur.c
@@ -2723,8 +2449,6 @@ Files: nx-X11/include/extensions/dpms.h
  nx-X11/include/extensions/dpmsstr.h
  nx-X11/include/extensions/panoramiXext.h
  nx-X11/include/extensions/panoramiXproto.h
- nx-X11/lib/Xext/DPMS.c
- nx-X11/lib/Xinerama/Xinerama.c
  nx-X11/programs/Xserver/Xext/dpms.c
  nx-X11/programs/Xserver/Xext/dpmsstubs.c
  nx-X11/programs/Xserver/Xext/panoramiX.c
@@ -2737,30 +2461,6 @@ Copyright: 1987, Digital Equipment Corporation, Maynard, Massachusetts
   1991, 1997 Digital Equipment Corporation, Maynard, Massachusetts
   1996, Digital Equipment Corporation, Maynard, Massachusetts
 License: Expat
- FIXME
-
-Files: nx-X11/include/fonts/FS.h
- nx-X11/include/fonts/FSproto.h
- nx-X11/include/fonts/fsmasks.h
- nx-X11/lib/font/Speedo/spencode.c
- nx-X11/lib/font/Speedo/sperr.c
- nx-X11/lib/font/Speedo/spfile.c
- nx-X11/lib/font/Speedo/spfont.c
- nx-X11/lib/font/Speedo/spfuncs.c
- nx-X11/lib/font/Speedo/spglyph.c
- nx-X11/lib/font/Speedo/spinfo.c
- nx-X11/lib/font/Speedo/spint.h
- nx-X11/lib/font/Speedo/sptobdf.c
- nx-X11/lib/font/fc/fslibos.h
- nx-X11/lib/font/util/format.c
-Copyright: 1987, 1994, 1998, The Open Group
-  1987, 1998 The Open Group
-  1987, Digital Equipment Corporation
-  1990, Network Computing Devices;
-  1990-1991, 1998 The Open Group
-  1990-1991, Network Computing Devices;
-  1994, 1998 The Open Group
-License: UNKNOWN
  FIXME
 
 Files: nx-X11/extras/Mesa/src/mesa/drivers/dri/sis/sis_alloc.c
@@ -2801,8 +2501,6 @@ License: Expat
 Files: nx-X11/include/extensions/Xv.h
  nx-X11/include/extensions/Xvlib.h
  nx-X11/include/extensions/Xvproto.h
- nx-X11/include/fonts/font.h
- nx-X11/include/fonts/fontstruct.h
  nx-X11/lib/X11/imEvToWire.c
  nx-X11/programs/Xserver/Xext/xvdisp.c
  nx-X11/programs/Xserver/Xext/xvdix.h
@@ -2846,23 +2544,6 @@ Files: nx-X11/extras/Mesa/src/mesa/drivers/dri/gamma/gamma_context.c
  nx-X11/extras/Mesa/src/mesa/drivers/dri/gamma/gamma_vb.h
  nx-X11/extras/Mesa/src/mesa/drivers/dri/gamma/gamma_xmesa.c
 Copyright: 2001, Alan Hourihane
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/include/extensions/XLbx.h
- nx-X11/include/extensions/lbxdeltastr.h
- nx-X11/include/extensions/lbxstr.h
- nx-X11/include/extensions/lbxzlib.h
- nx-X11/lib/Xext/XLbx.c
- nx-X11/lib/font/fc/fsconvert.c
- nx-X11/lib/font/fc/fserve.h
- nx-X11/lib/font/fc/fservestr.h
- nx-X11/lib/font/fc/fsio.c
- nx-X11/lib/font/fc/fsio.h
-Copyright: 1990, Network Computing Devices
-  1992, Network Computing Devices
-  1993, Network Computing Devices
-  1995, Network Computing Devices
 License: UNKNOWN
  FIXME
 
@@ -2957,55 +2638,13 @@ Copyright: IBM Corporation 2004-2005
 License: Expat
  FIXME
 
-Files: nx-X11/lib/font/Type1/arith.h
- nx-X11/lib/font/Type1/curves.h
- nx-X11/lib/font/Type1/lines.c
- nx-X11/lib/font/Type1/lines.h
- nx-X11/lib/font/Type1/paths.c
- nx-X11/lib/font/Type1/paths.h
- nx-X11/lib/font/Type1/regions.c
- nx-X11/lib/font/Type1/spaces.h
- nx-X11/lib/font/Type1/t1malloc.c
-Copyright: International Business Machines, Corp. 1991
-  Lexmark International, Inc. 1991,
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/lib/Xext/Xdbe.c
- nx-X11/programs/Xserver/dbe/dbe.c
+Files: nx-X11/programs/Xserver/dbe/dbe.c
  nx-X11/programs/Xserver/dbe/dbestruct.h
  nx-X11/programs/Xserver/dbe/midbe.c
  nx-X11/programs/Xserver/dbe/midbe.h
  nx-X11/programs/Xserver/dbe/midbestr.h
 Copyright: 1994-1995, Hewlett-Packard Company
 License: Expat
- FIXME
-
-Files: nx-X11/lib/font/Speedo/bics-unicode.c
- nx-X11/lib/font/Type1/t1unicode.c
- nx-X11/lib/font/Type1/t1unicode.h
- nx-X11/lib/font/fontfile/encparse.c
- nx-X11/lib/font/fontfile/fontenc.c
- nx-X11/lib/font/fontfile/fontencI.h
- nx-X11/lib/font/fontfile/fontencc.c
- nx-X11/lib/font/include/fontencc.h
-Copyright: 1998, Juliusz Chroboczek
-  1998-2001, Juliusz Chroboczek
-License: Expat
- FIXME
-
-Files: nx-X11/include/extensions/xtrapdi.h
- nx-X11/include/extensions/xtrapemacros.h
- nx-X11/include/extensions/xtraplib.h
- nx-X11/include/extensions/xtraplibp.h
- nx-X11/lib/XTrap/XEConTxt.c
- nx-X11/lib/XTrap/XEPrInfo.c
- nx-X11/lib/XTrap/XEStrMap.c
- nx-X11/lib/XTrap/XETrapInit.c
-Copyright: 1987-1991, 1994 Digital Equipment Corp.
-  1987-1992, 1994 Digital Equipment Corp.
-  1987-1992, Digital Equipment Corp.
-License: UNKNOWN
  FIXME
 
 Files: nx-X11/lib/xtrans/Xtrans.c
@@ -3037,8 +2676,7 @@ Copyright: 1995-1996, The XFree86 Project, Inc
 License: UNKNOWN
  FIXME
 
-Files: nx-X11/lib/oldX/XDraw.c
- nx-X11/programs/Xserver/dix/dispatch.c
+Files: nx-X11/programs/Xserver/dix/dispatch.c
  nx-X11/programs/Xserver/dix/events.c
  nx-X11/programs/Xserver/dix/main.c
  nx-X11/programs/Xserver/dix/resource.c
@@ -3052,12 +2690,7 @@ Copyright: 1987, 1989 Digital Equipment Corporation, Maynard, Massachusetts
 License: Expat
  FIXME
 
-Files: nx-X11/include/extensions/xtrapddmi.h
- nx-X11/include/extensions/xtrapproto.h
- nx-X11/lib/XTrap/XECallBcks.c
- nx-X11/lib/XTrap/XEDsptch.c
- nx-X11/lib/XTrap/XERqsts.c
- nx-X11/programs/Xserver/XTrap/xtrapddmi.c
+Files: nx-X11/programs/Xserver/XTrap/xtrapddmi.c
  nx-X11/programs/Xserver/XTrap/xtrapditbl.c
 Copyright: 1987-1991, Digital Equipment Corp., Maynard, MA
 License: UNKNOWN
@@ -3078,10 +2711,6 @@ License: UNKNOWN
  FIXME
 
 Files: nx-X11/include/GL/glxint.h
- nx-X11/lib/font/Type1/AFM.h
- nx-X11/lib/font/Type1/afm.c
- nx-X11/lib/font/Type1/cidchar.c
- nx-X11/lib/font/Type1/range.h
  nx-X11/programs/Xserver/GL/glx/glxext.c
  nx-X11/programs/Xserver/hw/nxagent/NXglxext.c
 Copyright: 1991-9 Silicon Graphics, Inc.
@@ -3110,10 +2739,7 @@ Copyright: IBM Corporation 2005
 License: Expat
  FIXME
 
-Files: nx-X11/lib/font/Speedo/module/speedomod.c
- nx-X11/lib/font/Type1/module/type1mod.c
- nx-X11/lib/font/bitmap/module/bitmapmod.c
- nx-X11/programs/Xserver/Xext/sleepuntil.h
+Files: nx-X11/programs/Xserver/Xext/sleepuntil.h
  nx-X11/programs/Xserver/fb/fbmodule.c
  nx-X11/programs/Xserver/mi/micoord.h
 Copyright: 1998, The XFree86 Project, Inc.
@@ -3161,17 +2787,6 @@ Files: nx-X11/extras/Mesa/src/mesa/drivers/dri/trident/trident_context.c
  nx-X11/extras/Mesa/src/mesa/drivers/dri/trident/trident_tris.c
  nx-X11/extras/Mesa/src/mesa/drivers/dri/trident/trident_vb.c
 Copyright: 2002, Alan Hourihane, Sychdyn, North Wales, UK
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/lib/font/Type1/arith.c
- nx-X11/lib/font/Type1/hints.c
- nx-X11/lib/font/Type1/hints.h
- nx-X11/lib/font/Type1/objects.c
- nx-X11/lib/font/Type1/regions.h
- nx-X11/lib/font/Type1/spaces.c
-Copyright: International Business Machines, Corp. 1991,
-  Lexmark International, Inc. 1991
 License: UNKNOWN
  FIXME
 
@@ -3229,9 +2844,7 @@ Copyright: 1988-1990, 1994 Network Computing Devices, Inc
 License: UNKNOWN
  FIXME
 
-Files: nx-X11/include/extensions/xf86dga.h
- nx-X11/lib/XRes/XRes.c
- nx-X11/programs/Xserver/Xext/xres.c
+Files: nx-X11/programs/Xserver/Xext/xres.c
 Copyright: 1999, XFree86 Inc
   2002, XFree86 Inc
 License: UNKNOWN
@@ -3289,25 +2902,6 @@ Copyright: 1989, 1998 The Open Group
 License: UNKNOWN
  FIXME
 
-Files: nx-X11/lib/font/Type1/fontfcn.h
- nx-X11/lib/font/Type1/t1intf.h
- nx-X11/lib/font/Type1/t1io.c
- nx-X11/lib/font/Type1/util.h
-Copyright: 1994-1999, Silicon Graphics, Inc.
-  International Business Machines,Corp. 1991,
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/include/extensions/xf86dga1.h
- nx-X11/include/extensions/xf86dga1str.h
- nx-X11/include/extensions/xf86dgastr.h
- nx-X11/programs/Xserver/Xext/xf86dga.c
-Copyright: 1995, Jon Tombs
-  1995, XFree86 Inc
-  1995-1996, 1999 XFree86 Inc
-License: UNKNOWN
- FIXME
-
 Files: nx-X11/programs/Xserver/hw/nxagent/X/NXdamage.c
  nx-X11/programs/Xserver/randr/rrcrtc.c
  nx-X11/programs/Xserver/randr/rrmode.c
@@ -3317,22 +2911,6 @@ Copyright: 2001, 2011 NoMachine, http://www.nomachine.com/. */
   2006, Keith Packard
   of NoMachine. Redistribution and use of the present */
 License: UNKNOWN
- FIXME
-
-Files: nx-X11/include/extensions/fontcacheP.h
- nx-X11/lib/font/fontcache/fontcache.c
- nx-X11/lib/font/fontcache/fontcache.h
-Copyright: 1998-1999, Shunsuke Akiyama <akiyama@jp.FreeBSD.org>
-  1998-1999, X-TrueType Server Project
-License: BSD-2-clause
- FIXME
-
-Files: nx-X11/include/extensions/fontcache.h
- nx-X11/include/extensions/fontcachstr.h
- nx-X11/programs/Xserver/Xext/fontcache.c
-Copyright: 1998-1999, Shunsuke Akiyama <akiyama@jp.FreeBSD.org>
-  1998-1999, X-TrueType Server Project, All rights
-License: BSD-2-clause
  FIXME
 
 Files: nx-X11/extras/Mesa/include/GL/dmesa.h
@@ -3361,32 +2939,10 @@ Copyright: 1998-1999, Precision Insight, Inc., Cedar Park, Texas
 License: Expat
  FIXME
 
-Files: nx-X11/include/extensions/xf86vmode.h
- nx-X11/include/extensions/xf86vmstr.h
- nx-X11/programs/Xserver/Xext/xf86vmode.c
-Copyright: 1995, Kaleb S. KEITHLEY
-License: Expat
- FIXME
-
-Files: nx-X11/include/extensions/dmxext.h
- nx-X11/include/extensions/dmxproto.h
- nx-X11/programs/Xserver/Xext/dmx.c
-Copyright: 2002-2004, Red Hat Inc., Durham, North Carolina
-License: Expat
- FIXME
-
 Files: nx-X11/extras/Mesa/src/mesa/drivers/dri/sis/sis_common2.h
  nx-X11/extras/Mesa/src/mesa/drivers/dri/sis/sis_debug.c
  nx-X11/extras/Mesa/src/mesa/drivers/dri/sis/sis_debug.h
 Copyright: 2000, Silicon Integrated Systems Corp, Inc., HsinChu, Taiwan
-License: Expat
- FIXME
-
-Files: nx-X11/include/extensions/Xevie.h
- nx-X11/include/extensions/Xeviestr.h
- nx-X11/programs/Xserver/Xext/xevie.c
-Copyright: 2003, Sun Microsystems, Inc
-  2003-2005, Sun Microsystems, Inc
 License: Expat
  FIXME
 
@@ -3404,14 +2960,6 @@ Files: nx-X11/lib/X11/Context.c
 Copyright: 1987-1988, 1990 Digital Equipment Corporation, Maynard
   1987-1988, 1990, 1994, 1998 The Open Group
   1987-1988, 1990, 1998, The Open Group
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/lib/font/Type1/fontfcn.c
- nx-X11/lib/font/Type1/scanfont.c
- nx-X11/lib/font/Type1/util.c
-Copyright: 1994-1999, Silicon Graphics, Inc.
-  International Business Machines,Corp. 1991
 License: UNKNOWN
  FIXME
 
@@ -3456,18 +3004,6 @@ Files: nx-X11/extras/Mesa/src/glx/x11/xfont.c
 Copyright: 1995, Thorsten.Ohl @ Physik.TH-Darmstadt.de
   1999, Brian Paul
   1999-2000, Brian Paul
-License: Expat
- FIXME
-
-Files: nx-X11/include/extensions/Print.h
- nx-X11/include/extensions/Printstr.h
-Copyright: 1996, Digital Equipment Corp
-  1996, Fujitsu Limited
-  1996, Hewlett-Packard Company
-  1996, Hitachi, Ltd
-  1996, International Business Machines Corp
-  1996, Novell, Inc
-  1996, Sun Microsystems, Inc
 License: Expat
  FIXME
 
@@ -3575,23 +3111,10 @@ Copyright: 1998, Todd C. Miller <Todd.Miller@courtesan.com>
 License: ISC
  FIXME
 
-Files: nx-X11/include/DPS/XDPS.h
- nx-X11/include/DPS/XDPSproto.h
-Copyright: 1988-1989, Digital Equipment Corporation
-  1988-1994, Adobe Systems Incorporated
-License: UNKNOWN
- FIXME
-
 Files: nx-X11/lib/X11/lcUTF8.c
  nx-X11/lib/X11/lcUTF8Load.c
 Copyright: 1993, SunSoft, Inc
   1999-2000, Bruno Haible
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/include/extensions/xf86rush.h
- nx-X11/include/extensions/xf86rushstr.h
-Copyright: 1998, Daryll Strauss
 License: UNKNOWN
  FIXME
 
@@ -3655,21 +3178,6 @@ Copyright: Mark J. Kilgard, 1994-1996, 1998. */
 License: UNKNOWN
  FIXME
 
-Files: nx-X11/lib/Xtst/XRecord.c
- nx-X11/lib/font/fc/fserve.c
-Copyright: 1990, 1998 The Open Group
-  1990, Network Computing Devices
-  1995, 1998 The Open Group
-  1995, Network Computing Devices
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/lib/Xdmcp/Xdmcp.h
- nx-X11/programs/Xserver/os/xdmcp.c
-Copyright: 1989, Network Computing Devices, Inc., Mountain View, California
-License: UNKNOWN
- FIXME
-
 Files: nx-X11/lib/X11/FilterEv.c
  nx-X11/lib/X11/RegstFlt.c
 Copyright: 1990-1991, 1998 The Open Group
@@ -3730,11 +3238,6 @@ Files: nx-X11/programs/Xserver/randr/rrxinerama.c
 Copyright: 2001-2005, Thomas Winischhofer, Vienna, Austria
   2006, Keith Packard
 License: BSD-3-clause
- FIXME
-
-Files: nx-X11/lib/font/fontcache/fcqueue.h
-Copyright: 1991, 1993
-License: BSD-4-clause
  FIXME
 
 Files: nx-X11/extras/Mesa/src/mesa/drivers/dri/r300/r300_vertexprog.c
@@ -3833,19 +3336,6 @@ Files: nx-X11/extras/Mesa/src/mesa/drivers/dri/ffb/server/ffb_regs.h
 Copyright: 1998, Michal Rehacek (majkl@iname.com)
   1998-2000, Jakub Jelinek (jakub@redhat.com)
   1999, David S. Miller (davem@redhat.com)
-License: Expat
- FIXME
-
-Files: nx-X11/programs/Xserver/Xext/xprint.c
-Copyright: 1989, The Massachusetts Institute of Technology
-  1993, 1995 Hewlett-Packard Company
-  1996, Digital Equipment Corp
-  1996, Fujitsu Limited
-  1996, Hewlett-Packard Company
-  1996, Hitachi, Ltd
-  1996, International Business Machines Corp
-  1996, Novell, Inc
-  1996, Sun Microsystems, Inc
 License: Expat
  FIXME
 
@@ -3975,26 +3465,6 @@ Copyright: 2001, convergence integrated media GmbH
 License: LGPL-2+
  FIXME
 
-Files: nx-X11/lib/font/Type1/blues.h
-Copyright: 1990, Adobe Systems Incorporated
-  International Business Machines, Corp. 1991
-  Lexmark International, Inc. 1991,
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/lib/font/Type1/type1.c
-Copyright: 1990, Adobe Systems Incorporated
-  1994-1999, Silicon Graphics, Inc.
-  International Business Machines, Corp. 1991
-  Lexmark International, Inc. 1991,
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/include/DPS/XDPSlib.h
-Copyright: 1988-1994, Adobe Systems Incorporated and Digital Equipment
-License: UNKNOWN
- FIXME
-
 Files: nx-X11/programs/Xserver/dix/dixutils.c
 Copyright: 1987, 1998 The Open Group
   1987, Digital Equipment Corporation, Maynard, Massachusetts
@@ -4052,12 +3522,6 @@ Copyright: 2000, Compaq Computer Corporation, Inc
 License: UNKNOWN
  FIXME
 
-Files: nx-X11/lib/Xrandr/Xrandr.h
-Copyright: 2000, Compaq Computer Corporation, Inc
-  2002, Hewlett-Packard Company, Inc
-License: UNKNOWN
- FIXME
-
 Files: nx-X11/programs/Xserver/hw/nxagent/NXxrandr.h
 Copyright: 2000, Compaq Computer Corporation, Inc
   2001, 2011 NoMachine, http://www.nomachine.com/. */
@@ -4081,39 +3545,6 @@ License: UNKNOWN
 
 Files: nx-X11/extras/Mesa/src/mesa/shader/atifragshader.h
 Copyright: 2004, David Airlie
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/lib/XTrap/XEWrappers.c
-Copyright: 1987-1991, 1994 Digital Equipment Corp.
-  1994, Robert Chesler of Absol-Puter, Hudson, NH
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/programs/Xserver/XTrap/xtrapdi.c
-Copyright: 1987-1991, Digital Equipment Corp., Maynard, MA
-  1994, Robert Chesler of Absol-Puter, Hudson, NH
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/include/extensions/xtrapbits.h
-Copyright: 1987-1990, 1994 Digital Equipment Corporation
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/lib/font/Type1/t1info.c
-Copyright: 1987, 1998 The Open Group
-  1987, Digital Equipment Corporation
-  1990-1991, Network Computing Devices;
-  International Business Machines,Corp. 1991
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/lib/font/Type1/t1funcs.c
-Copyright: 1987, Digital Equipment Corporation
-  1990-1991, Network Computing Devices;
-  1994-1999, Silicon Graphics, Inc.
-  International Business Machines,Corp. 1991,
 License: UNKNOWN
  FIXME
 
@@ -4182,18 +3613,6 @@ License: UNKNOWN
 Files: nx-X11/lib/X11/imLcPrs.c
 Copyright: 1992, Fuji Xerox Co., Ltd
   1992, Oki Technosystems Laboratory, Inc
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/lib/font/Type1/objects.h
-Copyright: 1994-1999, Silicon Graphics, Inc.
-  International Business Machines, Corp. 1991,
-  Lexmark International, Inc. 1991
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/lib/font/Type1/curves.c
-Copyright: International Business Machines,Corp. 1991, */
 License: UNKNOWN
  FIXME
 
@@ -4295,21 +3714,9 @@ Copyright: 1990, 1991 Tektronix, Inc
 License: UNKNOWN
  FIXME
 
-Files: nx-X11/lib/font/fontfile/decompress.c
-Copyright: 1985-1986, The Regents of the University of California
-  1993, 1998 The Open Group
-License: UNKNOWN
- FIXME
-
 Files: nx-X11/lib/X11/Font.c
 Copyright: 1986, 1998 The Open Group
   2000, The XFree86 Project, Inc
-License: UNKNOWN
- FIXME
-
-Files: nx-X11/lib/Xtst/XTest.c
-Copyright: 1990-1991, UniSoft Group Limited
-  1992-1993, 1998 The Open Group
 License: UNKNOWN
  FIXME
 
