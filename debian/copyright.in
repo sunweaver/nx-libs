@@ -19,23 +19,7 @@ Files: nx-X11/config/imake/ccimake.c
  nx-X11/config/util/makestrs.c
  nx-X11/config/util/mergelib.cpp
  nx-X11/config/util/mkdirhier.c
- nx-X11/include/extensions/MITMisc.h
- nx-X11/include/extensions/XShm.h
- nx-X11/include/extensions/XTest.h
- nx-X11/include/extensions/Xag.h
- nx-X11/include/extensions/Xagsrv.h
- nx-X11/include/extensions/Xagstr.h
- nx-X11/include/extensions/Xcup.h
- nx-X11/include/extensions/Xcupstr.h
- nx-X11/include/extensions/Xext.h
- nx-X11/include/extensions/Xinerama.h
- nx-X11/include/extensions/extutil.h
- nx-X11/include/extensions/lbximage.h
- nx-X11/include/extensions/mitmiscstr.h
- nx-X11/include/extensions/multibuf.h
- nx-X11/include/extensions/multibufst.h
  nx-X11/include/extensions/security.h
- nx-X11/include/extensions/shmstr.h
  nx-X11/lib/X11/AllCells.c
  nx-X11/lib/X11/AllPlanes.c
  nx-X11/lib/X11/AllowEv.c
@@ -263,13 +247,7 @@ Files: nx-X11/config/imake/ccimake.c
  nx-X11/lib/X11/locking.h
  nx-X11/lib/X11/mbWMProps.c
  nx-X11/lib/X11/util/makekeys.c
- nx-X11/programs/Xserver/Xext/appgroup.c
  nx-X11/programs/Xserver/Xext/bigreq.c
- nx-X11/programs/Xserver/Xext/cup.c
- nx-X11/programs/Xserver/Xext/mbuf.c
- nx-X11/programs/Xserver/Xext/mbufbf.c
- nx-X11/programs/Xserver/Xext/mbufpx.c
- nx-X11/programs/Xserver/Xext/mitmisc.c
  nx-X11/programs/Xserver/Xext/shape.c
  nx-X11/programs/Xserver/Xext/shm.c
  nx-X11/programs/Xserver/Xext/sleepuntil.c
@@ -1301,15 +1279,10 @@ Files: nx-X11/config/util/aminstall.sh
  nx-X11/programs/Xserver/GL/glx/glx-def.cpp
  nx-X11/programs/Xserver/GL/mesa/GLcore/GLcore-def.cpp
  nx-X11/programs/Xserver/XTrap/xf86XTrapModule.c
- nx-X11/programs/Xserver/Xext/appgroup.h
- nx-X11/programs/Xserver/Xext/dgaproc.h
  nx-X11/programs/Xserver/Xext/dpmsproc.h
  nx-X11/programs/Xserver/Xext/extmod/modinit.h
  nx-X11/programs/Xserver/Xext/panoramiXh.h
  nx-X11/programs/Xserver/Xext/panoramiXsrv.h
- nx-X11/programs/Xserver/Xext/vidmodeproc.h
- nx-X11/programs/Xserver/Xext/xf86dgaext.h
- nx-X11/programs/Xserver/Xext/xf86miscproc.h
  nx-X11/programs/Xserver/Xext/xvdisp.h
  nx-X11/programs/Xserver/Xext/xvmc.c
  nx-X11/programs/Xserver/Xext/xvmcext.h
@@ -1524,9 +1497,7 @@ Copyright: 1998, Keith Packard
 License: UNKNOWN
  FIXME
 
-Files: nx-X11/include/extensions/XEVI.h
- nx-X11/include/extensions/XEVIstr.h
- nx-X11/include/extensions/XKBsrv.h
+Files: nx-X11/include/extensions/XKBsrv.h
  nx-X11/lib/X11/XKB.c
  nx-X11/lib/X11/XKBAlloc.c
  nx-X11/lib/X11/XKBBell.c
@@ -1570,9 +1541,6 @@ Files: nx-X11/include/extensions/XEVI.h
  nx-X11/lib/xkbui/XKBui.c
  nx-X11/lib/xkbui/XKBui.h
  nx-X11/lib/xkbui/XKBuiPriv.h
- nx-X11/programs/Xserver/Xext/EVI.c
- nx-X11/programs/Xserver/Xext/EVIstruct.h
- nx-X11/programs/Xserver/Xext/sampleEVI.c
  nx-X11/programs/Xserver/xkb/ddxBeep.c
  nx-X11/programs/Xserver/xkb/ddxConfig.c
  nx-X11/programs/Xserver/xkb/ddxCtrls.c
@@ -2642,9 +2610,6 @@ Files: nx-X11/config/util/cleanlinks.sh
  nx-X11/config/util/revpath.c
  nx-X11/extras/Mesa/src/mesa/drivers/dri/mga/server/mga.h
  nx-X11/extras/Mesa/src/mesa/drivers/dri/mga/server/mga_reg.h
- nx-X11/include/extensions/xf86misc.h
- nx-X11/include/extensions/xf86mscstr.h
- nx-X11/programs/Xserver/Xext/xf86misc.c
  nx-X11/programs/Xserver/hw/xfree86/os-support/xf86_ansic.h
 Copyright: 1995-1996, The XFree86 Project, Inc
   1996, The XFree86 Project, Inc
@@ -2813,9 +2778,6 @@ License: UNKNOWN
 
 Files: nx-X11/config/makedepend/ifparser.c
  nx-X11/config/makedepend/ifparser.h
- nx-X11/include/extensions/lbxbuf.h
- nx-X11/include/extensions/lbxbufstr.h
- nx-X11/include/extensions/lbxopts.h
 Copyright: 1988-1990, 1994 Network Computing Devices, Inc
   1992, Network Computing Devices, Inc
   1994, Network Computing Devices, Inc
