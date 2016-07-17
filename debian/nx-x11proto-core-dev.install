@@ -1,7 +1,6 @@
 usr/include/*/nx-X11/Xfuncs.h
 usr/include/*/nx-X11/Xos.h
 usr/include/*/nx-X11/Xos_r.h
-usr/include/*/nx-X11/Xosdefs.h
 usr/include/*/nx-X11/Xpoll.h
 
 
