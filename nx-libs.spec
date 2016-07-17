@@ -516,8 +516,6 @@ rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 %defattr(-,root,root)
 %dir %{_includedir}/nx-X11
 %{_includedir}/nx-X11/Xpoll.h
-%{_includedir}/nx-X11/extensions/XI.h
-%{_includedir}/nx-X11/extensions/XIproto.h
 %{_includedir}/nx-X11/extensions/dpmsstr.h
 %{_includedir}/nx-X11/extensions/panoramiXproto.h
 %{_includedir}/nx-X11/extensions/securstr.h

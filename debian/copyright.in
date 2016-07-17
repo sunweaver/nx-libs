@@ -1912,9 +1912,7 @@ Copyright: 2002, Tungsten Graphics, Inc., Cedar Park, Texas
 License: Expat
  FIXME
 
-Files: nx-X11/include/extensions/XI.h
- nx-X11/include/extensions/XInput.h
- nx-X11/include/extensions/XIproto.h
+Files: nx-X11/include/extensions/XInput.h
  nx-X11/programs/Xserver/Xi/allowev.c
  nx-X11/programs/Xserver/Xi/chgdctl.c
  nx-X11/programs/Xserver/Xi/chgfctl.c
