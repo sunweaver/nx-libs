@@ -413,7 +413,6 @@ rm -r %{buildroot}%{_includedir}/GL
 rm -r %{buildroot}%{_includedir}/nx-X11/extensions/XInput.h
 rm -r %{buildroot}%{_includedir}/nx-X11/extensions/XK*.h
 rm -r %{buildroot}%{_includedir}/nx-X11/extensions/*Xv*.h
-rm -r %{buildroot}%{_includedir}/nx-X11/extensions/dpms.h
 rm -r %{buildroot}%{_includedir}/nx-X11/extensions/security.h
 rm -r %{buildroot}%{_includedir}/nx-X11/extensions/sync.h
 rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
@@ -516,7 +515,6 @@ rm -r %{buildroot}%{_includedir}/nx-X11/Xtrans
 %defattr(-,root,root)
 %dir %{_includedir}/nx-X11
 %{_includedir}/nx-X11/Xpoll.h
-%{_includedir}/nx-X11/extensions/dpmsstr.h
 %{_includedir}/nx-X11/extensions/panoramiXproto.h
 %{_includedir}/nx-X11/extensions/securstr.h
 %{_includedir}/nx-X11/extensions/syncstr.h
