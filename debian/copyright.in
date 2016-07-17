@@ -2498,8 +2498,7 @@ Copyright: IBM Corporation 2004
 License: Expat
  FIXME
 
-Files: nx-X11/include/extensions/Xvproto.h
- nx-X11/lib/X11/imEvToWire.c
+Files: nx-X11/lib/X11/imEvToWire.c
  nx-X11/programs/Xserver/Xext/xvdisp.c
  nx-X11/programs/Xserver/Xext/xvdix.h
  nx-X11/programs/Xserver/Xext/xvmain.c
