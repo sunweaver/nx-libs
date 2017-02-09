@@ -205,6 +205,7 @@ OsInit(void)
 #endif
 	been_here = TRUE;
     }
+    InitNotifyFds();
     TimerInit();
 #ifdef DDXOSINIT
     OsVendorInit();
