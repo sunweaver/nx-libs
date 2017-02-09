@@ -2912,7 +2912,7 @@ void nxagentAddXConnection()
               "to the device set.\n", nxagentXConnectionNumber);
   #endif
 
-  AddEnabledDevice(nxagentXConnectionNumber);
+  SetNotifyFd(XConnectionNumber(nxagentDisplay), nxagentNotifyConnection, X_NOTIFY_READ, NULL);
 }
 
 void nxagentRemoveXConnection()
@@ -2922,7 +2922,7 @@ void nxagentRemoveXConnection()
               "from the device set.\n", nxagentXConnectionNumber);
   #endif
 
-  RemoveEnabledDevice(nxagentXConnectionNumber);
+  RemoveNotifyFd(nxagentXConnectionNumber);
 }
 
 /*
