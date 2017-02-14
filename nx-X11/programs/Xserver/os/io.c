@@ -761,9 +761,6 @@ FlushAllOutput(void)
     fd_set newOutputPending;
 #endif
 
-    if (FlushCallback)
-	CallCallbacks(&FlushCallback, NULL);
-
     if (!newoutput)
 	return;
 
@@ -1013,6 +1010,9 @@ FlushClient(ClientPtr who, OsCommPtr oc, const void *__extraBuf, int extraCount)
 
     if (!notWritten)
 	return 0;
+
+    if (FlushCallback)
+	CallCallbacks(&FlushCallback, who);
 
     todo = notWritten;
     while (notWritten) {
