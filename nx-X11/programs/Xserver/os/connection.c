@@ -988,7 +988,7 @@ CloseDownConnection(ClientPtr client)
     OsCommPtr oc = (OsCommPtr)client->osPrivate;
 
     if (FlushCallback)
-	CallCallbacks(&FlushCallback, NULL);
+	CallCallbacks(&FlushCallback, client);
 
     if (oc->output && oc->output->count)
 	FlushClient(client, oc, (char *)NULL, 0);
