@@ -25,6 +25,8 @@
 
 #include <Server.tmpl>
 
+NULL =
+
 /*
  * If you have any extra files to be put into the library, define them here.
  */
@@ -111,16 +113,47 @@ GETPEER_DEFINES = -DHAS_GETPEEREID
 #endif
 
 BOOTSTRAPCFLAGS = 
-           SRCS = WaitFor.c access.c connection.c io.c $(COLOR_SRCS) \
-                  osinit.c utils.c log.c auth.c mitauth.c secauth.c \
-                  $(XDMAUTHSRCS) $(RPCSRCS) xdmcp.c OtherSources \
-                  xstrans.c $(SNPRINTF_SRCS) $(STRLCAT_SRCS) \
-		  xprintf.c
-           OBJS = WaitFor.o access.o connection.o io.o $(COLOR_OBJS) \
-                  osinit.o utils.o log.o auth.o mitauth.o secauth.o \
-                  $(XDMAUTHOBJS) $(RPCOBJS) xdmcp.o OtherObjects \
-                  xstrans.o $(SNPRINTF_OBJS) $(STRLCAT_OBJS) \
-		  xprintf.o
+           SRCS = WaitFor.c		\
+                  access.c		\
+                  connection.c		\
+                  io.c			\
+                  $(COLOR_SRCS)		\
+                  osinit.c		\
+                  utils.c		\
+                  log.c			\
+                  auth.c		\
+                  mitauth.c		\
+                  secauth.c		\
+                  $(XDMAUTHSRCS)	\
+                  $(RPCSRCS)		\
+                  xdmcp.c		\
+                  OtherSources		\
+                  xstrans.c		\
+                  $(SNPRINTF_SRCS)	\
+                  $(STRLCAT_SRCS)	\
+                  xprintf.c		\
+                  $(NULL)
+
+           OBJS = WaitFor.o		\
+                  access.o		\
+                  connection.o		\
+                  io.o			\
+                  $(COLOR_OBJS)		\
+                  osinit.o 		\
+                  utils.o		\
+                  log.o			\
+                  auth.o		\
+                  mitauth.o		\
+                  secauth.o		\
+                  $(XDMAUTHOBJS)	\
+                  $(RPCOBJS)		\
+                  xdmcp.o		\
+                  OtherObjects		\
+                  xstrans.o		\
+                  $(SNPRINTF_OBJS)	\
+                  $(STRLCAT_OBJS)	\
+                  xprintf.o		\
+                  $(NULL)
 
 #if UseMemLeak
      MEM_DEFINES = -DMEMBUG
@@ -137,18 +170,41 @@ BOOTSTRAPCFLAGS =
 #endif
  XTRANS_DEFINES = -DXTRANS_SEND_FDS=0
 
-        DEFINES = $(CONNECTION_FLAGS) $(MEM_DEFINES) \
-		  $(XDMAUTHDEFS) $(RPCDEFS) $(SIGNAL_DEFINES) $(OS_DEFINES) \
-		  $(RGB_DEFINES) $(GETPEER_DEFINES) \
-		  $(RANDOM_DEFINES) $(BUGMSG) $(XTRANS_FAILDEFINES) \
-		  $(XTRANS_DEFINES) $(NX_DEFINES)
-       INCLUDES = -I. -I../include -I$(XINCLUDESRC) -I$(EXTINCSRC) \
-		  -I$(SERVERSRC)/Xext -I$(SERVERSRC)/render \
-		  -I$(TOP)/lib/Xau $(NX_INCLUDES) \
-		  `pkg-config --cflags-only-I pixman-1`
- DEPEND_DEFINES = $(DBM_DEFINES) $(XDMCP_DEFINES) $(EXT_DEFINES) \
-		  $(TRANS_INCLUDES) $(CONNECTION_FLAGS) $(GETPEER_DEFINES) \
-		  DependDefines
+        DEFINES = $(CONNECTION_FLAGS)			\
+                  $(MEM_DEFINES)			\
+                  $(XDMAUTHDEFS)			\
+                  $(RPCDEFS)				\
+                  $(SIGNAL_DEFINES)			\
+                  $(OS_DEFINES)				\
+                  $(RGB_DEFINES)			\
+                  $(GETPEER_DEFINES)			\
+                  $(RANDOM_DEFINES)			\
+                  $(BUGMSG)				\
+                  $(XTRANS_FAILDEFINES)			\
+                  $(XTRANS_DEFINES)			\
+                  $(NX_DEFINES)				\
+                  $(NULL)
+
+       INCLUDES = -I. 					\
+                  -I../include				\
+                  -I$(XINCLUDESRC)			\
+                  -I$(EXTINCSRC)			\
+                  -I$(SERVERSRC)/Xext			\
+                  -I$(SERVERSRC)/render			\
+                  -I$(TOP)/lib/Xau			\
+                  $(NX_INCLUDES)			\
+                  `pkg-config --cflags-only-I pixman-1`	\
+                  $(NULL)
+
+ DEPEND_DEFINES = $(DBM_DEFINES)			\
+                  $(XDMCP_DEFINES)			\
+                  $(EXT_DEFINES)			\
+                  $(TRANS_INCLUDES)			\
+                  $(CONNECTION_FLAGS)			\
+                  $(GETPEER_DEFINES)			\
+                  DependDefines				\
+                  $(NULL)
+
        LINTLIBS = ../dix/llib-ldix.ln
 
 #ifdef NEED_ALLOCA_FROM_LIBPW
