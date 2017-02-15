@@ -1323,7 +1323,11 @@ GetLocalClientCreds(ClientPtr client, LocalClientCredRec **lccp)
     }
 #endif
 
+<<<<<<< HEAD
     *lccp = calloc(1, sizeof(LocalClientCredRec));
+=======
+    *lccp = Xcalloc(sizeof(LocalClientCredRec));
+>>>>>>> Rework local client id finding code to be more uniform
     if (*lccp == NULL)
 	return -1;
     lcc = *lccp;
@@ -1358,7 +1362,11 @@ GetLocalClientCreds(ClientPtr client, LocalClientCredRec **lccp)
 #endif
     lcc->nSuppGids = ucred_getgroups(peercred, &gids);
     if (lcc->nSuppGids > 0) {
+<<<<<<< HEAD
 	lcc->pSuppGids = calloc((lcc->nSuppGids), sizeof(int));
+=======
+	lcc->pSuppGids = Xcalloc((lcc->nSuppGids) * sizeof(int));
+>>>>>>> Rework local client id finding code to be more uniform
 	if (lcc->pSuppGids == NULL) {
 	    lcc->nSuppGids = 0;
 	} else {
