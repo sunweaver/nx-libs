@@ -1,2 +1,3 @@
-4001_Arctica_Fix-non-working-GLX-in-64bit-Xorg-7.0.patch
-4002_no-special-glx-memfunctions.patch
+4003_CreatePixmap_allocation-hints.patch
+4004_prog-print-sprintf-fix.patch
+4005_standard-memory-functions.patch

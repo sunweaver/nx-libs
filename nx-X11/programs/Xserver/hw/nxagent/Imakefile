@@ -147,7 +147,7 @@ INCLUDES = \
 	-I../../miext/cw \
 	-I../../GL/glx \
 	-I../../GL/include \
-	-I../../../../lib/GL/include \
+	-I../../../../include/GL \
 	-I../../Xext \
 	-I$(EXTINCSRC) -I$(XINCLUDESRC) \
 	$(VFBINCLUDES) \
@@ -251,6 +251,7 @@ DEFINES = \
 	-DRANDR_15_INTERFACE=1 \
         -DPANORAMIX \
         -UDEBUG_TREE \
+        -DXSERVER_LACKS_PRIVATES_ABI \
 	$(NULL)
 
 all:: $(OBJS)
