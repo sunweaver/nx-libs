@@ -35,7 +35,6 @@
 #include "Windows.h"
 
 void GlxExtensionInit(void);
-void GlxWrapInitVisuals(void *procPtr);
 
 static int nxagentRandRScreenSetSize(ScreenPtr pScreen, CARD16 width,
                                          CARD16 height, CARD32 mmWidth,
@@ -89,31 +88,9 @@ void DarwinGlxExtensionInit()
 
 void DarwinGlxWrapInitVisuals(void *procPtr)
 {
-  GlxWrapInitVisuals(procPtr);
 }
 
 #endif
-
-void nxagentInitGlxExtension(VisualPtr *visuals, DepthPtr *depths,
-                                 int *numVisuals, int *numDepths, int *rootDepth,
-                                     VisualID *defaultVisual)
-{
-  miInitVisualsProcPtr initVisuals;
-
-  /*
-   * Initialize the visuals to use the GLX extension.
-   */
-
-  initVisuals = NULL;
-
-  GlxWrapInitVisuals(&initVisuals);
-
-  if (initVisuals(visuals, depths, numVisuals, numDepths,
-                      rootDepth, defaultVisual, 0, 0, 0) == 0)
-  {
-    fprintf(stderr, "Warning: Failed to initialize the GLX extension.\n");
-  }
-}
 
 void nxagentInitRandRExtension(ScreenPtr pScreen)
 {

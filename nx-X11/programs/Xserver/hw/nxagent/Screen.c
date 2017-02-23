@@ -1350,9 +1350,6 @@ Bool nxagentOpenScreen(int index, ScreenPtr pScreen,
                   rootDepth, (long unsigned int)defaultVisual);
     #endif
 
-    nxagentInitGlxExtension(&visuals, &depths, &numVisuals, &numDepths,
-                                &rootDepth, &defaultVisual);
-
     #if defined(DEBUG) || defined(DEBUG_COLORMAP)
     fprintf(stderr, "nxagentOpenScreen: After GLX numVisuals [%d] numDepths [%d] "
               "rootDepth [%d] defaultVisual [%lu].\n", numVisuals, numDepths,

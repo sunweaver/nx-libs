@@ -224,10 +224,7 @@ extern void SecurityExtensionInit(void);
 extern void XFree86BigfontExtensionInit(void);
 #endif
 #ifdef GLXEXT
-#ifndef __DARWIN__
-extern void GlxExtensionInit(void);
-extern void GlxWrapInitVisuals(miInitVisualsProcPtr *);
-#else
+#ifdef __DARWIN__
 extern void DarwinGlxExtensionInit(void);
 extern void DarwinGlxWrapInitVisuals(miInitVisualsProcPtr *);
 #endif
@@ -478,9 +475,7 @@ InitVisualWrap()
 {
     miResetInitVisuals();
 #ifdef GLXEXT
-#ifndef __DARWIN__
-    GlxWrapInitVisuals(&miInitVisualsProc);
-#else
+#ifdef __DARWIN__
     DarwinGlxWrapInitVisuals(&miInitVisualsProc);
 #endif
 #endif

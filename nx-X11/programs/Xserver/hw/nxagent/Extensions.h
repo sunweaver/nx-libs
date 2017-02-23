@@ -27,10 +27,6 @@
  * Initialize the additional extensions.
  */
 
-void nxagentInitGlxExtension(VisualPtr *visuals, DepthPtr *depths,
-                                 int *numVisuals, int *numDepths, int *rootDepth,
-                                     VisualID *defaultVisual);
-
 void nxagentInitRandRExtension(ScreenPtr pScreen);
 
 /*
