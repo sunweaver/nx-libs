@@ -758,8 +758,8 @@ int __glXDisp_QueryVersion(__GLXclientState *cl, GLbyte *pc)
     ** client if it wants to work with older clients; however, in this
     ** implementation the server just returns its version number.
     */
-    reply.majorVersion = GLX_SERVER_MAJOR_VERSION;
-    reply.minorVersion = GLX_SERVER_MINOR_VERSION;
+    reply.majorVersion = glxMajorVersion;
+    reply.minorVersion = glxMinorVersion;
     reply.length = 0;
     reply.type = X_Reply;
     reply.sequenceNumber = client->sequence;
@@ -2358,6 +2358,7 @@ int __glXDisp_QueryServerString(__GLXclientState *cl, GLbyte *pc)
     char *buf;
     __GLXscreen *pGlxScreen;
     int err;
+    char ver_str[16];
 
     if (!validGlxScreen(client, req->screen, &pGlxScreen, &err))
 	return err;
@@ -2367,7 +2368,11 @@ int __glXDisp_QueryServerString(__GLXclientState *cl, GLbyte *pc)
 	    ptr = pGlxScreen->GLXvendor;
 	    break;
 	case GLX_VERSION:
-	    ptr = pGlxScreen->GLXversion;
+	    /* Return to the server version rather than the screen version
+	     * to prevent confusion when they do not match.
+	     */
+	    snprintf(ver_str, 16, "%d.%d", glxMajorVersion, glxMinorVersion);
+	    ptr = ver_str;
 	    break;
 	case GLX_EXTENSIONS:
 	    ptr = pGlxScreen->GLXextensions;

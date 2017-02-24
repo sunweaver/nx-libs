@@ -65,11 +65,7 @@
 
 /* GLX */
 #define SERVER_GLX_MAJOR_VERSION		1
-#ifndef NXAGENT_SERVER
 #define SERVER_GLX_MINOR_VERSION		4
-#else
-#define SERVER_GLX_MINOR_VERSION		2
-#endif
 
 /* Xinerama */
 #define SERVER_PANORAMIX_MAJOR_VERSION          1

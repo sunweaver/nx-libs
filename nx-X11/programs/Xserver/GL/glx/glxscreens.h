@@ -172,6 +172,8 @@ struct __GLXscreen {
     char *GLXvendor;
     char *GLXversion;
     char *GLXextensions;
+    unsigned GLXmajor;
+    unsigned GLXminor;
 
     Bool (*PositionWindow)(WindowPtr pWin, int x, int y);
     Bool (*CloseScreen)(int index, ScreenPtr pScreen);
