@@ -229,7 +229,7 @@ int CorePoller::isChanged(int (*checkIfInputCallback)(void *), void *arg, int *s
   // 
 
   static int idxIlace = 0;
-  static int curLine = 0;
+  static short int curLine = 0;
 
 
   const long timeout = 50;
@@ -421,7 +421,7 @@ int CorePoller::isChanged(int (*checkIfInputCallback)(void *), void *arg, int *s
 
   if (foundChanges)
   {
-    int start, last, curLine, left, right;
+    short int start, last, curLine, left, right;
 
     for (curLine = 0; curLine < (int) height_; curLine++)
     {
@@ -455,7 +455,7 @@ int CorePoller::isChanged(int (*checkIfInputCallback)(void *), void *arg, int *s
 
       if ((curLine - last > minSliceHeight_) || (last - start > maxSliceHeight_))
       {
-        XRectangle rect = {left, start, right - left + 1, last - start + 1};
+        XRectangle rect = {left, start, static_cast<short unsigned int>(right - left + 1), static_cast<short unsigned int>(last - start + 1)};
 
         XUnionRectWithRegion(&rect, lastUpdatedRegion_, lastUpdatedRegion_);
 
@@ -487,7 +487,7 @@ int CorePoller::isChanged(int (*checkIfInputCallback)(void *), void *arg, int *s
 
     if (last >= start)
     {
-      XRectangle rect = {left, start, right - left + 1, last - start + 1};
+      XRectangle rect = {left, start, static_cast<short unsigned int>(right - left + 1), static_cast<short unsigned int>(last - start + 1)};
 
       XUnionRectWithRegion(&rect, lastUpdatedRegion_, lastUpdatedRegion_);
     }

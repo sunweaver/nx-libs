@@ -88,9 +88,9 @@ class CorePoller
 
   unsigned int bpl_;
 
-  unsigned int width_;
+  unsigned short int width_;
 
-  unsigned int height_;
+  unsigned short int height_;
 
   int depth_;
 
