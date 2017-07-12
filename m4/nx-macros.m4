@@ -200,6 +200,7 @@ AC_LANG_CASE(
 NX_TESTSET_CFLAG([[BASE_]PREFIX[FLAGS]], [-Wunused])
 NX_TESTSET_CFLAG([[BASE_]PREFIX[FLAGS]], [-Wuninitialized])
 NX_TESTSET_CFLAG([[BASE_]PREFIX[FLAGS]], [-Wshadow])
+NX_TESTSET_CFLAG([[BASE_]PREFIX[FLAGS]], [-Wconversion])
 NX_TESTSET_CFLAG([[BASE_]PREFIX[FLAGS]], [-Wmissing-noreturn])
 NX_TESTSET_CFLAG([[BASE_]PREFIX[FLAGS]], [-Wmissing-format-attribute])
 NX_TESTSET_CFLAG([[BASE_]PREFIX[FLAGS]], [-Wredundant-decls])
