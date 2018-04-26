@@ -42,44 +42,155 @@ NX_VERSION_PATCH=$(shell ./version.sh 4)
 SHELL:=/bin/bash
 
 NX_X11_HEADERS =		\
-	Xlib.h			\
-	Xresource.h		\
-	Xutil.h			\
-	cursorfont.h		\
-	Xlibint.h		\
-	Xcms.h			\
-	Xlocale.h		\
-	XKBlib.h		\
-	XlibConf.h		\
-	Xregion.h		\
-	ImUtil.h		\
-	$(NULL)
+        Xlib.h			\
+        Xresource.h		\
+        Xutil.h			\
+        cursorfont.h		\
+        Xlibint.h		\
+        Xcms.h			\
+        Xlocale.h		\
+        XKBlib.h		\
+        XlibConf.h		\
+        Xregion.h		\
+        ImUtil.h		\
+        $(NULL)
 
 NX_XTRANS_HEADERS =		\
-	transport.c		\
-	Xtrans.c		\
-	Xtrans.h		\
-	Xtransint.h		\
-	Xtranslcl.c		\
-	Xtranssock.c		\
-	Xtransutil.c		\
-	$(NULL)
+        transport.c		\
+        Xtrans.c		\
+        Xtrans.h		\
+        Xtransint.h		\
+        Xtranslcl.c		\
+        Xtranssock.c		\
+        Xtransutil.c		\
+        $(NULL)
+
+NX_X11PROTO_HEADERS =		\
+        DECkeysym.h		\
+        HPkeysym.h		\
+        keysymdef.h		\
+        keysym.h		\
+        Sunkeysym.h		\
+        Xalloca.h		\
+        Xarch.h			\
+        Xatom.h			\
+        Xauth.h			\
+        Xdefs.h			\
+        XF86keysym.h		\
+        Xfuncproto.h		\
+        Xfuncs.h		\
+        X.h			\
+        Xmd.h			\
+        Xosdefs.h		\
+        Xos.h			\
+        Xos_r.h			\
+        Xpoll.h			\
+        Xproto.h		\
+        Xprotostr.h		\
+        Xthreads.h		\
+        Xw32defs.h		\
+        XWDFile.h		\
+        Xwindows.h		\
+        Xwinsock.h		\
+        $(NULL)
+
+NX_X11PROTO_EXTENSION_HEADERS =	\
+        bigreqstr.h		\
+        composite.h		\
+        compositeproto.h	\
+        damageproto.h		\
+        damagewire.h		\
+        dpms.h			\
+        dpmsstr.h		\
+        panoramiXext.h		\
+        panoramiXproto.h	\
+        randr.h			\
+        randrproto.h		\
+        record.h		\
+        recordstr.h		\
+        render.h		\
+        renderproto.h		\
+        saver.h			\
+        saverproto.h		\
+        scrnsaver.h		\
+        security.h		\
+        securstr.h		\
+        shapeconst.h		\
+        sync.h			\
+        syncstr.h		\
+        xcmiscstr.h		\
+        Xdbeproto.h		\
+        xf86bigfont.h		\
+        xf86bigfproto.h		\
+        xfixesproto.h		\
+        xfixeswire.h		\
+        XI.h			\
+        XIproto.h		\
+        XKBconfig.h		\
+        XKBfile.h		\
+        XKBgeom.h		\
+        XKB.h			\
+        XKBproto.h		\
+        XKBrules.h		\
+        XKBsrv.h		\
+        XKBstr.h		\
+        XKMformat.h		\
+        XKM.h			\
+        XResproto.h		\
+        xtestconst.h		\
+        xtestext1.h		\
+        xteststr.h		\
+        Xv.h			\
+        XvMC.h			\
+        XvMCproto.h		\
+        Xvproto.h		\
+        $(NULL)
+
+NX_MESAGL_HEADERS =		\
+        glext.h			\
+        gl.h			\
+        glxext.h		\
+        osmesa.h		\
+        $(NULL)
+
+NX_GLX_HEADERS =		\
+        glx.h			\
+        glxint.h		\
+        glxmd.h			\
+        glxproto.h		\
+        glxtokens.h		\
+        $(NULL)
+
+NX_COMP_HEADERS =		\
+        MD5.h			\
+        NXalert.h		\
+        NX.h			\
+        NXpack.h		\
+        NXproto.h		\
+        NXvars.h		\
+        $(NULL)
+
+NX_COMPSHAD_HEADERS =		\
+        Shadow.h		\
+        $(NULL)
 
 all: build
 
 clean:
-	if test -f nxcomp/Makefile; then ${MAKE} -C nxcomp clean; fi
-	if test -f nxproxy/Makefile; then ${MAKE} -C nxproxy clean; fi
-	if test -f nx-X11/lib/Makefile; then ${MAKE} -C nx-X11/lib clean; fi
-	if test -f nxcompshad/Makefile; then ${MAKE} -C nxcompshad clean; fi
+	if test -f nxcomp/Makefile; then ${MAKE} -C nxcomp clean || :; fi
+	if test -f nxproxy/Makefile; then ${MAKE} -C nxproxy clean || :; fi
+	if test -f nx-X11/lib/Makefile; then ${MAKE} -C nx-X11/lib clean || :; fi
+	if test -f nxcompshad/Makefile; then ${MAKE} -C nxcompshad clean || :; fi
+	if test -f nx-X11/programs/Xserver/Makefile; then ${MAKE} -C nx-X11/programs/Xserver clean || :; fi
 	if test -d nx-X11; then ${MAKE} clean-env; fi
 
 distclean: clean
-	if test -f nxcomp/Makefile; then ${MAKE} -C nxcomp distclean; fi
-	if test -f nxproxy/Makefile; then ${MAKE} -C nxproxy distclean; fi
-	if test -f nx-X11/lib/Makefile; then ${MAKE} -C nx-X11/lib distclean; fi
-	if test -f nxcompshad/Makefile; then ${MAKE} -C nxcompshad distclean; fi
-	if test -d nx-X11; then ${MAKE} -C nx-X11 distclean; fi
+	if test -f nxcomp/Makefile; then ${MAKE} -C nxcomp distclean || :; fi
+	if test -f nxproxy/Makefile; then ${MAKE} -C nxproxy distclean || :; fi
+	if test -f nx-X11/lib/Makefile; then ${MAKE} -C nx-X11/lib distclean || :; fi
+	if test -f nxcompshad/Makefile; then ${MAKE} -C nxcompshad distclean || :; fi
+	if test -f nx-X11/programs/Xserver/Makefile; then ${MAKE} -C nx-X11/programs/Xserver distclean || :; fi
+	if test -d nx-X11; then ${MAKE} clean-env; fi
 	if [ -x ./mesa-quilt ]; then ./mesa-quilt pop -a; fi
 	rm -Rf nx-X11/extras/Mesa/.pc/
 	rm -f nx-X11/config/cf/nxversion.def
@@ -89,42 +200,92 @@ test:
 
 version:
 	# prepare nx-X11/config/cf/nxversion.def
-	sed \
-	    -e 's/###NX_VERSION_MAJOR###/$(NX_VERSION_MAJOR)/' \
-	    -e 's/###NX_VERSION_MINOR###/$(NX_VERSION_MINOR)/' \
-	    -e 's/###NX_VERSION_MICRO###/$(NX_VERSION_MICRO)/' \
-	    -e 's/###NX_VERSION_PATCH###/$(NX_VERSION_PATCH)/' \
-	    nx-X11/config/cf/nxversion.def.in \
-	    > nx-X11/config/cf/nxversion.def
+#	sed \
+#	    -e 's/###NX_VERSION_MAJOR###/$(NX_VERSION_MAJOR)/' \
+#	    -e 's/###NX_VERSION_MINOR###/$(NX_VERSION_MINOR)/' \
+#	    -e 's/###NX_VERSION_MICRO###/$(NX_VERSION_MICRO)/' \
+#	    -e 's/###NX_VERSION_PATCH###/$(NX_VERSION_PATCH)/' \
+#	    nx-X11/config/cf/nxversion.def.in \
+#	    > nx-X11/config/cf/nxversion.def
 
 build-env: version
-	# prepare Makefiles and the nx-X11 symlinking magic
-	${MAKE} -j1 -C nx-X11 BuildIncludes FONT_DEFINES="$(FONT_DEFINES)" XEXT_EXTRA_DEFINES="$(XEXT_EXTRA_DEFINES)" IMAKE_DEFINES="$(IMAKE_DEFINES)"
 
-	# set up environment for libNX_X11 build (X11 header files)
+	# set up environment for libNX_X11 build (libNX_X11 header files)
 	mkdir -p nx-X11/exports/include/nx-X11/
 	for header in $(NX_X11_HEADERS); do \
 	    ${SYMLINK_FILE} ../../../lib/include/X11/$${header} nx-X11/exports/include/nx-X11/$${header}; \
 	done
 
-	# set up environment for libNX_X11 build (Xtrans header/include files)
+	# set up environment for libNX_X11 build (NX_Xtrans header/include files)
 	mkdir -p nx-X11/exports/include/nx-X11/Xtrans/
 	for header in $(NX_XTRANS_HEADERS); do \
 	    ${SYMLINK_FILE} ../../../../lib/include/xtrans/$${header} nx-X11/exports/include/nx-X11/Xtrans/$${header}; \
 	done
 
+	# setup environment for libNX_X11 and Xserver build (nx-X11 proto headers)
+	mkdir -p nx-X11/exports/include/nx-X11/
+	for header in $(NX_X11PROTO_HEADERS); do \
+	    ${SYMLINK_FILE} ../../../include/$${header} nx-X11/exports/include/nx-X11/$${header}; \
+	done
+
+	# setup environment for Xserver build (nx-X11 extension proto headers)
+	mkdir -p nx-X11/exports/include/nx-X11/extensions
+	for header in $(NX_X11PROTO_EXTENSION_HEADERS); do \
+	    ${SYMLINK_FILE} ../../../../include/extensions/$${header} nx-X11/exports/include/nx-X11/extensions/$${header}; \
+	done
+
+	# setup environment for Xserver GLX/Mesa build
+	for header in $(NX_MESAGL_HEADERS); do \
+	    ${SYMLINK_FILE} ../../extras/Mesa/include/GL/$${header} nx-X11/include/GL/$${header}; \
+	done
+	mkdir -p nx-X11/exports/include/GL
+	for header in $(NX_GLX_HEADERS) $(NX_MESAGL_HEADERS); do \
+	    ${SYMLINK_FILE} ../../../include/GL/$${header} nx-X11/exports/include/GL/$${header}; \
+	done
+
+	# setup environment for building against nxcomp
+	mkdir -p nx-X11/exports/include/nx
+	for header in $(NX_COMP_HEADERS); do \
+	    ${SYMLINK_FILE} ../../../../nxcomp/include/$${header} nx-X11/exports/include/nx/$${header}; \
+	done
+
+	# setup environment for building against nxcompshad
+	mkdir -p nx-X11/exports/include/nx
+	for header in $(NX_COMPSHAD_HEADERS); do \
+	    ${SYMLINK_FILE} ../../../../nxcompshad/include/$${header} nx-X11/exports/include/nx/$${header}; \
+	done
+
 clean-env: version
+
 	for header in $(NX_X11_HEADERS); do \
 	    ${RM_FILE} nx-X11/exports/include/nx-X11/$${header}; \
 	done
 	for header in $(NX_XTRANS_HEADERS); do \
 	    ${RM_FILE} nx-X11/exports/include/nx-X11/Xtrans/$${header}; \
 	done
+	for header in $(NX_X11PROTO_HEADERS); do \
+	    ${RM_FILE} nx-X11/exports/include/nx-X11/$${header}; \
+	done
+	for header in $(NX_X11PROTO_EXTENSION_HEADERS); do \
+	    ${RM_FILE} nx-X11/exports/include/nx-X11/extensions/$${header}; \
+	done
+	for header in $(NX_GLX_HEADERS) $(NX_MESAGL_HEADERS); do \
+	    ${RM_FILE} nx-X11/exports/include/GL/$${header}; \
+	done
+	for header in $(NX_MESAGL_HEADERS); do \
+	    ${RM_FILE} nx-X11/include/GL/$${header}; \
+	done
+	for header in $(NX_COMP_HEADERS) $(NX_COMPSHAD_HEADERS); do \
+	    ${RM_FILE} nx-X11/exports/include/nx/$${header}; \
+	done
 
-	[ -d exports/include/nx-X11/Xtrans ] && $(RM_DIR) exports/include/nx-X11/Xtrans/ || :
-	[ -d exports/include/nx-X11/ ]       && $(RM_DIR) exports/include/nx-X11/        || :
-
-	${MAKE} -j1 -C nx-X11 clean FONT_DEFINES="$(FONT_DEFINES)" XEXT_EXTRA_DEFINES="$(XEXT_EXTRA_DEFINES)" IMAKE_DEFINES="$(IMAKE_DEFINES)"
+	[ -d nx-X11/exports/include/nx-X11/Xtrans     ] && $(RM_DIR) nx-X11/exports/include/nx-X11/Xtrans/     || :
+	[ -d nx-X11/exports/include/nx-X11/extensions ] && $(RM_DIR) nx-X11/exports/include/nx-X11/extensions/ || :
+	[ -d nx-X11/exports/include/nx-X11/ ]           && $(RM_DIR) nx-X11/exports/include/nx-X11/            || :
+	[ -d nx-X11/exports/include/nx/ ]               && $(RM_DIR) nx-X11/exports/include/nx/                || :
+	[ -d nx-X11/exports/include/GL/ ]               && $(RM_DIR) nx-X11/exports/include/GL/                || :
+	[ -d nx-X11/exports/include/ ]                  && $(RM_DIR) nx-X11/exports/include/                   || :
+	[ -d nx-X11/exports/ ]                          && $(RM_DIR) nx-X11/exports/                           || :
 
 build-lite:
 	cd nxcomp && autoreconf -vfsi && (${CONFIGURE}) && ${MAKE}
@@ -148,8 +309,7 @@ build-full: build-env
 
 	# build nxagent fourth
 	./mesa-quilt push -a
-	${MAKE} -j1 -C nx-X11 BuildDependsOnly FONT_DEFINES="$(FONT_DEFINES)" XEXT_EXTRA_DEFINES="$(XEXT_EXTRA_DEFINES)" IMAKE_DEFINES="$(IMAKE_DEFINES)"
-	${MAKE} -C nx-X11 World USRLIBDIR="$(USRLIBDIR)" SHLIBDIR="$(SHLIBDIR)" FONT_DEFINES="$(FONT_DEFINES)" XFONTLIB="$(XFONTLIB)" XEXT_EXTRA_DEFINES="$(XEXT_EXTRA_DEFINES)" IMAKE_DEFINES="$(IMAKE_DEFINES)"
+	cd nx-X11/programs/ && ./buildit.sh
 
 	# build nxproxy fifth
 	cd nxproxy && autoreconf -vfsi && (${CONFIGURE}) && ${MAKE}
